@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax JSON</title>
+</head>
+<body>
+	<script>
+	jQuery(document).ready(function($) { //ожидание полной загрузки дом дерева и возвожность работы со знаком доллара, в движках
+
+		$("select[name='country'").bind("change",function(){//клик по селекту
+			$("select[name='city'").empty();//очищаем содержимое тега
+			$.get("countryCheck.php",{//get запрос
+				country:$("select[name='country']").val()},function(data){
+					data = JSON.parse(data); //парсим переменную в JSON формате
+					for (var id in data){//запускаем цикл
+						$("select[name='city']").append($("<option value='" + id + "'>" + data[id] + "</option>"));//добавляем HTML строку
+					}//.цикл
+				};
+			});//.get запрос
+		});//.клик по селекту
+
+		}); //конец ready
+	</script>
+
+	<h1>JSON формат в GET ajax</h1>
+	<hr>
+	<label>Укажите страну:</label>
+	<select name="country">
+		<option value="0" selected="selected"></option>
+		<option value="1">Америка</option>
+		<option value="2">Франция</option>
+	</select>
+	<label>Город:</label>
+	<select name="city">
+		<option value="0" selected="selected"></option>
+		<option value="1">Америка</option>
+		<option value="2">Франция</option>
+	</select>
+</body>
+</html>
