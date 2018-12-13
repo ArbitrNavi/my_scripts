@@ -1,0 +1,17 @@
+#редирект с одной страницы на другую
+RewriteCond %{REQUEST_URI} dorogie-podarki.com/podarok_na_14_fevralya/
+RewriteCond %{QUERY_STRING} ^\z
+RewriteRule ^(.*)$ https://dorogie-podarki.com/podborki/podarok_na_14_fevralya/? [R=301,L]
+
+
+#редирект со страниц без слеша в конце на со слешем
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
+#редирект с http на https
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
