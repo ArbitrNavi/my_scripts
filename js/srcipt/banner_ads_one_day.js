@@ -11,11 +11,12 @@ jQuery(document).ready(function($){
 
 
 
-ifclick=true;
-Data = new Date();
-Day = Data.getDate();
+ifclick=true;//было ли нажатие
+Data = new Date();//текущая дата
+Day = Data.getDate();//текущий день
 
 // условие отвечал раньше или нет
+// есть ли данные в сессии
 if (!sessionStorage.getItem('banner_front_page')) {
 
 // console.log(sessionStorage.getItem('banner_front_page'));
@@ -23,21 +24,26 @@ if (!sessionStorage.getItem('banner_front_page')) {
 
 
 // close
-	$('.banner-close').click(function(){
-		$('.homepage-banner').fadeOut();
+	$('.banner-close').click(function(){//клик по кнопке закрытия
+		$('.homepage-banner').fadeOut();//скрыть модальные блок
 		// console.log('click')
-		sessionStorage.setItem('banner_front_page', true);
-		ifclick=false;
+		sessionStorage.setItem('banner_front_page', true);//добавить данные в сессию
+		ifclick=false;//кнопка нажалась
 
-		localStorage.setItem('banner_front_page_data', Day);
+		localStorage.setItem('banner_front_page_data', Day);//добавить данные в локал стораж(не стирается после переоткрытия браузера)
 		// localStorage.setItem('banner_front_page_data', '22');
 
-	});
+	});//.клик по кнопке закрытия
 
 // scroll
-	    $(window).scroll(function(){
-	        if($(this).scrollTop()>400&&ifclick&&!localStorage.getItem('banner_front_page_data')||localStorage.getItem('banner_front_page_data')<Day){
-	            $('.homepage-banner').fadeIn();
+	    $(window).scroll(function(){//прокручивание
+	        if(
+	        	$(this).scrollTop()>400//прокрутка экрана
+	        	&&ifclick//было ли закрыто ранее
+	        	&&!sessionStorage.getItem('banner_front_page')//если нет записи в сессии
+	        	||localStorage.getItem('banner_front_page_data')<Day// ИЛИ есть запись в локал сторадж меньше чем текущий день
+	        ){//условие при котором отображается модальный блок
+	            $('.homepage-banner').fadeIn();//отображение модального блоко
 	        };
-	    });
+	    });//.прокручивание
 };
