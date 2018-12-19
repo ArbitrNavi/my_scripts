@@ -15,10 +15,10 @@ jQuery(document).ready(function($) { //ожидание полной загру�
         $.ajax({
             url: "check.php", //путь до php файла
             type: 'POST', //тип отправки GET || POST
-            data: ({
+            data: ({ 
                 name: var_name,
                 phone: var_phone,
-                email: var_email
+                email: var_email 
                 }), //какие данные будут передаваться
             dataType: 'html', //формат передаваемых данных html || text
             beforeSend: function() {
