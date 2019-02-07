@@ -83,8 +83,11 @@ if (!$my_description){
 
 // ключ по умолчанию
 if (!$my_key) {
-	$my_key = $my_title . $key_default;
+	$my_key = $my_title;
 };
+
+
+$my_key .= $key_default;
 
 $resoult = '';
 
