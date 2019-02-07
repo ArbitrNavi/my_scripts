@@ -1,0 +1,1 @@
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/tamara.ru\/","name":"Тамара - рекламное агенство полного цикла","potentialAction":{"@type":"SearchAction","target":"https:\/\/tamara.ru\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
