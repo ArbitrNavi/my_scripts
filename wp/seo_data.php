@@ -3,6 +3,12 @@
 // v 1.1 07.02.2018
 // require_once 'includes/seo_data.php';
 
+// подключение в тему
+// include get_template_directory() . '/includes/microrazmetka/wpfooter.php';
+
+// подключениев functions.php
+// require_once 'includes/seo_data.php';
+
 /**
 * Возвращает seo данные, сохранённые для таксономий плагином Yoast SEO
 *
