@@ -31,14 +31,20 @@ function get_wpseo_meta_tax( $seo_item, $id_tax, $tax_type){
 function seo_info($type='',$postID=''){
 
 // добавляемые данные
-$add_title_page = ' - Веб студия';
+	// к названии страницы
+$add_title_page = '';
+	// к названии записи
 $add_title_post = '';
 
-$add_desc_page = 'Веб-студия Team Web Studio: разработка и создание сайтов, продвижение сайтов, SEO, SMM, веб-дизайн. Интернет магазины, Landing Page, многостраничные сайты.';
-$add_desc_post = ' Веб-студия Team Web Studio: разработка и создание сайтов, продвижение сайтов, SEO, SMM, веб-дизайн. Интернет магазины, Landing Page, многостраничные сайты.';
+	// к описании страницы
+$add_desc_page = '';
+	// к описании записи
+$add_desc_post = '';
 
+	// описание по умолчанию, если выбранное пусто
 $desc_default = '';
-$key_default = 'Веб-студия, web-студия, создание сайтов, продвижение сайтов, SEO, SMM, веб-дизайн, лендинг, одностраничник, сайт интернет-магазина, сайт-визитка, сайт под ключ, сайт на заказ, сео оптимизация, сео продвижение, дизайн сайтов, разработка дизайна, разработка сайтов, изготовление сайтов, разработка интернет магазина, создание интернет магазина, разработка на битрикс, Bitrix, создание сайтов на Bitrix, landing page, корпоративный портал, программирование, веб разработки, интернет маркетинг, реклама в интернете, контекстная реклама, гугл реклама, настройка yandex, настройка google, яндекс реклама, оптимизация сайтов, поисковая оптимизация, wordpress, вордпрес разработка сайтов, 1с битрикс, 1-C Bitrix, раскрутка сайтов, сайт под ключ, создание сайтов под ключ, изготовление интернет магазина, смм, раскрутка в социальных сетях, продвижение в социальных сетях';
+	// добавляем к текущиму кейвордсу
+$key_default = '';
 
 // получение сео данных 
 if ( is_category() ){
@@ -47,9 +53,17 @@ if ( is_category() ){
 	$taxonomy = $queried_object->taxonomy;
 	$term_id = $queried_object->term_id;
 
+	$term = get_term($term_id, $taxonomy);
+	$name = $term->name;
+
 	$my_title = get_wpseo_meta_tax('title',$term_id,'category');
+	$my_title = str_replace('%%term_title%%', $name, $my_title);
+
 	$my_description = get_wpseo_meta_tax('desc',$term_id,'category');
+	$my_description = str_replace('%%term_title%%', $name, $my_description);
+
 	$my_key = get_wpseo_meta_tax('focuskw',$term_id,'category');
+	$my_key = str_replace('%%term_title%%', $name, $my_key);
 
 }elseif( is_page() ){
 // страница
@@ -108,5 +122,13 @@ if ($type === 'title') {
 return $resoult;
 
 };//seo_info
+
+
+
+// add_action( 'wp_footer', 'my_popup', 30 );
+// function my_popup(){
+		// include get_template_directory() . '/microrazmetka/wpfooter.php';
+// };
+
 
 ?>
