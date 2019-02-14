@@ -1,5 +1,5 @@
-<div style="display: none;" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-    <div itemprop="logo image" itemscope itemtype="https://schema.org/ImageObject">
+<div style="display: none;" itemprop="publisher" itemscope itemtype="<?php echo protocol();?>://schema.org/Organization">
+    <div itemprop="logo image" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
         <img itemprop="url contentUrl" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/logo.jpg" alt="logo" />
         <meta itemprop="width" content="6" />
         <meta itemprop="height" content="6" />
@@ -17,10 +17,10 @@ $image_attributes = wp_get_attachment_image_src( $attachment_id , 'full');
 // вернулся массив array
 ?> 
 
-<div itemscope itemtype="http://schema.org/BlogPosting">
+<div itemscope itemtype="<?php echo protocol();?>://schema.org/BlogPosting">
 <link itemprop="mainEntityOfPage" itemscope href="<?php echo get_permalink(); ?>" />
-<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+<div itemprop="publisher" itemscope itemtype="<?php echo protocol();?>://schema.org/Organization">
+<div itemprop="logo" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
 <img alt="Логотип сайта" itemprop="image url" src="<?php echo $image_attributes[0] ?>"/>
 <meta itemprop="width" content="<?php echo $image_attributes[1] ?>">
 <meta itemprop="height" content="<?php echo $image_attributes[2] ?>">
@@ -31,12 +31,12 @@ $image_attributes = wp_get_attachment_image_src( $attachment_id , 'full');
 </div>
 <meta itemprop="datePublished" content=" <?php echo get_the_date('Y'); ?>">
 <meta itemprop="dateModified" content="<?php the_modified_date('Y'); ?>">
-<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<span itemprop="author" itemscope itemtype="<?php echo protocol();?>://schema.org/Person">
 <span itemprop="name"><?php the_author(); ?></span>
 </span>
 <div itemprop="articleBody">
 <h1 itemprop="headline"><?php the_title(); ?></h1>
-<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+<span itemprop="image" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
 <img itemprop="image url" alt="<?php the_title(); ?>" width="размеры в пикселях" height="размеры в пикселях" src="Ссылка на изображение"/>
 <meta itemprop="width" content="размеры в пикселях">
 <meta itemprop="height" content="размеры в пикселях">

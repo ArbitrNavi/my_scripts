@@ -27,6 +27,10 @@ function get_wpseo_meta_tax( $seo_item, $id_tax, $tax_type){
 	return $seo_seo_items[$tax_type][$id_tax]['wpseo_'.$seo_item];
 };
 
+// выбор протокола http или https
+function protocol(){
+	return 'https';
+};
 
 function seo_info($type='',$postID=''){
 
