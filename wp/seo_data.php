@@ -121,6 +121,8 @@ if ($type === 'title') {
 	$resoult = $my_description;
 }elseif($type === 'key') {
 	$resoult = $my_key;
+}elseif($type === 'year') {
+	$resoult = '2016';
 };
 
 return $resoult;
