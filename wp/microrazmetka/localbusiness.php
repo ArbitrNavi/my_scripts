@@ -13,6 +13,6 @@
     </div>
     <div class="email" property="schema:email">slide&#114;&#50;&#50;1&#64;&#103;ma&#105;&#108;&#46;com</div>
     <div class="phone" property="schema:telephone">Phone: 8(905)506-3-506</div>
-    <div class="image" property="schema:image"><?php echo protocol();?>://tamara.ru/wp-content/themes/misstudio/pix/logo_2.jpg</div>
+    <div class="image" property="schema:image"><?php echo get_site_url(); ?>/wp-content/themes/misstudio/pix/logo_2.jpg</div>
   </div>
 </div>
