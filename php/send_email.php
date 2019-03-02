@@ -25,7 +25,7 @@ $email = trim($email);
 $komy = "Dnis0847@yandex.ru";
 $ot_kogo = "info@site.ru";
 $tema = "Заявка с сайта";
-$content = "Имя:<b>".$name.".</b><br> Телефон: <b>".$tel."</b><br>E-mail: <b>" .$email.".</b><br>"
+$content = "Имя:<b>".$name.".</b><br> Телефон: <b>".$tel."</b><br>E-mail: <b>" .$email.".</b><br>";
 
 
 // если переменные пустые
@@ -44,14 +44,14 @@ if (empty($name) || empty($tel)) {
 	if (
 		// отправка почты
 		mail(
-			$komy, 
-			$tema, 
+			$komy,
+			$tema,
 			$content,
 			"From: $ot_kogo\r\nReply-to:$ot_kogo\r\nContent-type:text/html;charset=utf-8\r\n")
 	){
 	    echo "Заявка успешно отправлена";
-		exit; 
-	} else { 
+		exit;
+	} else {
 	    echo "при отправке сообщения возникли ошибки";
 	};
 };
