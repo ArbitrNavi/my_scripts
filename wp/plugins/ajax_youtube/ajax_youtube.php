@@ -16,3 +16,42 @@
  *
  * Network:     Укажите "true" для возможности активировать плагин по все сети сайтов (для Мультисайтовой сборки).
  */
+
+// код
+// добавление видео по клику
+
+// для добавления поместить файл в папку
+// добавить строку в файл functions.php require_once 'includes/youtube_click.php';
+// добавить подобный шорткод на страницу [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc, budU2vvJTYk, GcfKqPMiwwQ, OG9Cs6UFqiY, tiZei_2PUqk"] где ids это код видео с ютуба
+
+// v2.2
+// добавление страницы настроек и шаблонное использование на сайте, то есть в одном месте настроил видео и где надо они будут стоять одинаковые
+// изменен тайтл страницы опций
+
+
+//Добавляем шорткод
+add_shortcode('test_shortcode','my_shortcode_output');
+//выводим на экран
+function my_shortcode_output($atts, $content = '', $tag){
+    $html = '';
+    $html .= '<p>Hello World</p>';
+    return $html;
+}
+
+// страница настроек
+require_once plugin_dir_path( __FILE__ ) . 'includes/acf_page.php';
+
+// Настройки группы полей для данной страницы
+require_once plugin_dir_path( __FILE__ ) . 'includes/acf_meta_options.php';
+
+// извлечь id видео из url youtube
+require_once plugin_dir_path( __FILE__ ) . 'includes/id_url_youtube.php';
+
+// шорткод вывода видео блоков по переданным id роликов
+require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode_theme_video.php';
+
+// функция подставки id видео в шорткод из страницы опций acf
+require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode_theme_video_shablon.php';
+
+// Подключение стилей и скриптов
+require_once plugin_dir_path( __FILE__ ) . 'includes/add_style_scripts.php';

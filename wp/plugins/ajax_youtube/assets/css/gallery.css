@@ -1,0 +1,47 @@
+.theme-video-wrap{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.theme-video-wrap .youtube,
+.theme-video-wrap iframe
+{
+	width: 49%;
+	height: 190px;
+    margin-bottom: 20px;
+    background-size: cover;
+}
+
+.youtube {
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+}
+
+.youtube .play {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+}
+
+.youtube .play svg{
+	transition: all 0.2s ease-out;
+	width:  50px;
+}
+
+.youtube .play:hover .youtube_color_icon {
+    fill: #ffffff!important;
+}
