@@ -39,19 +39,25 @@ function my_shortcode_output($atts, $content = '', $tag){
 }
 
 // страница настроек
-require_once plugin_dir_path( __FILE__ ) . 'includes/acf_page.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
 
 // Настройки группы полей для данной страницы
-require_once plugin_dir_path( __FILE__ ) . 'includes/acf_meta_options.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
 
 // извлечь id видео из url youtube
-require_once plugin_dir_path( __FILE__ ) . 'includes/id_url_youtube.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/id_url_youtube.php';
 
 // шорткод вывода видео блоков по переданным id роликов
-require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode_theme_video.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/shortcode_theme_video.php';
 
 // функция подставки id видео в шорткод из страницы опций acf
-require_once plugin_dir_path( __FILE__ ) . 'includes/shortcode_theme_video_shablon.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/shortcode_theme_video_shablon.php';
+
+// гугл карта выходит когда скроллим вниз
+require_once plugin_dir_path( __FILE__ ) . 'includes/google_maps/google_maps_scroll.php';
+
+
+
 
 // Подключение стилей и скриптов
 require_once plugin_dir_path( __FILE__ ) . 'includes/add_style_scripts.php';
