@@ -3,6 +3,7 @@
     <a class="schema_url" target="_blank" property="schema:url" href="<?php echo protocol();?>://tamara.ru">
       <div class="schema_name" property="schema:name">ООО ТопЗвук</div>
     </a>
+    <span property="schema:priceRange" content="от 10руб до 50 000руб">от 10руб до 50 000руб</span>
     <div class="schema_description" property="schema:description">Видеосъёмка в Москве Видеооператор и видеосъёмка на заказ. Видеосъёмка свадеб, детских мероприятий, выпускных. Видеооператор на заказ в Москве и Московской области.</div>
     <div property="schema:address" typeof="schema:PostalAddress">
       <div class="street" property="schema:streetAddress">Метро ВДНХ или Тимирязевская: ул. Ботаническая д. 3</div>
