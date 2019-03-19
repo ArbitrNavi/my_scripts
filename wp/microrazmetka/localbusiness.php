@@ -1,6 +1,6 @@
 <div style="display: none;" class="schema_block schema_organization">
   <div typeof="schema:LocalBusiness">
-    <a class="schema_url" target="_blank" property="schema:url" href="<?php echo protocol();?>://tamara.ru">
+    <a class="schema_url" target="_blank" property="schema:url" href="<?php echo get_site_url(); ?>">
       <div class="schema_name" property="schema:name">ООО ТопЗвук</div>
     </a>
     <span property="schema:priceRange" content="от 10руб до 50 000руб">от 10руб до 50 000руб</span>
@@ -12,8 +12,8 @@
       </div>
       <div class="country" property="schema:addressCountry">RU Российская Федерация</div>
     </div>
-    <div class="email" property="schema:email">slide&#114;&#50;&#50;1&#64;&#103;ma&#105;&#108;&#46;com</div>
-    <div class="phone" property="schema:telephone">Phone: 8(905)506-3-506</div>
+    <div class="email" property="schema:email"></div>
+    <div class="phone" property="schema:telephone">Phone: </div>
     <div class="image" property="schema:image"><?php echo get_site_url(); ?>/wp-content/themes/misstudio/pix/logo_2.jpg</div>
   </div>
 </div>
