@@ -9,6 +9,15 @@
 // подключениев functions.php
 // require_once 'includes/seo_data.php';
 
+// include get_template_directory() . '/includes/microrazmetka/wpheader.php';
+// include get_template_directory() . '/includes/microrazmetka/organization.php';
+// include get_template_directory() . '/includes/microrazmetka/website.php';
+// include get_template_directory() . '/includes/microrazmetka/localbusiness.php';
+// include get_template_directory() . '/includes/microrazmetka/wpsidebar.php';
+// include get_template_directory() . '/includes/microrazmetka/wpfooter.php';
+// include get_template_directory() . '/includes/microrazmetka/article.php';
+
+
 /**
 * Возвращает seo данные, сохранённые для таксономий плагином Yoast SEO
 *
