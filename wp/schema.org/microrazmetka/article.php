@@ -1,46 +1,52 @@
-<div style="display: none;" itemprop="publisher" itemscope itemtype="<?php echo protocol();?>://schema.org/Organization">
-    <div itemprop="logo image" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
-        <img itemprop="url contentUrl" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/logo.jpg" alt="logo" />
-        <meta itemprop="width" content="6" />
-        <meta itemprop="height" content="6" />
-   </div>
-   <meta itemprop="name" content="<?php bloginfo('name'); ?>" />
-   <meta itemprop="address" content="Москва" />
-   <meta itemprop="telephone" content="
-8 (499) 521-70-15" />
+<!-- atricle_php -->
+<?php if (is_single() || is_page()) {?>
+<?php $post_id = get_queried_object()->ID; ?>
+<div style="display: none;">
+	<div itemscope itemtype="<?php echo protocol();?>://schema.org/BlogPosting">
+	<link itemprop="mainEntityOfPage" itemscope href="<?php echo get_permalink($post_id); ?>" />
+	<div itemprop="publisher" itemscope itemtype="<?php echo protocol();?>://schema.org/Organization">
+	<div itemprop="logo" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
+	<img alt="Логотип сайта" itemprop="image url" src="<?php echo seo_info('logo'); ?>"/>
+	<meta itemprop="width" content="<?php echo seo_info('logo_w') ?>">
+	<meta itemprop="height" content="<?php echo seo_info('logo_h') ?>">
+	</div>
+	<meta itemprop="telephone" content="<?php echo seo_info('tel'); ?>">
+	<meta itemprop="address" content="<?php echo seo_info('adress'); ?>">
+	<meta itemprop="name" content="<?php echo seo_info('company'); ?>">
+	</div>
+	<meta itemprop="datePublished" content=" <?php echo get_the_date('Y'); ?>">
+	<meta itemprop="dateModified" content="<?php the_modified_date('Y'); ?>">
+	<span itemprop="author" itemscope itemtype="<?php echo protocol();?>://schema.org/Person">
+	<span itemprop="name"><?php the_author($post_id); ?></span>
+	</span>
+	<div itemprop="articleBody">
+	<span itemprop="headline"><?php echo get_the_title($post_id); ?></span>
+	<span itemprop="image" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
+	<?php 
+	// Если есть миниатюра
+	if( has_post_thumbnail($post_id) ) {
+		$thumbnail_id  = get_post_thumbnail_id( $post_id );
+		$image_attributes = wp_get_attachment_image_src( $thumbnail_id );
+		$arr_thumbnail = array(
+			'src' => $image_attributes[0], 
+			'width' => $image_attributes[1], 
+			'height' => $image_attributes[2], 
+		);
+		// если миниатюры нет - выводим лого
+	}else {
+		$arr_thumbnail = array(
+			'src' => seo_info('logo'), 
+			'width' => seo_info('logo_w'), 
+			'height' => seo_info('logo_h'), 
+		);
+	};
+	?>
+	<img itemprop="image url" alt="<?php get_the_title($post_id); ?>" width="<?php echo $arr_thumbnail['width']; ?>" height="<?php echo $arr_thumbnail['height']; ?>" src="<?php echo $arr_thumbnail['src']; ?>"/>
+	<meta itemprop="width" content="<?php echo $arr_thumbnail['width'] ?>">
+	<meta itemprop="height" content="<?php echo $arr_thumbnail['height'] ?>">
+	</span>
+	<p><?php the_content($post_id); ?></p>
+	</div>
+	</div>
 </div>
-
-<?php
-$attachment_id = get_theme_mods('custom_logo'); // ID вложения
-
-$image_attributes = wp_get_attachment_image_src( $attachment_id , 'full');
-// вернулся массив array
-?> 
-
-<div itemscope itemtype="<?php echo protocol();?>://schema.org/BlogPosting">
-<link itemprop="mainEntityOfPage" itemscope href="<?php echo get_permalink(); ?>" />
-<div itemprop="publisher" itemscope itemtype="<?php echo protocol();?>://schema.org/Organization">
-<div itemprop="logo" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
-<img alt="Логотип сайта" itemprop="image url" src="<?php echo $image_attributes[0] ?>"/>
-<meta itemprop="width" content="<?php echo $image_attributes[1] ?>">
-<meta itemprop="height" content="<?php echo $image_attributes[2] ?>">
-</div>
-<meta itemprop="telephone" content="8 (499) 521-70-15">
-<meta itemprop="address" content="Россия, г.Москва, ул. Ботаническая, дом 3">
-<meta itemprop="name" content="Студия ТопЗвук">
-</div>
-<meta itemprop="datePublished" content=" <?php echo get_the_date('Y'); ?>">
-<meta itemprop="dateModified" content="<?php the_modified_date('Y'); ?>">
-<span itemprop="author" itemscope itemtype="<?php echo protocol();?>://schema.org/Person">
-<span itemprop="name"><?php the_author(); ?></span>
-</span>
-<div itemprop="articleBody">
-<h1 itemprop="headline"><?php the_title(); ?></h1>
-<span itemprop="image" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
-<img itemprop="image url" alt="<?php the_title(); ?>" width="размеры в пикселях" height="размеры в пикселях" src="Ссылка на изображение"/>
-<meta itemprop="width" content="размеры в пикселях">
-<meta itemprop="height" content="размеры в пикселях">
-</span>
-<p><?php the_content(); ?></p>
-</div>
-</div>
+<?php }; ?>

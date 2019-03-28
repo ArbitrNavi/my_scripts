@@ -29,10 +29,15 @@ function get_wpseo_meta_tax( $seo_item, $id_tax, $tax_type){
 
 // выбор протокола http или https
 function protocol(){
-	return 'https';
+	return 'http';
 };
 
+
 function seo_info($type='',$postID=''){
+
+// зависимости от сео плагина, пока что выбирается вручную
+// yeast || all_seo
+$seo_plagin = 'all_seo';
 
 // добавляемые данные
 	// к названии страницы
@@ -46,9 +51,13 @@ $add_desc_page = '';
 $add_desc_post = '';
 
 	// описание по умолчанию, если выбранное пусто
-$desc_default = '';
+$desc_default = 'Выкуп авто от профессионалов. Срочно продать автомобиль с пробегом воспользовавшись услугой срочного выкупа авто за 1 час. Мы предоставляем 100% гарантию.';
 	// добавляем к текущиму кейвордсу
-$key_default = '';
+$key_default = 'выкуп авто, выкуп автомобилей, выкуп машин, продать авто, продать автомобиль, срочный выкуп авто, срочный выкуп автомобилей, выкуп авто в Москве';
+
+
+if ($seo_plagin=== 'yeast') {
+	
 
 // получение сео данных 
 if ( is_category() ){
@@ -68,6 +77,7 @@ if ( is_category() ){
 
 	$my_key = get_wpseo_meta_tax('focuskw',$term_id,'category');
 	$my_key = str_replace('%%term_title%%', $name, $my_key);
+
 
 }elseif( is_page() ){
 // страница
@@ -96,8 +106,26 @@ if ( is_category() ){
 	};
 };
 
+// данные от yeast
+
+}elseif ($seo_plagin==='all_seo') {
+
+	// запись
+	$my_title  = get_post_meta($postID, "_aioseop_title", true);
+	$my_description  = get_post_meta($postID, "_aioseop_description", true);
+	$my_key  = get_post_meta($postID, "_aioseop_keywords", true);
+	
+	// описание по умолчанию
+	if (!$my_description){
+		$my_description = $add_desc_post;
+	};
+	
+};//выбор seo плагина
+
+
+
 if (!$my_title) {
-	$my_title  = get_the_title($postID);
+	$my_title  = "Честный выкуп автомобилей в Москве. Выкуп авто различных марок. Срочно продать автомобиль стало реально!";
 };
 
 // описание по умолчанию
@@ -106,9 +134,9 @@ if (!$my_description){
 };
 
 // ключ по умолчанию
-if (!$my_key) {
-	$my_key = $my_title;
-};
+// if (!$my_key) {
+// 	$my_key = $my_title;
+// };
 
 
 $my_key .= $key_default;
@@ -117,12 +145,33 @@ $resoult = '';
 
 if ($type === 'title') {
 	$resoult = $my_title;
+	
 }elseif($type === 'desc') {
 	$resoult = $my_description;
+	
 }elseif($type === 'key') {
 	$resoult = $my_key;
+	
 }elseif($type === 'year') {
-	$resoult = '2016';
+	$resoult = '2015';
+	
+}elseif($type === 'logo') {
+	$resoult = 'http://autoaxioma.ru/wp-content/uploads/2019/03/logo_aksioma_new1.png';
+	
+}elseif($type === 'logo_w') {
+	$resoult = '332';
+	
+}elseif($type === 'logo_h') {
+	$resoult = '100';
+	
+}elseif($type === 'tel') {
+	$resoult = '+7 (495) 969-72-59';
+	
+}elseif($type === 'adress') {
+	$resoult = 'г.Москва, МКАД 32 км (внешняя сторона)';
+	
+}elseif($type === 'company') {
+	$resoult = 'Выкуп автомобилей';
 };
 
 return $resoult;
