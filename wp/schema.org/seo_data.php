@@ -46,7 +46,7 @@ function seo_info($type='',$postID=''){
 
 // зависимости от сео плагина, пока что выбирается вручную
 // yeast || all_seo
-$seo_plagin = 'all_seo';
+$seo_plagin = 'yeast';
 
 // добавляемые данные
 	// к названии страницы
@@ -60,7 +60,7 @@ $add_desc_page = '';
 $add_desc_post = '';
 
 	// описание по умолчанию, если выбранное пусто
-$desc_default = 'Выкуп авто от профессионалов. Срочно продать автомобиль с пробегом воспользовавшись услугой срочного выкупа авто за 1 час. Мы предоставляем 100% гарантию.';
+$desc_default = 'выкуп авто Москва автомобиль скупка дорогой машина автовыкуп наличный цена';
 	// добавляем к текущиму кейвордсу
 $key_default = 'выкуп авто, выкуп автомобилей, выкуп машин, продать авто, продать автомобиль, срочный выкуп авто, срочный выкуп автомобилей, выкуп авто в Москве';
 
@@ -134,7 +134,7 @@ if ( is_category() ){
 
 
 if (!$my_title) {
-	$my_title  = "Честный выкуп автомобилей в Москве. Выкуп авто различных марок. Срочно продать автомобиль стало реально!";
+	$my_title  = "Выкуп дорогих автомобилей в Москве";
 };
 
 // описание по умолчанию
@@ -162,25 +162,43 @@ if ($type === 'title') {
 	$resoult = $my_key;
 	
 }elseif($type === 'year') {
-	$resoult = '2015';
+	$resoult = '2007';
 	
 }elseif($type === 'logo') {
-	$resoult = 'http://autoaxioma.ru/wp-content/uploads/2019/03/logo_aksioma_new1.png';
+	$resoult = 'http://vikupimdorogo.ru/wp-content/themes/this_my_theme/images/template/logo.png';
 	
 }elseif($type === 'logo_w') {
-	$resoult = '332';
+	$resoult = '350';
 	
 }elseif($type === 'logo_h') {
-	$resoult = '100';
+	$resoult = '106';
 	
 }elseif($type === 'tel') {
-	$resoult = '+7 (495) 969-72-59';
+	$resoult = '+7 (495) 290 94 67';
+
+}elseif($type === 'email') {
+	$resoult = 'info@vikupimdorogo.ru';
 	
 }elseif($type === 'adress') {
-	$resoult = 'г.Москва, МКАД 32 км (внешняя сторона)';
+	$resoult = '117403 , Москва, 32 км. МКАД (внешняя сторона), владение 15';
+	
+}elseif($type === 'adress_sity') {
+	$resoult = 'г. Москва';
+	
+}elseif($type === 'adress_region') {
+	$resoult = '32 км. МКАД (внешняя сторона)';
 	
 }elseif($type === 'company') {
-	$resoult = 'Выкуп автомобилей';
+	$resoult = 'Выкупим дорого';
+	
+}elseif($type === 'price_min') {
+	$resoult = '5 000 руб';
+	
+}elseif($type === 'price_max') {
+	$resoult = '50 000 000 руб';
+
+}elseif($type === 'desc_default') {
+	$resoult = $desc_default;
 };
 
 return $resoult;
