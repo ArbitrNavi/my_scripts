@@ -1,0 +1,5 @@
+.bg_dark {
+    background-image: url(/wp-content/uploads/2018/07/4.jpg);
+	background-size: cover;
+    box-shadow: 0 0 0 300px rgba(0, 0, 0, 0.53) inset;
+}
