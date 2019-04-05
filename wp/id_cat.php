@@ -6,6 +6,6 @@
 
 // id категории к которой принадлежит текущая запись
     $infocat = get_the_category();
-    $info = $infocat[0]->cat_ID;
-    var_dump($info);
+    $catID = $infocat[0]->cat_ID;
+    var_dump($catID);
  ?>
