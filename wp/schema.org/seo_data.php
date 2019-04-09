@@ -137,6 +137,11 @@ if (!$my_title) {
 	$my_title  = "Выкуп дорогих автомобилей в Москве";
 };
 
+// если косячное название типа %%title%% вставляем тайтл страницы
+if ($my_title == '%%title%%') {
+	$my_title = wp_get_document_title();
+}
+
 // описание по умолчанию
 if (!$my_description){
 	$my_description = $desc_default;
