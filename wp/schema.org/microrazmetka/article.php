@@ -1,6 +1,9 @@
-<!-- atricle_php -->
+<!-- article_php -->
 <?php if (is_single() || is_page()) {?>
-<?php $post_id = get_queried_object()->ID; ?>
+<?php $post_id = get_queried_object()->ID; 
+$this_post = get_post($post_id);
+$this_post_content = get_post($post_id)->post_content;
+ ?>
 <div style="display: none;">
 	<div itemscope itemtype="<?php echo protocol();?>://schema.org/BlogPosting">
 	<link itemprop="mainEntityOfPage" itemscope href="<?php echo get_permalink($post_id); ?>" />
@@ -45,7 +48,7 @@
 	<meta itemprop="width" content="<?php echo $arr_thumbnail['width'] ?>">
 	<meta itemprop="height" content="<?php echo $arr_thumbnail['height'] ?>">
 	</span>
-	<p><?php the_content($post_id); ?></p>
+	<p><?php echo $this_post_content; ?></p>
 	</div>
 	</div>
 </div>
