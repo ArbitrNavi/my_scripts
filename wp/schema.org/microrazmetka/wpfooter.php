@@ -1,3 +1,4 @@
+<!-- wpfooter -->
 <?php $post_id = get_queried_object()->ID; ?>
 <div style="display: none;" itemscope itemtype="<?php echo protocol();?>://schema.org/WPFooter">
     <meta itemprop="name" content="<?php echo seo_info('title',$post_id); ?>"/>
