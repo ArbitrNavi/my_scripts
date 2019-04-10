@@ -138,7 +138,7 @@ if (!$my_title) {
 };
 
 // если косячное название типа %%title%% вставляем тайтл страницы
-if ($my_title == '%%title%%') {
+if ($my_title === '%%title%%') {
 	$my_title = wp_get_document_title();
 }
 
