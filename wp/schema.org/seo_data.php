@@ -32,12 +32,13 @@ function get_wpseo_meta_tax( $seo_item, $id_tax, $tax_type){
 };
 // выбор протокола http или https
 function protocol(){
-	return 'http';
+	return get_field('shema_protocol','options');
 };
 function seo_info($type='',$postID=''){
 // зависимости от сео плагина, пока что выбирается вручную
 // yeast || all_seo
-$seo_plagin = 'yeast';
+$seo_plagin = get_field('shema_seo_plugin','options');
+
 // добавляемые данные
 	// к названии страницы
 $add_title_page = '';
@@ -48,9 +49,9 @@ $add_desc_page = '';
 	// к описании записи
 $add_desc_post = '';
 	// описание по умолчанию, если выбранное пусто
-$desc_default = 'выкуп авто Москва автомобиль скупка дорогой машина автовыкуп наличный цена';
+$desc_default = get_field('shema_description','options');
 	// добавляем к текущиму кейвордсу
-$key_default = 'выкуп авто, выкуп автомобилей, выкуп машин, продать авто, продать автомобиль, срочный выкуп авто, срочный выкуп автомобилей, выкуп авто в Москве';
+$key_default = '';
 if ($seo_plagin=== 'yeast') {
 	
 // получение сео данных 
@@ -110,7 +111,7 @@ if ( is_category() ){
 	
 };//выбор seo плагина
 if (!$my_title) {
-	$my_title  = "Выкуп дорогих автомобилей в Москве";
+	$my_title  = get_field('shema_title','options');
 };
 // если косячное название типа %%title%% вставляем тайтл страницы
 if ($my_title == '%%title%%') {
@@ -136,10 +137,10 @@ if ($type === 'title') {
 	$resoult = $my_key;
 	
 }elseif($type === 'year') {
-	$resoult = '2007';
+	$resoult = get_field('shema_year','options');
 	
 }elseif($type === 'logo') {
-	$resoult = 'http://vikupimdorogo.ru/wp-content/themes/this_my_theme/images/template/logo.png';
+	$resoult = 'http://fishingtuna.es/wp-content/themes/this_my_theme/img/h_logo.png';
 	
 }elseif($type === 'logo_w') {
 	$resoult = '350';
@@ -148,32 +149,33 @@ if ($type === 'title') {
 	$resoult = '106';
 	
 }elseif($type === 'tel') {
-	$resoult = '+7 (495) 290 94 67';
+	$resoult = get_field('shema_tel','options');
 }elseif($type === 'email') {
-	$resoult = 'info@vikupimdorogo.ru';
+	$resoult = get_field('shema_email','options');
 	
 }elseif($type === 'adress') {
-	$resoult = '117403 , Москва, 32 км. МКАД (внешняя сторона), владение 15';
+	$resoult = get_field('shema_adress','options');
 	
 }elseif($type === 'adress_sity') {
-	$resoult = 'г. Москва';
+	$resoult = get_field('shema_adress_sity','options');
 	
 }elseif($type === 'adress_region') {
-	$resoult = '32 км. МКАД (внешняя сторона)';
+	$resoult = get_field('shema_adress_region','options');
 	
 }elseif($type === 'company') {
-	$resoult = 'Выкупим дорого';
+	$resoult = get_field('shema_company','options');
 	
 }elseif($type === 'price_min') {
-	$resoult = '5 000 руб';
+	$resoult = get_field('shema_price_min','options') . ' ' . get_field('shema_value','options');
 	
 }elseif($type === 'price_max') {
-	$resoult = '50 000 000 руб';
+	$resoult = get_field('shema_price_max','options') . ' ' . get_field('shema_value','options');
 }elseif($type === 'desc_default') {
 	$resoult = $desc_default;
 };
 return $resoult;
 };//seo_info
+
 // add_action( 'wp_footer', 'my_popup', 30 );
 // function my_popup(){
 		// include get_template_directory() . '/microrazmetka/wpfooter.php';
