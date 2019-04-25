@@ -140,13 +140,13 @@ if ($type === 'title') {
 	$resoult = get_field('shema_year','options');
 	
 }elseif($type === 'logo') {
-	$resoult = 'http://fishingtuna.es/wp-content/themes/this_my_theme/img/h_logo.png';
+	$resoult = image_downsize( get_field('shema_logo','options')['ID'], 'full' )['0'];
 	
 }elseif($type === 'logo_w') {
-	$resoult = '350';
+	$resoult = image_downsize( get_field('shema_logo','options')['ID'], 'full' )['1'];
 	
 }elseif($type === 'logo_h') {
-	$resoult = '106';
+	$resoult = image_downsize( get_field('shema_logo','options')['ID'], 'full' )['2'];
 	
 }elseif($type === 'tel') {
 	$resoult = get_field('shema_tel','options');
@@ -173,11 +173,25 @@ if ($type === 'title') {
 }elseif($type === 'desc_default') {
 	$resoult = $desc_default;
 };
-return $resoult;
+	return $resoult;
 };//seo_info
 
 // add_action( 'wp_footer', 'my_popup', 30 );
 // function my_popup(){
 		// include get_template_directory() . '/microrazmetka/wpfooter.php';
 // };
+
+// вставляем все шаблоны микроразметки в одну функцию
+function footer_schema(){
+	include get_template_directory() . '/includes/microrazmetka/wpheader.php';
+	include get_template_directory() . '/includes/microrazmetka/organization.php';
+	include get_template_directory() . '/includes/microrazmetka/website.php';
+	include get_template_directory() . '/includes/microrazmetka/localbusiness.php';
+	include get_template_directory() . '/includes/microrazmetka/wpsidebar.php';
+	include get_template_directory() . '/includes/microrazmetka/wpfooter.php';
+	include get_template_directory() . '/includes/microrazmetka/article.php';
+};
+
+// выполняем функцию перед wp_footer
+add_action('wp_footer','footer_schema');
 ?>
