@@ -153,11 +153,15 @@ if ($type === 'title') {
 	
 }elseif($type === 'tel') {
 	$resoult = get_field('shema_tel','options');
+
 }elseif($type === 'email') {
 	$resoult = get_field('shema_email','options');
 	
 }elseif($type === 'adress') {
 	$resoult = get_field('shema_adress','options');
+	
+}elseif($type === 'country') {
+	$resoult = get_field('shema_country','options');
 	
 }elseif($type === 'adress_sity') {
 	$resoult = get_field('shema_adress_sity','options');
@@ -173,9 +177,12 @@ if ($type === 'title') {
 	
 }elseif($type === 'price_max') {
 	$resoult = get_field('shema_price_max','options') . ' ' . get_field('shema_value','options');
+
 }elseif($type === 'desc_default') {
 	$resoult = $desc_default;
+
 };
+
 	return $resoult;
 };//seo_info
 

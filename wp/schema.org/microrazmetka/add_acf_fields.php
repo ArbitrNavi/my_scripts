@@ -187,6 +187,25 @@ acf_add_local_field_group(array(
 			'append' => '',
 		),
 		array(
+			'key' => 'field_5cc1322c9afb2',
+			'label' => 'Страна',
+			'name' => 'shema_country',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
 			'key' => 'field_5cc07e5b6ae19',
 			'label' => 'Адрес',
 			'name' => 'shema_adress',
@@ -341,4 +360,6 @@ acf_add_local_field_group(array(
 	'description' => '',
 ));
 
-endif; ?>
+endif;
+
+?>

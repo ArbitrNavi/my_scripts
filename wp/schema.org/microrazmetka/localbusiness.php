@@ -10,7 +10,7 @@
       <div class="city_state">
         <span class="locale" property="schema:addressLocality"><?php echo seo_info('adress_sity'); ?> </span>,<span class="region" property="schema:addressRegion"><?php echo seo_info('adress_region'); ?></span>
       </div>
-      <div class="country" property="schema:addressCountry">RU Российская Федерация</div>
+      <div class="country" property="schema:addressCountry"><?php echo seo_info('country'); ?></div>
     </div>
     <div class="email" property="schema:email"><?php echo seo_info('email'); ?></div>
     <div class="phone" property="schema:telephone">Phone: <?php echo seo_info('tel'); ?></div>

@@ -6,7 +6,7 @@
     <meta itemprop="height" content="<?php echo seo_info('logo_h'); ?>">
   </div>
   <meta itemprop="telephone" content="<?php echo seo_info('tel'); ?>">
-  <meta itemprop="address" content="Россия">
+  <meta itemprop="address" content="<?php echo seo_info('country'); ?>">
   <meta itemprop="name" content="<?php echo seo_info('company') ?>">
   <meta itemprop="url" content="<?php echo get_site_url(); ?>">
 </div>
