@@ -22,6 +22,9 @@
 *
 * @return   string|boolean      данные из указанного метаполя или false, если с такими данными записи нет
 */
+
+include get_template_directory() . '/includes/microrazmetka/add_acf_fields.php';
+
 function get_wpseo_meta_tax( $seo_item, $id_tax, $tax_type){
 	if ( !$seo_item || !$id_tax || !$tax_type )
 	    return false;
