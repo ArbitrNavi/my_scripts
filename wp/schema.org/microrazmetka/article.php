@@ -1,8 +1,9 @@
 <!-- article_php -->
-<?php if (is_single() || is_page()) {?>
-<?php $post_id = get_queried_object()->ID; 
-$this_post = get_post($post_id);
-$this_post_content = get_post($post_id)->post_content;
+<?php 
+	if (is_single() || is_page()) {
+	$post_id = get_queried_object()->ID; 
+	$this_post = get_post($post_id);
+	$this_post_content = get_post($post_id)->post_content;
  ?>
 <div style="display: none;">
 	<div itemscope itemtype="<?php echo protocol();?>://schema.org/BlogPosting">
@@ -23,7 +24,7 @@ $this_post_content = get_post($post_id)->post_content;
 	<span itemprop="name"><?php the_author($post_id); ?></span>
 	</span>
 	<div itemprop="articleBody">
-	<span itemprop="headline"><?php echo get_the_title($post_id); ?></span>
+	<span itemprop="headline"><?php echo seo_info('title'); ?></span>
 	<span itemprop="image" itemscope itemtype="<?php echo protocol();?>://schema.org/ImageObject">
 	<?php 
 	// Если есть миниатюра
