@@ -1,0 +1,5 @@
+/*Выход за границу элементов списка*/
+
+.post_content li{
+    list-style-position:inside;
+}
