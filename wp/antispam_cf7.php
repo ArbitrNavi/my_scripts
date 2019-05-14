@@ -3,7 +3,7 @@
 <script>
 	// антиспам cf7
 	// имитируем клик
-jQuery('.agree').click();
+jQuery('.agree input').click();
 
 </script>
 
