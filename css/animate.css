@@ -1,0 +1,4 @@
+/*Анимация CSS*/
+.block:hover {
+    transition: all .5s ease;
+}
