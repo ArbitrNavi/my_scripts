@@ -1,0 +1,14 @@
+/* заставляет браузер сразу загружать системные шрифты, а уже после подгрузки основных - переключается на них
+Увеличивает позиции по google speed */
+font-display:swap;
+
+
+/*пример использования*/
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/Lora-Regular.eot');
+    src: url('../fonts/Lora-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Lora-Regular.woff2') format('woff2'), url('../fonts/Lora-Regular.woff') format('woff'), url('../fonts/Lora-Regular.ttf') format('truetype'), url('../fonts/Lora-Regular.svg#Lora') format('svg');
+    font-display:swap;
+}
