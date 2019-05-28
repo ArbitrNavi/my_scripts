@@ -1,0 +1,12 @@
+/*фильтр серым*/
+.grayscale_container .post-content{
+        -webkit-filter: grayscale(1); /* Webkit браузеры */  
+        filter: gray; /* для IE6-9 */  
+        filter: grayscale(1); /* W3C */ 
+        transition: all .5s ease;
+} 
+
+.grayscale_container:hover .post-content{
+    filter:none;
+
+}
