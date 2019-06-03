@@ -34,7 +34,7 @@ Disallow: /*?*=
 Disallow: /*&*=
 Disallow: /*action=
 Disallow: /*s=
-Disallow: /adminka
+Disallow: /wp-admin
 Disallow: /xmlrpc.php
 Disallow: /*?replytocom
 Disallow: /?replytocom
