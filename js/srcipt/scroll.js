@@ -19,6 +19,12 @@ width=screen.width; // ширина
 height=screen.height; // высота
 
 // размер клиентской части окна браузера:
-width=document.body.clientWidth; // ширина  
-height=document.body.clientHeight; // высота
+// ширина  
+width=document.body.clientWidth; 
+$(window).width()
+
+// высота
+height=document.body.clientHeight; 
+$(window).height()
+
 };
