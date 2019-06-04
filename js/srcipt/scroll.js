@@ -13,4 +13,12 @@ $('#toTop').click(function() {
  	$('body,html').animate({scrollTop:0},800);
 });
 
+
+// разрешение экрана:
+width=screen.width; // ширина  
+height=screen.height; // высота
+
+// размер клиентской части окна браузера:
+width=document.body.clientWidth; // ширина  
+height=document.body.clientHeight; // высота
 };
