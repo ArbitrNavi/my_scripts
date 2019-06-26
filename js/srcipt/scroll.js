@@ -9,9 +9,19 @@ jQuery(document).ready(function($){
 // .scroll
 
 // скролл вверх по нажатию
-$('#toTop').click(function(e) {
+id_to_top = "#toTop";//id или класс, для нажатия, лучше ID использовать
+// скролл вверх по нажатию
+$(id_to_top).click(function(e) {
 	e.preventDefault();
  	$('body,html').animate({scrollTop:0},800);
+});
+
+$(window).scroll(function(){
+    if($(this).scrollTop()>400){
+    	$(id_to_top).fadeIn();
+    }else{
+    	$(id_to_top).fadeOut();
+    };
 });
 
 
