@@ -9,7 +9,8 @@ jQuery(document).ready(function($){
 // .scroll
 
 // скролл вверх по нажатию
-$('#toTop').click(function() {
+$('#toTop').click(function(e) {
+	e.preventDefault();
  	$('body,html').animate({scrollTop:0},800);
 });
 
