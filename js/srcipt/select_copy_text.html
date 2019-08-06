@@ -1,0 +1,61 @@
+<!-- выделение при нажатии и одновременное копирование текста -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Parsing img krpano</title>
+</head>
+<body>
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+	<script>
+console.log('скрипт подключен'); //проверка подключения скрипта
+jQuery(document).ready(function($) { //ожидание полной загрузки дом дерева и возвожность работы со знаком доллара, в движках
+    console.log($); //проверка работоспособности JQuery
+    console.log(jQuery.fn.jquery);//узнать версию JQuery
+
+
+	// 	document.execCommand("copy");
+
+function select(elem){
+    var rng, sel;
+    if ( document.createRange ) {//Не все браузеры поддерживают createRange
+        rng = document.createRange();//создаем объект область
+        rng.selectNode( elem )//выберем текущий узел
+        sel = window.getSelection();//Получаем объект текущее выделение
+        var strSel = ''+sel; //Преобразуем в строку (ох уж js...)
+        if (!strSel.length) { //Если ничего не выделено
+            sel.removeAllRanges();//Очистим все выделения (на всякий случай) 
+            sel.addRange( rng ); //Выделим текущий узел
+        }
+    } else {//Если браузер не поддерживает createRange (IE<9, например)
+        //Выделяем таким образом, уже без всяких проверок
+        var rng = document.body.createTextRange();
+        rng.moveToElementText( elem );
+        rng.select();
+    };
+};
+
+$(".text").click(function(){
+	elem = this;//текущий элемент
+    select(elem);//выделение
+    document.execCommand("copy");//копирование
+});
+
+
+	}); //конец ready
+</script>
+
+<!-- пример -->
+<p class="text">Lorem ipsum dolor.1 <br>Lorem ipsum dolor.1</p>
+<p class="text">Lorem ipsum dolor.2</p>
+<p class="text">Lorem ipsum dolor.3</p>
+
+
+</body>
+</html>
