@@ -157,8 +157,8 @@ endif;
 
 
 return(do_shortcode('[theme_video ids="'
-.$id_video_str
-.'"]') 
+. $id_video_str
+. '"]') 
 );
 };//theme_video_shortkod
 

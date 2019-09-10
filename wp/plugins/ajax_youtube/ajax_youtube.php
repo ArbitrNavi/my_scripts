@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван	
- * Version:     1.1
+ * Version:     2.3
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -28,6 +28,8 @@
 // добавление страницы настроек и шаблонное использование на сайте, то есть в одном месте настроил видео и где надо они будут стоять одинаковые
 // изменен тайтл страницы опций
 
+// v2.3 
+// добавил шорткод theme_video_resp позволяющий выводить одиночные видео во всю ширину, пропорционально задавая высоту, по умолчанию это 16:9
 
 //Добавляем шорткод
 add_shortcode('test_shortcode','my_shortcode_output');
@@ -49,6 +51,9 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/id_url_youtube.php'
 
 // шорткод вывода видео блоков по переданным id роликов
 require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/shortcode_theme_video.php';
+
+// шорткод вывода видео блоков по переданным id роликов
+require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/shortcode_video_responsive.php';
 
 // функция подставки id видео в шорткод из страницы опций acf
 require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/shortcode_theme_video_shablon.php';
