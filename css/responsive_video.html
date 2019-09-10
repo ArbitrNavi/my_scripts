@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Пропорциональная высота</title>
+</head>
+<body>
+	<!-- 16:9 (отношение между шириной и высотой) -->
+<div class="item-responsive item-16by9">
+  <div class="content"></div>
+</div>
+
+<!-- Блоки, имеющие другую высоту -->
+<!-- 4:3 -->
+<div class="item-responsive item-4by3">
+  <div class="content"></div>
+</div>
+<!-- 2:1 -->
+<div class="item-responsive item-2by1">
+  <div class="content"></div>
+</div>
+<!-- 1:1 -->
+<div class="item-responsive item-1by1">
+  <div class="content"></div>
+</div>
+
+<style>
+	.item-responsive {
+  position: relative; /* относительное позиционирование */
+}
+.item-responsive:before {
+  display: block; /* отображать элемент как блок */
+  content: ""; /* содержимое псевдоэлемента */
+  width: 100%; /* ширина элемента */
+}
+
+.item-responsive>.content {
+  position: absolute; /* абсолютное положение элемент */
+  /* положение элемента */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.item-16by9 {
+  padding-top: 56.25%; /* (9:16)*100% */
+  outline: 1px solid red;
+}
+
+.item-4by3 {
+  padding-top: 75%; /* (3:4)*100% */
+  outline: 1px solid green;
+}
+.item-2by1 {
+  padding-top: 50%; /* (1:2)*100% */
+  outline: 1px solid yellow;
+}
+.item-1by1 {
+  padding-top: 100%; /* (1:1)*100% */
+  outline: 1px solid blue;
+}
+</style>
+</body>
+</html>
