@@ -65,7 +65,7 @@ if (strpos($elem,'id' . $i . '.id')===false && $elem_all) {
         $resoult .= '<!-- p3d_item -->
         <div class="p3d_item"' . $elem_one . '>
             <div class="p3d_container_img">
-                <img src="'. $img["url"] . '" class="p3d_img">
+                <img src="'. $img["sizes"]["480x241"] . '" class="p3d_img">
             </div>
             <a href="'. $link .'" target="_blank" class="p3d_item_title">' . $title . '</a>
         </div>
