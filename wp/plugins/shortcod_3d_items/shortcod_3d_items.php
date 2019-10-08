@@ -1,4 +1,6 @@
 <?php 
+add_image_size('480x241', 480, 241, true);
+
 // создание произвольной страницы используя плагин acf 
 if( function_exists('acf_add_options_page') ) {
 	
