@@ -1,5 +1,6 @@
 <?php 
 // функция подставки id видео в шорткод из страницы опций acf
+// [theme_video_shablon metka="reklama"]
 function theme_video_shortkod($atts){
 // проверяем есть ли в повторителе данные
 if( have_rows('all_shortkod', 'option') ):

@@ -1,5 +1,6 @@
 <?php 
-// вывод предварительной верстки, для обработки уже js
+// Вывод видео роликов с ютуба по id
+// [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]
 // функция выводит блоки по переданным id ютуб роликов
 function theme_video_func($attrs){
 		$attrs = shortcode_atts(array(

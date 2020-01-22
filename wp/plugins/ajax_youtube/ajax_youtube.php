@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Ajax подгузка видео роликов
- * Description: Позволяет загружать ролик только после нажатия на на него, изначально грузиться только изображения этого ролика, что существенно снижает нагрузку при загрузке страницы.
+ * Description: Позволяет загружать ролик только после нажатия на на него, изначально грузиться только изображения этого ролика, что существенно снижает нагрузку при загрузке страницы. Вывод по id [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]. Вывод из страницы настроек [theme_video_shablon metka="reklama"]. Одно видео определенной пропорции [theme_video_resp id="qZnuI1Zrdbs" size="16by9"]
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван	
- * Version:     2.3
+ * Version:     2.4
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -31,14 +31,17 @@
 // v2.3 
 // добавил шорткод theme_video_resp позволяющий выводить одиночные видео во всю ширину, пропорционально задавая высоту, по умолчанию это 16:9
 
-//Добавляем шорткод
-add_shortcode('test_shortcode','my_shortcode_output');
-//выводим на экран
-function my_shortcode_output($atts, $content = '', $tag){
-    $html = '';
-    $html .= '<p>Hello World</p>';
-    return $html;
-}
+// v2.4
+// Изменил описания, добавил примеры шорткодов, закомментировал тестовый шорткод
+
+// //Добавляем шорткод
+// add_shortcode('test_shortcode','my_shortcode_output');
+// //выводим на экран
+// function my_shortcode_output($atts, $content = '', $tag){
+//     $html = '';
+//     $html .= '<p>Hello World</p>';
+//     return $html;
+// }
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
@@ -60,8 +63,6 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/youtube/shortcode_theme_vid
 
 // гугл карта выходит когда скроллим вниз
 require_once plugin_dir_path( __FILE__ ) . 'includes/google_maps/google_maps_scroll.php';
-
-
 
 
 // Подключение стилей и скриптов
