@@ -1,6 +1,29 @@
  <?php
+$data_arr = $_GET['data_arr']; //получили GET
+$data_arr=json_decode($data_arr, true); //извлекли массив из JSON
+
+// return iconv("UTF-8", "cp1251",$n);// смена кодировки
+
+// Перебор массива, так как ассоциативный, пришлось использовать для каждого ключа отдельно
+
+foreach ($data_arr['info'] as &$value) {//перебор массива с записыванием новых значений
+	$value=iconv("UTF-8", "cp1251",$value); //заменяем кодировку
+};
+
+foreach ($data_arr['work'] as &$data_arr_wokr) {//перебор массива с записыванием новых значение
+	foreach ($data_arr_wokr as &$value) {//перебор подмассива, так как каждое значение состояло из 4 значений
+		$value=iconv("UTF-8", "cp1251",$value);//заменяем кодировку
+	};
+};
+
+// echo "<hr>";
+// echo "<pre>";
+// var_dump($data_arr);
+// echo "</pre>";
+
+
 // подключение библиотеки
-require('fpdf.php');
+require('fpdf.php');	
 
  //официальный бирюзовый цвет
 $color_blue = array(
@@ -47,15 +70,28 @@ class PDF extends FPDF
 
 	    //Данные
 	    $fill=false;
-	    foreach($data as $row)
+	    $summ = 0;
+	    foreach($data['work'] as $row)
 	    {
 	        $this->Cell($w[0],10,'   ' . $row[0],'RT',0,'L',$fill);
-	        $this->Cell($w[1],10,'   ' . $row[1],'RT',0,'L',$fill);
-	        $this->Cell($w[2],10,'   ' . number_format($row[2]),'T',0,'L',$fill);
+	        $this->Cell($w[1],10,'   ' . $row[2],'RT',0,'L',$fill);
+	        $this->Cell($w[2],10,'   ' . number_format($row[1]),'T',0,'L',$fill);
 	        $this->Ln();
 	        // $fill=!$fill;
+
+	        $summ+=$row[1];
 	    }
-	    $this->Cell(array_sum($w),0,'','0');//нижняя граница
+	        $this->Cell($w[0],10,'   Итоговая цена','RT',0,'L',$fill);
+	        $this->Cell($w[1],10,'   ','RT',0,'L',$fill);
+	        $this->Cell($w[2],10,'   ' . number_format($data['info']['itog_summa']),'T',0,'L',$fill);
+	        $this->Ln();
+
+	        $this->Cell($w[0],10,'   Цена со скидкой','RT',0,'L',$fill);
+	        $this->Cell($w[1],10,'   ','RT',0,'L',$fill);
+	        $this->Cell($w[2],10,'   ' . number_format($data['info']['itog_skidka_summa']),'T',0,'L',$fill);
+	        $this->Ln();
+
+	    // $this->Cell(array_sum($w),0,'','0');//нижняя граница
 	}
 
 	//Заголовок страницы
@@ -109,8 +145,8 @@ $pdf->AddFont('calibri','I','calibrii.php');
 $ln_height = 4;// отступ строк по высота
 
 $pdf->AddPage();
-$pdf->Image('img/bg.jpg',0,30,210);
-$pdf->Image('img/square.png',-20,25,120);
+$pdf->Image('img/bg.jpg',0,30,210,90);
+$pdf->Image('img/square.png',-20,25,100);
 $pdf->Image('img/bg_bottom.jpg',0,160,210);
 
 // Коммерческое
@@ -119,20 +155,21 @@ $pdf->Image('img/bg_bottom.jpg',0,160,210);
 // $pdf->SetTextColor(255,255,255);
 
 
-$pdf->Ln(25);
+$pdf->Ln(15);
 
-$pdf->SetFont('calibri','',32);
+$pdf->SetFont('calibri','',24);
 $pdf->Cell(0,30,'КОММЕРЧЕСКОЕ',0,2,'L');//Вывод ячейки с текстом, задается ширина и высота
-$pdf->SetFont('calibri','',25);
+$pdf->SetFont('calibri','',18);
 $pdf->Cell(0,0,'ПРЕДЛОЖЕНИЕ',0,2,'L');//Вывод ячейки с текстом, задается ширина и высота
-$pdf->Ln(42);
+$pdf->Ln(37);
 
 // обычный текст
 
 
-$pdf->Image('img/line.jpg',50,140,110);
+
+$pdf->Image('img/line.jpg',50,$pdf->GetY()-2,110);
 $pdf->SetFont('times','',20);
-$pdf->Cell(0,7,'ЗАДАЧА',0,2,'C');
+$pdf->Cell(0,7,$data_arr['info']['name_project'],0,2,'C');
 
 
 $pdf->Ln(5);
@@ -140,22 +177,23 @@ $pdf->Ln(5);
 
 $pdf->SetFont('times','B',14);
 $pdf->Cell(10);
-$pdf->MultiCell(0,7,'Любая задача тут может быть, зависит от заполнения',0,2);
+$pdf->MultiCell(0,7,$data_arr['info']['name_raschet'] . ' ' . $data_arr['info']['rekvizity'],0,2);
 $pdf->Ln($ln_height);
 
-$pdf->Cell(0,5,'Расчет стоимости услуги, руб',0,2,'C');
+// $pdf->Cell(0,5,'Расчет стоимости услуги, руб',0,2,'C');
+$pdf->Cell(0,5,$data_arr['info']['raschet_stoimosti'] .', руб',0,2,'C');
 
 
 
 $pdf->Ln($ln_height);
 
 //Заголовки столбцов
-$header=array('Услуга','Описание','Стоимость,руб');
+$header=array('Услуга','Количество','Стоимость,руб');
 
 //Загрузка данных
 $data=$pdf->LoadData('countries.txt');
 
-$pdf->FancyTable($header,$data);
+$pdf->FancyTable($header,$data_arr);
 
 $y_rekviziti = $pdf->GetY();
 $pdf->Image('pechat_prozrachnaya.png',100,$y_rekviziti-20,50);
@@ -183,7 +221,7 @@ $pdf->Cell(0,6,'Контактные данные:',0,2);
 $pdf->Cell(0,6,'Тел. 8 (905) 506-3-506 ',0,2);
 $pdf->Cell(0,6,'Email: video@topzvuk.com  ',0,2);
 $pdf->Ln(5);
-$pdf->MultiCell(0,5,'Любая информация Любая информация Любая информация Любая информация Любая информация Любая информация Любая информация Любая информация Любая информация Любая информация',0);
+$pdf->MultiCell(0,5,$data_arr['info']['dop_text'],0);
 
 // $pdf->MultiCell(0,7,'Наша компания очень хорошая))',1);//Вывод ячейки с текстом, задается ширина и высота
 $pdf->Output('kp_' . date("d-m-Y_H-i") . '.pdf','I');
