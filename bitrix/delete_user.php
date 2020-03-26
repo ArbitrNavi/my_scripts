@@ -1,11 +1,11 @@
 <?
-// Удаление пользователей по ID
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("test_admin");
 ?>
-
 <?
-echo "delete User last login";
+
+// Удаление пользователей, которые давно не авторизовывались
+echo "delete User last login | Удаление пользователей, которые давно не авторизовывались";
 ?>
 <hr>
 
@@ -49,7 +49,7 @@ while ($rsUser = $elementsResult->Fetch())
 	$Uid = IntVal($rsUser["ID"]);
 
 	// увеличивает счетчик
-	    echo $N++ .') ';
+	    echo '<b>' . $N++ .')</b> ';
 	    // удаляем пользователя
 if (CUser::Delete($Uid))
 {
@@ -74,4 +74,3 @@ echo "<script>window.location.reload();</script>";
 ?>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
-?>
