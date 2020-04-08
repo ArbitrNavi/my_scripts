@@ -1,28 +1,37 @@
 <?php 
-// Вывод видео роликов с ютуба по id
-// [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]
+// Вывод видео роликов с ютуба по id используя шорткод theme_video_resp
+
+// [theme_video_resp ids="qZnuI1Zrdbs, akweI7-LaWc"]
 // функция выводит блоки по переданным id ютуб роликов
 function theme_video_func($attrs){
-		$attrs = shortcode_atts(array(
-			'wrap' => 'div',
-			'ids' => '',
-			'wrap_classes' => 'theme-video-wrap'
-		), $attrs);
 
-		if(!empty($attrs['wrap'])) $result = '<'. $attrs['wrap'] . (!empty($attrs['wrap_classes']) ? ' class="'. $attrs['wrap_classes'] .'"' : '') .'>';
+// получаем размер
+$size = $attrs["size"];
 
-		$ids = explode(',', $attrs['ids']);
+// преобразуем строку в массив
+$ids = explode(',', $attrs['ids']);
 
-		foreach($ids as $id){
-			$result .= '<div class="youtube" id="'. trim($id) .'"></div>';
-			//$result .= '<iframe src="https://www.youtube.com/embed/'. trim($id) .'?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-		}
+// вывод контейнера
+$resoult='<div class="video_resp_shablon">';
 
-		if(!empty($attrs['wrap'])) $result .= '</'. $attrs['wrap'] .'>';
+// перебор видео роликов
+foreach($ids as $id){
+			
+	//открываем контейнер для элемента
+    $resoult .= '<div class="vrh_item">';
 
-		return $result;
-}
+    // используем ранее написанный шорткод для вывода ютуб ролика
+    $resoult .= do_shortcode('[theme_video_resp id="' . trim($id) . '" size="' . $size . '"]'); 
+
+    //закрываем контейнер для элемента
+    $resoult .= '</div>';
+};
+
+// закрываем контейнер
+$resoult .= '</div>';
+
+return $resoult;
+};
 
 add_shortcode( 'theme_video', 'theme_video_func' );
-
 ?>

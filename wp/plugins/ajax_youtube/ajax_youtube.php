@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Ajax подгузка видео роликов
- * Description: Позволяет загружать ролик только после нажатия на на него, изначально грузиться только изображения этого ролика, что существенно снижает нагрузку при загрузке страницы. Вывод по id [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]. Вывод из страницы настроек [theme_video_shablon metka="reklama"]. Одно видео определенной пропорции [theme_video_resp id="qZnuI1Zrdbs" size="16by9"]
+ * Description: Позволяет загружать ролик только после нажатия на на него, изначально грузиться только изображения этого ролика, что существенно снижает нагрузку при загрузке страницы. Вывод по id [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]. Вывод из страницы настроек [theme_video_shablon metka="reklama"]. Одно видео определенной пропорции [theme_video_resp id="qZnuI1Zrdbs" size="16by9"]. Возможные варианты пропорций 16by9, 4by3, 2by1, 1by1
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван	
- * Version:     2.4
+ * Version:     2.5
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -42,6 +42,10 @@
 //     $html .= '<p>Hello World</p>';
 //     return $html;
 // }
+
+// v2.5
+// Добавил возможность выбора пропорций для вывода нескольких видео
+// так же добавлен адаптив, при размере экрана менее 600px в ряд становится по одному видео
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';

@@ -7,6 +7,7 @@
 
 function theme_video_resp_func($attrs){
 
+// Определяем размер
 switch ($attrs['size']) {
 	case '16by9':
 		$size = "16by9";
@@ -26,8 +27,7 @@ switch ($attrs['size']) {
 		break;
 }
 
-$result .= '<!-- 16:9 (отношение между шириной и высотой) -->
-<div class="item-responsive item-' . $size . '">' . 
+$result .= '<div class="item-responsive item-' . $size . '">' . 
 $result .= '<div class="youtube content_responsive"  id="'. trim($attrs["id"]) .'"></div>';
 $result .= '</div>';
 
@@ -35,5 +35,4 @@ $result .= '</div>';
 }
 
 add_shortcode( 'theme_video_resp', 'theme_video_resp_func' );
-
 ?>
