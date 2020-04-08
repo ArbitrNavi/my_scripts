@@ -29,6 +29,9 @@ if( have_rows('all_shortkod', 'option') ):
    endwhile;
 endif;
 
+//Вставляем указанную пропорцию видео
+$size = " size=\"" . $atts['size'] . "\"";
+
 return(do_shortcode('[theme_video ids="' . $id_video_str . '" . ' . $size . ']'));
 
 };//theme_video_shortkod
