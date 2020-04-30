@@ -4,8 +4,12 @@
 // https://site.ru/?С=Hiu23oiuhUO //какая то шляпа непонятная
 // можно использовать URI страницы, кгда нужно отдавать 404 на ненужные страницы
 // $_SERVER['REQUEST_URI']=== '/elementor-popup/uznat-stoimost/'
-if(isset($_GET['p']) || isset($_GET['C'])) 
-{ 
-	wp_redirect( home_url( '/404/' ) );
-    exit(); 
+
+if ( is_user_logged_in() ) {//если авторизован
+
+	if(isset($_GET['p']) || isset($_GET['C'])) //существования GET запросов
+	{ 
+		wp_redirect( home_url( '/404/' ) );
+	    exit(); 
+	};
 };
