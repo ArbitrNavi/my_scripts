@@ -5,7 +5,7 @@
 // можно использовать URI страницы, кгда нужно отдавать 404 на ненужные страницы
 // $_SERVER['REQUEST_URI']=== '/elementor-popup/uznat-stoimost/'
 
-if ( is_user_logged_in() ) {//если авторизован
+if ( !is_user_logged_in() ) {//если не авторизован
 
 	if(isset($_GET['p']) || isset($_GET['C'])) //существования GET запросов
 	{ 
