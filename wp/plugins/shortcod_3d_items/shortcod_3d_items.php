@@ -3,15 +3,15 @@ add_image_size('480x241', 480, 241, true);
 
 // создание произвольной страницы используя плагин acf 
 if( function_exists('acf_add_options_page') ) {
-    
-    acf_add_options_page(array(
-        'page_title'    => 'Панорама 3D',
-        'menu_title'    => 'Панорама 3D',
-        'menu_slug'     => 'panorama_3d',
-        'capability'    => 'edit_posts',
-        // 'redirect'       => false
-    ));
-    
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Панорама 3D',
+		'menu_title'	=> 'Панорама 3D',
+		'menu_slug' 	=> 'panorama_3d',
+		'capability'	=> 'edit_posts',
+		// 'redirect'		=> false
+	));
+	
 };
 
 
@@ -22,7 +22,7 @@ $elem = $atts['ids'];
 
 $elem_arr = explode(",", $elem);
 foreach ($elem_arr as  $key => $value) {
-    $elem_arr[$key] = 'id' . $value . '.id';
+	$elem_arr[$key] = 'id' . $value . '.id';
 }
 
 $elem = implode(',',$elem_arr);
@@ -35,9 +35,9 @@ if (array_key_exists('width',$atts)) {
     }
 };
 if ($atts['ids']==='all') {
-    $elem_all=false;
+	$elem_all=false;
 }else{
-    $elem_all=true;
+	$elem_all=true;
 }
 
 
@@ -49,7 +49,7 @@ $resoult = '
     <!-- <p class="p3d_title">Наше портфолио</p>' . count($elem) . '-->
     <div class="p3d_container">';
 
-    // loop through the rows of data
+ 	// loop through the rows of data
     while ( have_rows('p3d','option') ) : the_row();
 // var_dump($elem);
 // var_dump($i);
@@ -58,8 +58,8 @@ $resoult = '
 
 
 if (strpos($elem,'id' . $i . '.id')===false && $elem_all) {
-    
-    }else{
+	
+	}else{
 
         $title = get_sub_field('title');
         $link = get_sub_field('link');
@@ -69,7 +69,7 @@ if (strpos($elem,'id' . $i . '.id')===false && $elem_all) {
         $resoult .= '<!-- p3d_item -->
         <div class="p3d_item" ' . $elem_one . '>
             <div class="p3d_container_img">
-                <img src="'. $img["sizes"]["480x241"] . '" class="p3d_img">
+                <img src="'. $img["sizes"]["480x241"] . '" class="p3d_img" alt="'. $title.'" title="'. $title.'">
             </div>
             <a href="'. $link .'" target="_blank" class="p3d_item_title">' . $title . '</a>
         </div>
@@ -93,7 +93,7 @@ endif;
 
 // $resoult= '
 
-    return $resoult;
+	return $resoult;
 };
 
 add_shortcode('p3d', 'p3d_func');
