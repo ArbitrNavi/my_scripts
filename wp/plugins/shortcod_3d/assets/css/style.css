@@ -50,3 +50,10 @@
     margin-bottom: 0;
     text-align: center;
 }
+
+/*адаптивная верстка*/
+@media (max-width: 750px) {
+  .p3d_item{
+    width:100%;
+  }
+}
