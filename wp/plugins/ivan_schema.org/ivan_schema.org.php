@@ -20,6 +20,7 @@
 // Версии
 // v1.0 перенес файлы микроразметки в плагин
 // v1.1 имя автора изменил на Админ
+// v1.2 удаление лишней микроразметки hentry
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
@@ -29,4 +30,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_option
 
 // файл микроразметки
 require_once plugin_dir_path( __FILE__ ) . 'includes/seo_data.php';
+
+// удаление лишней микроразметки hentry
+require_once plugin_dir_path( __FILE__ ) . 'includes/remove_hentry.php';
 ?>
