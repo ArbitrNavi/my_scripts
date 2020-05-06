@@ -23,6 +23,7 @@
 // v1.2 Запоняет alt в изображениях
 // v1.3 404 на определенные get
 // v1.4 исправил ошибку с функцией is_user_logged_in так как в плагинах она еще не определена
+// v1.5 выключил подставку альтов, так как пользуюсь плагином PB SEO Friendly Images
 
 // сократить описание в админ панеле для категорий до 150 символов
 require_once plugin_dir_path( __FILE__ ) . 'includes/small_category_colonka.php';
@@ -31,7 +32,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/small_category_colonka.php'
 require_once plugin_dir_path( __FILE__ ) . 'includes/category_coloumn.php';
  
 // Заполняет поле для атрибута alt на основе заголовка Записи у картинки при её добавлении в контент.
-require_once plugin_dir_path( __FILE__ ) . 'includes/img_alt.php';
+// require_once plugin_dir_path( __FILE__ ) . 'includes/img_alt.php';
  
 // Ставим 404 ответ на мусорные страницы, определяемые по get запросу
 require_once plugin_dir_path( __FILE__ ) . 'includes/get_404.php';
