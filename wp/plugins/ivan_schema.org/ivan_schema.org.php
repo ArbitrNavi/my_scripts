@@ -21,7 +21,7 @@
 // v1.0 перенес файлы микроразметки в плагин
 // v1.1 имя автора изменил на Админ
 // v1.2 удаление лишней микроразметки hentry
-// v1.3 исправил протокол на https в website
+// v1.3 добавление кнопки удалить пост в админ бар
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
@@ -34,4 +34,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/seo_data.php';
 
 // удаление лишней микроразметки hentry
 require_once plugin_dir_path( __FILE__ ) . 'includes/remove_hentry.php';
+
+// добавление кнопки удалить пост в админ бар
+require_once plugin_dir_path( __FILE__ ) . 'includes/remove_post_admin_bar.php';
 ?>
