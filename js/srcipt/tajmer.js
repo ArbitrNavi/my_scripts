@@ -28,8 +28,20 @@ return value;
 };
 
 // счетчик
-var deal_end_date = "2020-06-03";     //дата до которой производится отсчет
-var target_date = new Date( deal_end_date ).getTime();
+// var deal_end_date = "2020-06-03";     //дата до которой производится отсчет
+// var target_date = new Date( deal_end_date ).getTime();
+
+
+// прибавить месяц к текущей дате:
+// getDate день
+// getMonth месяц
+// getFullYear год
+
+var target_date = new Date();
+target_date.setMonth( target_date.getMonth() + 1);
+  
+target_date = target_date.getTime();
+
 // variables for time units     
 var days, hours, minutes, seconds;      
 // get tag element     
