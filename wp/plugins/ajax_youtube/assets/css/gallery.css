@@ -42,10 +42,11 @@
 	width:  50px;
 }
 
-.youtube .play:hover .youtube_color_icon {
-    fill: #ffffff!important;
+.youtube .play:hover svg path:first-child {
+    fill: #ff0000!important;
+    fill-opacity:1!important;
+    transition: all .2s ease;
 }
-
 
 /* responsive */
     .item-responsive {
