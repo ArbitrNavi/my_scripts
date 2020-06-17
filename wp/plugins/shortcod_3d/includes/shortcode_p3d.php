@@ -52,12 +52,13 @@ if (strpos($elem,'id' . $i . '.id')===false && $elem_all) {
 
         // <div class="p3d_item">
         $resoult .= '<!-- p3d_item -->
-        <div class="p3d_item" ' . $elem_one . '>
+        <a href="'. $link .'" target="_blank" class="p3d_item" ' . $elem_one . '>
+            <p class="p3d_item_title2">Посмотреть VR тур</p>
             <div class="p3d_container_img">
                 <img src="'. $img["sizes"]["480x241"] . '" class="p3d_img" alt="'. $title.'" title="'. $title.'">
             </div>
-            <a href="'. $link .'" target="_blank" class="p3d_item_title">' . $title . '</a>
-        </div>
+            <p class="p3d_item_title">' . $title . '</p>
+        </a>
         <!-- .p3d_item -->';
         }
 $i++;

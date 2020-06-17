@@ -1,41 +1,55 @@
 ﻿.p3d_container {
     display: flex;
-
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .p3d_item {
     position: relative;
-
     overflow: hidden;
-
     width: calc(50% - 10px);
     margin-top: 20px;
-
     border-radius: 20px;
 }
 
-.p3d_item_title {
+.p3d_item:hover .p3d_item_title {
+    color: #d65050;
+    transition: all .5s ease;
+}
+
+.p3d_item:hover .p3d_item_title2 {
+    background: #d65050;
+    color: #fff;
+    transition: all .3s ease;
+}
+
+.p3d_item_title, .p3d_item_title2 {
+    padding: 10px 20px;
+    color: #fff;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.2;
-
     position: absolute;
-    z-index: 2;
-    bottom: 0;
-
-    box-sizing: border-box;
     width: 100%;
+    background: #0007;
+    z-index: 2;
+}
+
+.p3d_item_title {
+    margin-bottom: 0;
+    bottom: 0;
+    box-sizing: border-box;
     padding: 10px 20px;
     padding-right: 100px;
-
-    color: #fff;
-    background: #0007;
     background-image: url(../img/vr.png);
     background-repeat: no-repeat;
     background-position: center right 20px;
     background-size: 50px;
+}
+
+.p3d_item_title2 {
+    top: 0;
+    text-decoration:underline;
 }
 
 .p3d_container_img img {
@@ -53,7 +67,7 @@
 
 /*адаптивная верстка*/
 @media (max-width: 750px) {
-  .p3d_item{
-    width:100%;
-  }
+    .p3d_item {
+        width:100%;
+    }
 }
