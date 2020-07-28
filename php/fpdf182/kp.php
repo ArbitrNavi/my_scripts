@@ -139,9 +139,6 @@ class PDF extends FPDF
 	        // $this->Ln();
 
 
-
-
-
 $this->SetFont('times','B');
 		if ($data['info']['korporativnie'] == 1) {
 	        $this->Cell($w[0],$h_string,'   Налог на доход 10%','T',0,'L',$fill);
@@ -247,7 +244,7 @@ $pdf->Cell(0,7,$data_arr['info']['name_project'],0,2,'C');
 // $pdf->Cell(0,7,iconv_strlen($data_arr['info']['name_project']),0,2,'C');
 };
 
-$pdf->Ln(0);
+$pdf->Ln(1);
 
 
 $pdf->SetFont('times','',14);
