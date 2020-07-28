@@ -1,12 +1,8 @@
 <?php
-// echo 'test';
-// $data_arr = $_POST['data_arr']; //получили GET
 $data_arr = $_POST['data_arr']; //получили GET
-// var_dump($data_arr);
-$data_arr=json_decode($data_arr,true); //извлекли массив из JSON
-// echo '<hr>';
-// var_dump($data_arr);
+$data_arr=json_decode($data_arr, true); //извлекли массив из JSON
 $data_arr_utf8=$data_arr;
+
 
 function translit($value)
 {
@@ -102,7 +98,7 @@ class PDF extends FPDF
 	    // $this->SetLineWidth(.3);
 	    $this->SetFont('times','B','12');
 	    //ширина столбов
-	    $w=array(110,30,25,25);
+	    $w=array(125,30,35,0);
 
 	    $h_string = 7;//высота строк
 
@@ -111,8 +107,8 @@ class PDF extends FPDF
 	    // Заголовок таблицы
         $this->Cell($w[0],7,'   ' . $header[0],'R',0);
         $this->Cell($w[1],7,'   ' . $header[1],'R',0);
-        $this->Cell($w[2],7,'   ' . $header[2],'R',0);
-        $this->Cell($w[3],7,'   ' . $header[3],'0',0);
+        $this->Cell($w[2],7,'   ' . $header[2],'0',0);
+        // $this->Cell($w[3],7,'   ' . $header[3],'0',0);
 	    $this->Ln();
 	    //Восстановление цвета и шрифта
 	    // $this->SetFillColor(204,229,255);
@@ -126,9 +122,9 @@ class PDF extends FPDF
 	    foreach($data['work'] as $row)
 	    {
 	        $this->Cell($w[0],$h_string,'   ' . $row[0],'RT',0,'L',$fill);
-	        $this->Cell($w[1],$h_string,'   ' . number_format($row[2]),'RT',0,'L',$fill);
-	        $this->Cell($w[2],$h_string,'   ' . $row[1],'RT',0,'L',$fill);
-	        $this->Cell($w[3],$h_string,'   ' . number_format($row[3]),'T',0,'L',$fill);
+	        $this->Cell($w[1],$h_string,'   ' . $row[1],'RT',0,'L',$fill);
+	        $this->Cell($w[2],$h_string,'   ' . number_format($row[3]),'T',0,'L',$fill);
+	        // $this->Cell($w[3],$h_string,'   ' . $row[3],'T',0,'L',$fill);
 	        $this->Ln();
 	        // $fill=!$fill;
 	        $summ+=$row[1];
@@ -144,26 +140,26 @@ class PDF extends FPDF
 
 $this->SetFont('times','B');
 		if ($data['info']['korporativnie'] == 1) {
-	        $this->Cell($w[0],$h_string,'   Налог на доход 10%','T',0,'L',$fill);
-	        $this->Cell($w[1],$h_string,'   ','T',0,'L',$fill);
-	        $this->Cell($w[2],$h_string,'   ','RT',0,'L',$fill);
-	        $this->Cell($w[3],$h_string,'   ' . number_format($data['info']['nalog_summa']),'T',0,'L',$fill);
+	        $this->Cell($w[0],$h_string,'   Налог на доход 10%','RT',0,'L',$fill);
+	        $this->Cell($w[1],$h_string,'   ','RT',0,'L',$fill);
+	        $this->Cell($w[2],$h_string,'   ' . number_format($data['info']['nalog_summa']),'T',0,'L',$fill);
+	        // $this->Cell($w[3],$h_string,'   ','T',0,'L',$fill);
 	        $this->Ln();
 		}
 
 		if ($data['info']['skidka'] > 0) {
-	        $this->Cell($w[0],$h_string,'   Скидка ' . $data['info']['skidka'] . '%','T',0,'L',$fill);
-	        $this->Cell($w[1],$h_string,'   ','T',0,'L',$fill);
-	        $this->Cell($w[2],$h_string,'   ','RT',0,'L',$fill);
-	        $this->Cell($w[3],$h_string,'   ' . number_format($data['info']['skidka_summa']),'T',0,'L',$fill);
+	        $this->Cell($w[0],$h_string,'   Скидка ' . $data['info']['skidka'] . '%','RT',0,'L',$fill);
+	        $this->Cell($w[1],$h_string,'   ','RT',0,'L',$fill);
+	        $this->Cell($w[2],$h_string,'   ' . number_format($data['info']['skidka_summa']),'T',0,'L',$fill);
+	        // $this->Cell($w[3],$h_string,'   ','T',0,'L',$fill);
 	        $this->Ln();
 		}
 
 			$this->SetTextColor(237,28,36);
-	        $this->Cell($w[0],$h_string,'   Итоговая цена','T',0,'L',$fill);
-	        $this->Cell($w[1],$h_string,'   ','T',0,'L',$fill);
-	        $this->Cell($w[2],$h_string,'   ','RT',0,'L',$fill);
-	        $this->Cell($w[3],$h_string,'   ' . number_format($data['info']['itog_skidka_summa']),'T',0,'L',$fill);
+	        $this->Cell($w[0],$h_string,'   Итоговая цена','RT',0,'L',$fill);
+	        $this->Cell($w[1],$h_string,'   ','RT',0,'L',$fill);
+	        $this->Cell($w[2],$h_string,'   ' . number_format($data['info']['itog_skidka_summa']),'T',0,'L',$fill);
+	        // $this->Cell($w[3],$h_string,'   ','T',0,'L',$fill);
 	        $this->Ln();
 
 	    // $this->Cell(array_sum($w),0,'','0');//нижняя граница
@@ -240,12 +236,12 @@ $pdf->Ln(40);
 
 // обычный текст
 
-if (!empty($data_arr['info']['name_project'])>0) {
+
+
 $pdf->Image('img/line.jpg',0,$pdf->GetY()-2,210,10);
 $pdf->SetFont('times','',20);
 $pdf->Cell(0,7,$data_arr['info']['name_project'],0,2,'C');
-// $pdf->Cell(0,7,iconv_strlen($data_arr['info']['name_project']),0,2,'C');
-};
+
 
 $pdf->Ln(0);
 
@@ -261,7 +257,7 @@ $pdf->Cell(0,5,'Расчет стоимости',0,2,'C');
 $pdf->Ln(3);
 
 //Заголовки столбцов
-$header=array('Услуга','Цена за ед.','Единиц', 'Сумма');
+$header=array('Услуга','Количество','Стоимость,руб', 'Примечание');
 
 // таблица
 $pdf->FancyTable($header,$data_arr);

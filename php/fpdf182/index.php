@@ -13,7 +13,7 @@ $pdf->Output('name.pdf','I');
 
 
  
-// class PDF extends FPDF
+class PDF extends FPDF
 // {
 // //Заголовок страницы
 // function Header()
@@ -477,6 +477,6 @@ $pdf->Output('name.pdf','I');
 // $pdf->Image('logo.png',10,12,30,0,'','http://www.fpdf.org');
 // $pdf->SetLeftMargin(45);
 // $pdf->SetFontSize(14);
-// $pdf->WriteHTML($html);
-// $pdf->Output();
+$pdf->WriteHTML($html);
+$pdf->Output();
 ?>
