@@ -194,6 +194,7 @@ if ($type === 'title') {
 
 // вставляем все шаблоны микроразметки в одну функцию
 function footer_schema(){
+	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/webpage.php';
 	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/organization.php';
 	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/localbusiness.php';
 	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/wpsidebar.php';
