@@ -21,20 +21,17 @@
 // v1.0 перенес файлы микроразметки в плагин
 // v1.1 имя автора изменил на Админ
 // v1.2 удаление лишней микроразметки hentry
-// v1.3 добавление кнопки удалить пост в админ бар
+// v1.3 добавление микроразметки через jsonld
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
 
 // Настройки группы полей для данной страницы
-require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
+// require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
 
 // файл микроразметки
 require_once plugin_dir_path( __FILE__ ) . 'includes/seo_data.php';
 
 // удаление лишней микроразметки hentry
 require_once plugin_dir_path( __FILE__ ) . 'includes/remove_hentry.php';
-
-// добавление кнопки удалить пост в админ бар
-require_once plugin_dir_path( __FILE__ ) . 'includes/remove_post_admin_bar.php';
 ?>

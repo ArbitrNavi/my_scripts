@@ -166,6 +166,9 @@ if ($type === 'title') {
 	
 }elseif($type === 'adress_region') {
 	$resoult = get_field('shema_adress_region','options');
+		
+}elseif($type === 'index') {
+	$resoult = get_field('index','options');
 	
 }elseif($type === 'company') {
 	$resoult = get_field('shema_company','options');
@@ -191,13 +194,19 @@ if ($type === 'title') {
 
 // вставляем все шаблоны микроразметки в одну функцию
 function footer_schema(){
-	include plugin_dir_path( __FILE__ ) . '/microrazmetka/wpheader.php';
-	include plugin_dir_path( __FILE__ ) . '/microrazmetka/organization.php';
-	include plugin_dir_path( __FILE__ ) . '/microrazmetka/website.php';
-	include plugin_dir_path( __FILE__ ) . '/microrazmetka/localbusiness.php';
-	include plugin_dir_path( __FILE__ ) . '/microrazmetka/wpsidebar.php';
-	include plugin_dir_path( __FILE__ ) . '/microrazmetka/wpfooter.php';
-	include plugin_dir_path( __FILE__ ) . '/microrazmetka/article.php';
+	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/organization.php';
+	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/localbusiness.php';
+	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/wpsidebar.php';
+	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/website.php';
+	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/wpheader.php';
+	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/wpfooter.php';
+
+	if (is_single() || is_page()) {
+		$post_id = get_queried_object()->ID; 
+		$this_post = get_post($post_id);
+		$this_post_content = get_post($post_id)->post_content;
+		include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/article.php';
+	};
 };
 
 // выполняем функцию перед wp_footer
