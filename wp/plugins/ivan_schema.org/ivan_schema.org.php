@@ -30,7 +30,7 @@
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
 
 // Настройки группы полей для данной страницы
-// require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
 
 // файл микроразметки
 require_once plugin_dir_path( __FILE__ ) . 'includes/seo_data.php';
