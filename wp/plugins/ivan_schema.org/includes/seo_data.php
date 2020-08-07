@@ -202,13 +202,13 @@ function footer_schema(){
 	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/wpheader.php';
 	include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/wpfooter.php';
 
-	if (is_single() || is_page()) {
+	// if (is_single() || is_page()) {
 		$post_id = get_queried_object()->ID; 
 		$this_post = get_post($post_id);
 		$this_post_content = get_post($post_id)->post_content;
 		include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/article.php';
 		include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/creativework.php';
-	};
+	// };
 };
 
 // выполняем функцию перед wp_footer
