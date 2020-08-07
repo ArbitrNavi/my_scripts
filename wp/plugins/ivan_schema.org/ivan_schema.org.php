@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван	
- * Version:     1.4
+ * Version:     1.5
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -23,6 +23,7 @@
 // v1.2 удаление лишней микроразметки hentry
 // v1.3 добавление микроразметки через jsonld
 // v1.4 добавление разметки website
+// v1.5 добавление разметки CreativeWork
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';

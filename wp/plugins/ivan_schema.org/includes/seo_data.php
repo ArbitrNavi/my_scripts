@@ -207,6 +207,7 @@ function footer_schema(){
 		$this_post = get_post($post_id);
 		$this_post_content = get_post($post_id)->post_content;
 		include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/article.php';
+		include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/creativework.php';
 	};
 };
 
