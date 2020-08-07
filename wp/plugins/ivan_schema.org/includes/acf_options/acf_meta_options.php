@@ -1,5 +1,4 @@
 <?php 
-
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
@@ -89,29 +88,8 @@ acf_add_local_field_group(array(
 			'default_value' => '',
 			'placeholder' => '',
 			'maxlength' => '',
-			'rows' => '',
+			'rows' => 2,
 			'new_lines' => '',
-		),
-		array(
-			'key' => 'field_5cc07e006ae15',
-			'label' => 'Год',
-			'name' => 'shema_year',
-			'type' => 'number',
-			'instructions' => 'Копирайтинг - год',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'min' => '',
-			'max' => '',
-			'step' => '',
 		),
 		array(
 			'key' => 'field_5cc07e116ae16',
@@ -122,7 +100,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -138,6 +116,27 @@ acf_add_local_field_group(array(
 			'mime_types' => '',
 		),
 		array(
+			'key' => 'field_5cc07e006ae15',
+			'label' => 'Год',
+			'name' => 'shema_year',
+			'type' => 'number',
+			'instructions' => 'Копирайтинг - год',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '50',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '',
+		),
+		array(
 			'key' => 'field_5cc07e336ae17',
 			'label' => 'Телефон',
 			'name' => 'shema_tel',
@@ -146,7 +145,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -165,7 +164,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -183,7 +182,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -202,7 +201,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -221,7 +220,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -240,7 +239,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -259,7 +258,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -268,6 +267,27 @@ acf_add_local_field_group(array(
 			'prepend' => '',
 			'append' => '',
 			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5f2baf46d5323',
+			'label' => 'индекс',
+			'name' => 'index',
+			'type' => 'number',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '50',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => 0,
+			'max' => '',
+			'step' => '',
 		),
 		array(
 			'key' => 'field_5cc07e9e6ae1d',
@@ -314,7 +334,7 @@ acf_add_local_field_group(array(
 			'label' => 'Валюта',
 			'name' => 'shema_value',
 			'type' => 'text',
-			'instructions' => '',
+			'instructions' => 'руб, $, euro',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -349,5 +369,4 @@ acf_add_local_field_group(array(
 ));
 
 endif;
-
  ?>
