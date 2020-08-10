@@ -25,6 +25,7 @@
 // v1.4 добавление разметки website
 // v1.5 добавление разметки CreativeWork
 // v1.6 CreativeWork и Article отображается для всех типов страниц, а не только для запсей и страниц
+// v1.7 Добавил функцию clean_content - которая чистит код из получаемого текста, а так же обрезка строки
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';

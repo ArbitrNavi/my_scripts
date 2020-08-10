@@ -23,6 +23,23 @@
 * @return   string|boolean      данные из указанного метаполя или false, если с такими данными записи нет
 */
 
+// подготовка контента к передаче, очистка отлишних символов, оставляем только текст
+function clean_content($content, $substr=false){
+// $content - передаваемый контент
+// $substr - количество символов для обрезки строки
+
+$content = strip_shortcodes($content); //чистим от шорткодов
+$content = strip_tags($content); //чистим от тегов
+$content = addslashes($content); //чистим от спец символов
+
+// Если указана переменнная
+if ($substr) {
+	$content = iconv_substr($content, 0 , $substr , "UTF-8" );//Обрезаем строку
+};
+
+return $content;
+};
+
 function get_wpseo_meta_tax( $seo_item, $id_tax, $tax_type){
 	if ( !$seo_item || !$id_tax || !$tax_type )
 	    return false;
@@ -209,6 +226,9 @@ function footer_schema(){
 		include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/article.php';
 		include plugin_dir_path( __FILE__ ) . '/microrazmetka/jsonld/creativework.php';
 	// };
+		// echo "---";
+		// echo strip_shortcodes($this_post_content);
+		// echo "---";
 };
 
 // выполняем функцию перед wp_footer

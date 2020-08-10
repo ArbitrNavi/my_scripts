@@ -27,7 +27,7 @@
     "@id": "<?php echo get_permalink($post_id); ?>"
   },
   "headline": "<?php echo addslashes(get_the_title($post_id)); ?>",
-  "description": "<?php echo iconv_substr(addslashes(strip_tags($this_post_content)), 0 , 180 , "UTF-8" ); ?>...",
+  "description": "<?php echo clean_content($this_post_content, 180 ); ?>...",
   "image": "<?php echo $arr_thumbnail['src']; ?>",  
   "author": {
     "@type": "Person",
