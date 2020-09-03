@@ -35,31 +35,43 @@ function translit($value)
 // return iconv("UTF-8", "cp1251",$n);// смена кодировки
 
 // Перебор массива, так как ассоциативный, пришлось использовать для каждого ключа отдельно
-
-foreach ($data_arr['info'] as &$value) {//перебор массива с записыванием новых значений
-	$value=iconv("UTF-8", "cp1251",$value); //заменяем кодировку
-	unset($value);
-};
-
-foreach ($data_arr['work'] as &$data_arr_wokr) {//перебор массива с записыванием новых значение
-	foreach ($data_arr_wokr as &$value) {//перебор подмассива, так как каждое значение состояло из 4 значений
-		$value=iconv("UTF-8", "cp1251",$value);//заменяем кодировку
+if (isset($data_arr['info'])) {
+	foreach ($data_arr['info'] as &$value) {//перебор массива с записыванием новых значений
+		$value=iconv("UTF-8", "cp1251",$value); //заменяем кодировку
 		unset($value);
 	};
 };
 
-foreach ($data_arr['tax_info']['info'] as &$data_arr_wokr) {//перебор массива с записыванием новых значение
-	foreach ($data_arr_wokr as &$value) {//перебор подмассива, так как каждое значение состояло из 4 значений
-		$value=iconv("UTF-8", "cp1251",$value);//заменяем кодировку
-		unset($value);
+
+if (isset($data_arr['work'])) {
+	foreach ($data_arr['work'] as &$data_arr_wokr) {//перебор массива с записыванием новых значение
+		foreach ($data_arr_wokr as &$value) {//перебор подмассива, так как каждое значение состояло из 4 значений
+			$value=iconv("UTF-8", "cp1251",$value);//заменяем кодировку
+			unset($value);
+		};
 	};
 };
 
-foreach ($data_arr['tax_info']['link'] as &$data_arr_wokr) {//перебор массива с записыванием новых значение
-		
-	foreach ($data_arr_wokr as &$value) {//перебор подмассива, так как каждое значение состояло из 4 значений
-		$value=iconv("UTF-8", "cp1251",$value);//заменяем кодировку
-		unset($value);
+// var_dump($data_arr['tax_info']['info']);
+if (is_array($data_arr['tax_info']['info'])) {
+	foreach ($data_arr['tax_info']['info'] as &$data_arr_wokr) {//перебор массива с записыванием новых значение
+
+		if (is_array($data_arr_wokr)) {
+			foreach ($data_arr_wokr as &$value) {//перебор подмассива, так как каждое значение состояло из 4 значений
+				$value=iconv("UTF-8", "cp1251",$value);//заменяем кодировку
+				unset($value);
+			};
+		};
+	};
+};
+// var_dump($data_arr['tax_info']['info']);
+
+if (isset($data_arr['tax_info']['link'])) {
+	foreach ($data_arr['tax_info']['link'] as &$data_arr_wokr) {//перебор массива с записыванием новых значение
+		foreach ($data_arr_wokr as &$value) {//перебор подмассива, так как каждое значение состояло из 4 значений
+			$value=iconv("UTF-8", "cp1251",$value);//заменяем кодировку
+			unset($value);
+		};
 	};
 };
 
@@ -178,7 +190,7 @@ $this->SetFont('times','B');
 	    $this->MultiCell(0,4,'ООО "ТопЗвук"
 127427, Москва, ул. Ботаническая, дом.3 
 ОГРН 5147746374749 
-ИНН 9715006367 | КПП 771501001',0,R);
+ИНН 9715006367 | КПП 771501001',0,'R');
 
 		//Разрыв строки
 		$this->Ln(20);
@@ -276,7 +288,7 @@ foreach ($data_arr['tax_info']['link'] as $value) {
 $pdf->Cell(8);
 $pdf->Cell(70,5,$value[0] . ' - ',0,0);
 $pdf->SetTextColor(22,78,154);
-$pdf->Cell(0,5,$value[1],0,1,L,false,$value["link"]);
+$pdf->Cell(0,5,$value[1],0,1,'L',false,$value["link"]);
 $pdf->SetTextColor(0,0,0);
 	
 };
