@@ -29,10 +29,8 @@ if ($atts['ids']==='all') {
 // check if the repeater field has rows of data
 if( have_rows('p3d','option') ):
 
-$resoult = '
-<div class="portfolio-3d">
-    <!-- <p class="p3d_title">Наше портфолио</p>' . count($elem) . '-->
-    <div class="p3d_container">';
+$resoult = '<div class="portfolio-3d"><!-- <p class="p3d_title">Наше портфолио</p>' . count($elem_arr) . '--><div class="p3d_container">';
+// var_dump($elem_arr);
 
     // loop through the rows of data
     while ( have_rows('p3d','option') ) : the_row();
