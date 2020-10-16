@@ -46,7 +46,6 @@
 						  		'menu_id' => 'top-nav-ul', // id для ul
 						  		'items_wrap' => '<ul id="%1$s" class="nav navbar-nav %2$s">%3$s</ul>',
 								'menu_class' => 'top-menu', // класс для ul, первые 2 обязательны
-						  		'walker' => new bootstrap_menu(true) // верхнее меню выводится по разметке бутсрапа, см класс в functions.php, если по наведению субменю не раскрывать то передайте false		  		
 					  			);
 								wp_nav_menu($args); // выводим верхнее меню
 							?>
