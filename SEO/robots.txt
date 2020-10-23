@@ -11,3 +11,4 @@ Disallow: /?s=
 Allow: /*.css
 Allow: /*.js
 https://forza.mk
+Sitemap: https://seogio.ru/sitemap.xml
