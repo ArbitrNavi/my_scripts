@@ -2,6 +2,14 @@
 // Шорткод p3d
 function p3d_func( $atts ){
 
+if (determine_locale()=='ru_RU') {
+    $text_our_portfolio = 'Наше портфолио';
+    $test_view_vr_tour = 'Посмотреть VR тур';
+} else{
+    $text_our_portfolio = 'Our portfolio';
+    $test_view_vr_tour = 'View VR tour';
+};
+
 $i=1;
 $elem = $atts['ids'];
 
@@ -29,7 +37,7 @@ if ($atts['ids']==='all') {
 // check if the repeater field has rows of data
 if( have_rows('p3d','option') ):
 
-$resoult = '<div class="portfolio-3d"><!-- <p class="p3d_title">Наше портфолио</p>' . count($elem_arr) . '--><div class="p3d_container">';
+$resoult = '<div class="portfolio-3d"><!-- <p class="p3d_title">'. $text_our_portfolio . '</p>' . count($elem_arr) . '--><div class="p3d_container">';
 // var_dump($elem_arr);
 
     // loop through the rows of data
@@ -51,7 +59,7 @@ if (strpos($elem,'id' . $i . '.id')===false && $elem_all) {
         // <div class="p3d_item">
         $resoult .= '<!-- p3d_item -->
         <a href="'. $link .'" target="_blank" class="p3d_item" ' . $elem_one . '>
-            <p class="p3d_item_title2">Посмотреть VR тур</p>
+            <p class="p3d_item_title2">'. $test_view_vr_tour . '</p>
             <div class="p3d_container_img">
                 <img src="'. $img["sizes"]["480x241"] . '" class="p3d_img" alt="'. $title.'" title="'. $title.'">
             </div>
