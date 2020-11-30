@@ -1,0 +1,2 @@
+пароль в md5 для wordpress вставвить в бд если нужно сменить
+$P$BxXs/oHIIQwyrwzmzZJ7zB38dfQHMz0
