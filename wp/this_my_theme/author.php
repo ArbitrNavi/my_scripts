@@ -8,7 +8,7 @@ get_header(); // подключаем header.php ?>
 <section>
 	<div class="container">
 		<div class="row">
-			<div class="<?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">
+			<div class="">
 			    <?php $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author)); // получим данные о авторе ?>
 				<h1>Посты автора <?php echo $curauth->nickname; ?></h1>
 				<?php /* Немного инфы о авторе */ ?>

@@ -17,8 +17,6 @@
 	<link rel="alternate" type="application/rss+xml" title="Comments RSS" href="<?php bloginfo('comments_rss2_url'); ?>">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-	<?php /* Все скрипты и стили теперь подключаются в functions.php */ ?>
-
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
