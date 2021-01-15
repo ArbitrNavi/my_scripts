@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Lato Heavy';
+	src: url('lato_heavy.eot'); /* IE 9 Compatibility Mode */
+	src: url('lato_heavy.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('lato_heavy.woff2') format('woff2'), /* Super Modern Browsers */
+		url('lato_heavy.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('lato_heavy.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('lato_heavy.svg#lato_heavy') format('svg'); /* Chrome < 4, Legacy iOS */
+}

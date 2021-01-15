@@ -1,0 +1,8 @@
+/* Подключение шрифтов */
+@import "Bahnschrift/Bahnschrift.css";
+/*Lato Heavy*/
+@import "lato_heavy/lato_heavy.css";
+@import "Montserrat/Montserrat.css";
+@import "Muller/Muller.css";
+@import "RobotoRegular/RobotoRegular.css";
+@import "FontAwesome/FontAwesome.css";
