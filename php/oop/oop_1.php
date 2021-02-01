@@ -7,5 +7,24 @@
 // Объект - это сущность, одновременно содержащая данные и поведения
 
 
+class Car
+{
+    public $color;
+    public $year;
+    public $manufacturer;
 
-echo "test2";
+    //    функции в объекте называют действия/методы
+
+public function go(){
+//    реализация езды
+}
+
+}
+
+$myCar = new Car;//Создать новый экземляр машины на основе чертежа Car,
+// теперь переменная $myCar это объект машины, не имеет конкретных данных
+
+$myCar->color = 'red';
+$myCar->year = 2017;
+$myCar->manufacturer = 'Mersedes';
+
