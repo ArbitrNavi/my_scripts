@@ -6,6 +6,7 @@
 //объект - определяется 2 компонентами:
 //Аттрибутами(размер, цвет, скорость, ...)
 //Поведениями(бегать, прыгать, читать, ...)
+//Инкапсуляция - скрытие реализации кода от пользователя, переменные и методы приватные
 
 
 //метод setter (сеттер) изменение аттрибутов с помощью обращение к специальной функции в классе
@@ -59,8 +60,31 @@ $myCar = new Car('red', 2017, 'Mersees'); // конкретный объект -
 
 $myCar->changeColor('blue');
 
-//$myCar->color = 'blue';
-
-
 echo $myCar->displayColor();
 
+//банк
+class BankAccount{
+    private $name;
+    private $balance;
+    private $registeredDate;
+
+    public function showName(){
+        #code
+    }
+
+    public function showBalance(){
+        #code
+    }
+
+    private function checkBalance(){
+        //реализация
+    }
+
+    public function withdraw(){
+        //еще код...
+
+        $this->checkBalance();
+
+        //еще код
+    }
+}
