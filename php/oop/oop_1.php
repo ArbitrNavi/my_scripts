@@ -16,7 +16,7 @@ class Car
 
     public function go()
     {
-    //    реализация езды
+        //    реализация езды
     }
 
 }
@@ -52,14 +52,27 @@ class Car
 
 //    действия / методы к объекту
 
-public function startEngine(){
+    public function __construct($color, $year, $izgotovitel)
+    {
+        $this->color = $color;
+        $this->year = $year;
+        $this->year = $izgotovitel;
+    }
+
+    public function startEngine()
+    {
 //    большой кусок сода завода мотора
-}
+    }
 
-public function go(){
-//    реализация езды
-}
+    public function changeColor($color)
+    {
+        $this->color = $color;
+    }
 
+    public function go()
+    {
+    //    реализация езды
+    }
 
 //действие КОНСТРУКТОР - выполняется без явного вызова
 }
