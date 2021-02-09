@@ -39,3 +39,40 @@ $myCar->manufacturer = 'Mersedes';
 //7. открыть двери - openDoors()
 //8. закрыть двери - closeDoors()
 
+//ООП 4
+// класс - (план) чертер по которому будет создан объект
+// объект - конкретно построенный авто
+
+//Класс Car - состоит из свойств (чертеж)
+class Car
+{
+    public $color;
+    public $year;
+    public $manufacturer;
+
+//    действия / методы к объекту
+
+public function startEngine(){
+//    большой кусок сода завода мотора
+}
+
+public function go(){
+//    реализация езды
+}
+
+
+//действие КОНСТРУКТОР - выполняется без явного вызова
+}
+
+$myCar = new Car; // конкретный объект - создать новый экземпляр машины на основе чертежа Car. Теперь это экземляр машины
+
+$myCar->color = 'red';
+$myCar->year = 2017;
+$myCar->manufacturer = 'Mersedes';
+
+$myCar->startEngine();//заводим машину
+$myCar->go();//едем
+
+//каждый объект имеет один экземляр класса Car
+$myCar2 = new Car;
+$myCar3 = new Car;
