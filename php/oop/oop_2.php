@@ -24,23 +24,19 @@ class Car
 
     public function startEngine()
     {
-    //    большой кусок сода завода мотора
+        //    большой кусок сода завода мотора
     }
 
     public function changeColor($color)
     {
         $this->color = $color;
     }
-
-    public function go()
-    {
-        //    реализация езды
-    }
-
 //действие КОНСТРУКТОР - выполняется без явного вызова
 }
 
-$myCar = new Car('red',2017,'Mersees'); // конкретный объект - создать новый экземпляр машины на основе чертежа Car. Теперь это экземляр машины
+$myCar = new Car('red', 2017, 'Mersees'); // конкретный объект - создать новый экземпляр машины на основе чертежа Car. Теперь это экземляр машины
 
+$myCar->changeColor('blue');
 
+echo $myCar->color;
 
