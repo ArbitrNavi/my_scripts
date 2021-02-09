@@ -7,17 +7,26 @@
 //Аттрибутами(размер, цвет, скорость, ...)
 //Поведениями(бегать, прыгать, читать, ...)
 
+
+//метод setter (сеттер) изменение аттрибутов с помощью обращение к специальной функции в классе
+//метод getter (getter) что то получить, показать
+
+//со стороны разработки это методы, со стороны пользователя - интерфейс
+//элементы интерфейса являются только публичные аттрибуты и методы
+//мы можем выставить уровень доступы и для метода, тем самым сделав их элементами интерфейса
+//так же можно назвать эти методы точками соприкосновениями с пользователями - машина может заводиться, ехать
+//тогда все остальные методы, которые не являются непосредственными точками соприкосновениями с пользователями - выставляем приватными
+
 class Car
 {
-    public $color;
-    public $year;
-    public $manufacturer;
+    private $color;
+    private $year;
+    private $manufacturer;
 
-//    действия / методы к объекту
-
+    //    действия / методы к объекту
     public function __construct($color, $year, $izgotovitel)
     {
-        $this->color = $color;
+        $this->changeColor($color);
         $this->year = $year;
         $this->year = $izgotovitel;
     }
@@ -27,9 +36,21 @@ class Car
         //    большой кусок сода завода мотора
     }
 
+    //замена цвета
+    //setter
     public function changeColor($color)
     {
-        $this->color = $color;
+        if (is_string($color)) {
+            $this->color = $color;
+        } else {
+            die('Цвет должен быть строкой!');
+        }
+    }
+
+    //getter
+    public function displayColor()
+    {
+        return $this->color;
     }
 //действие КОНСТРУКТОР - выполняется без явного вызова
 }
@@ -38,5 +59,8 @@ $myCar = new Car('red', 2017, 'Mersees'); // конкретный объект -
 
 $myCar->changeColor('blue');
 
-echo $myCar->color;
+//$myCar->color = 'blue';
+
+
+echo $myCar->displayColor();
 
