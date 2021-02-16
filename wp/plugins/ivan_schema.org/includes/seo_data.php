@@ -155,7 +155,7 @@ if ($type === 'title') {
 	$resoult = $my_key;
 	
 }elseif($type === 'year') {
-	$resoult = get_field('shema_year','options');
+	$resoult = date ('Y');
 	
 }elseif($type === 'logo') {
 	$resoult = image_downsize( get_field('shema_logo','options')['ID'], 'full' )['0'];

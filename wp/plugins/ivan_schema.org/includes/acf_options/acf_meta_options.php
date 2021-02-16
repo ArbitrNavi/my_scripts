@@ -116,27 +116,6 @@ acf_add_local_field_group(array(
 			'mime_types' => '',
 		),
 		array(
-			'key' => 'field_5cc07e006ae15',
-			'label' => 'Год',
-			'name' => 'shema_year',
-			'type' => 'number',
-			'instructions' => 'Копирайтинг - год',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '50',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'min' => '',
-			'max' => '',
-			'step' => '',
-		),
-		array(
 			'key' => 'field_5cc07e336ae17',
 			'label' => 'Телефон',
 			'name' => 'shema_tel',
@@ -254,7 +233,7 @@ acf_add_local_field_group(array(
 			'label' => 'Название компании',
 			'name' => 'shema_company',
 			'type' => 'text',
-			'instructions' => '',
+			'instructions' => 'Без кавычек',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -273,11 +252,11 @@ acf_add_local_field_group(array(
 			'label' => 'индекс',
 			'name' => 'index',
 			'type' => 'number',
-			'instructions' => '',
+			'instructions' => 123456,
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '50',
+				'width' => '25',
 				'class' => '',
 				'id' => '',
 			),
@@ -298,7 +277,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '33',
+				'width' => '25',
 				'class' => '',
 				'id' => '',
 			),
@@ -319,7 +298,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '33',
+				'width' => '25',
 				'class' => '',
 				'id' => '',
 			),
@@ -338,7 +317,7 @@ acf_add_local_field_group(array(
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '33',
+				'width' => '25',
 				'class' => '',
 				'id' => '',
 			),
@@ -364,9 +343,8 @@ acf_add_local_field_group(array(
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
-	'active' => true,
+	'active' => 1,
 	'description' => '',
 ));
 
-endif;
- ?>
+endif;?>
