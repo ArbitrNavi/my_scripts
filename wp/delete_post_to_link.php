@@ -16,6 +16,8 @@ echo "<pre>";
 var_dump($links_arr);
 echo "</pre>";
 
-foreach ($links_arr as $item) {
-    $postid = url_to_postid( $url );
-}
+foreach ($links_arr as $item) {//перебор массива
+    unset($postid);//очистить переменную
+    $postid = url_to_postid( $item );//получить id по ссылке
+    wp_delete_post($postid);//удалить пост по id
+};
