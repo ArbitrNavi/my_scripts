@@ -1,4 +1,8 @@
 <?php
+/*
+Template Name: page_remove_posts
+*/
+
 //Удаление записей по ссылкам
 
 $links_string = "
@@ -14,10 +18,15 @@ $links_arr = array_diff($links_arr, array(''));//удаляем пустые э�
 
 echo "<pre>";
 var_dump($links_arr);
-echo "</pre>";
 
+$i=1;
 foreach ($links_arr as $item) {//перебор массива
-    unset($postid);//очистить переменную
+    unset($postid, $post_delete);//очистить переменную
     $postid = url_to_postid( $item );//получить id по ссылке
-    wp_delete_post($postid);//удалить пост по id
+    $post_delete = wp_delete_post($postid);//удалить пост по id
+    echo $i . ') ' . $item . ' - ' . $postid . ' - ' . $post_delete . '<br>';
+    $i++;
 };
+
+echo "</pre>";
+?>
