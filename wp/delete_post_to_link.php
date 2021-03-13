@@ -7,13 +7,9 @@ v 1.2
 //Удаление записей по ссылкам
 get_header();
 
-
+//Вставить ссылки в эту переменную, потом построчно сама разобьет
 $links_string = "
-https://tz-video.ru/dogovor-na-okazanie-uslug-videosemki/
-https://tz-video.ru/uslugi-i-tsenyi/
-https://tz-video.ru/fotograf/
-https://tz-video.ru/dekoratsii-dlya-fotosessii/
-https://tz-video.ru/oborudovanie/
+
 ";
 
 $links_arr = explode(PHP_EOL, $links_string);//массив со ссылками
@@ -27,7 +23,7 @@ foreach ($links_arr as $item) {//перебор массива
     $post_delete = wp_delete_post($postid);//удалить пост по id
     $resoult_post_delete = $post_delete ? 'удалено - ' . $post_delete->ID : 'не удалено или категория';
 
-    echo '<tr><td>' . $i . ')</td><td>' . $item . '</td><td>' . $resoult_post_delete . '</td></tr>';
+    echo '<tr><td>' . $i . ') </td><td style="max-width:500px;word-break:break-all;">' . $item . '</td><td>' . $resoult_post_delete . '</td></tr>';
     $i++;
 };
 
