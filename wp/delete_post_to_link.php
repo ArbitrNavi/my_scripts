@@ -16,8 +16,6 @@ https://tz-video.ru/dekoratsii-dlya-fotosessii/
 https://tz-video.ru/oborudovanie/
 ";
 
-//var_dump($links_string);
-
 $links_arr = explode(PHP_EOL, $links_string);//массив со ссылками
 $links_arr = array_diff($links_arr, array(''));//удаляем пустые элементы
 
