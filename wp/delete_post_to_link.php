@@ -21,7 +21,7 @@ foreach ($links_arr as $item) {//перебор массива
     unset($postid, $post_delete);//очистить переменную
     $postid = url_to_postid($item);//получить id по ссылке
     $post_delete = wp_delete_post($postid);//удалить пост по id
-    $resoult_post_delete = $post_delete ? 'удалено - ' . $post_delete->ID : 'не удалено или категория';
+    $resoult_post_delete = $post_delete ? 'точно удалено - ' . $post_delete->ID : 'удалено или категория';
 
     echo '<tr><td>' . $i . ') </td><td style="max-width:500px;word-break:break-all;">' . $item . '</td><td>' . $resoult_post_delete . '</td></tr>';
     $i++;
