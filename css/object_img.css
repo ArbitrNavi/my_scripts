@@ -1,0 +1,7 @@
+/*проставляем значение изображенияю и можем выбарать позиционирование как у фона*/
+.animal_green_top img{
+    object-fit:contain;
+    object-position:center bottom;
+    width:100%;
+    height:100%;
+}
