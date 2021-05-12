@@ -1,2 +1,4 @@
 /*что б шрифты отображались стандартные, пока не подгружены нужные. Необходимо для гугл спида*/
-font-display: swap!important;
+*{
+    font-display: swap!important;
+}
