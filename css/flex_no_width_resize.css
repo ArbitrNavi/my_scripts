@@ -1,0 +1,6 @@
+/*отменить гибкое растягивание элементов внутри flex контейнера*/
+.flex_box{
+    display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
