@@ -4,6 +4,7 @@
 // ">=DATE_ACTIVE_TO"   => array(false, ConvertTimeStamp(false, "FULL")),
 //">DATE_ACTIVE_FROM" => $now->modify('-1 day')->format('Y-m-d H:i:s'),//дата активности начиная с вчерашнего дня
 //PROPERTY_DATE - дата создания элемента
+//DATE_CREATE - дата создания
 //PROPERTY_NEWPRODUCT - Новинка (значение указывается по ID значения списка внутри настройки этого свойства
 
 $now = new DateTime();
