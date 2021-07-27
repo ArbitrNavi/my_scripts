@@ -12,7 +12,13 @@ echo "Установленная из строки дата: " .  $dateFormat; /
 echo "<hr>";
 echo "текущая дата: " . date("d.m.Y");
 echo "<hr>";
-echo "+30 дней: " . date("d.m.Y", strtotime('+30 day'));
+echo "+30 дней: " . date("d.m.Y", strtotime('+30 day')); //возвращает готовую строку
+echo "<hr>";
+
+//возвращает объект даты +30 дней
+$data_next = new DateTime();
+$data_next->add(new DateInterval('P30D'));
+var_dump($data_next);
 
 // Предположим, что текущая дата March 10th, 2001, 5:16:18 pm
 
