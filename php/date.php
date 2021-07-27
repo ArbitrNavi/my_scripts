@@ -8,8 +8,11 @@ $date = DateTime::createFromFormat($format, $string); // получаем объ
 
 // Вывод даты в нужном формате
 $dateFormat = $date->format('d.m.Y');
-echo $dateFormat; //12.08.2020
-
+echo "Установленная из строки дата: " .  $dateFormat; //12.08.2020
+echo "<hr>";
+echo "текущая дата: " . date("d.m.Y");
+echo "<hr>";
+echo "+30 дней: " . date("d.m.Y", strtotime('+30 day'));
 
 // Предположим, что текущая дата March 10th, 2001, 5:16:18 pm
 
