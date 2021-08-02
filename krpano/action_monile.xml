@@ -1,0 +1,17 @@
+<krpano>
+    <action name="action_mobile" keep="true">
+        set(layer[youtube].width,"70px");
+        set(layer[doma_info].width,"85%");
+        <!-- close_plan(); -->
+    </action>
+
+    <action name="action_mobile-no" keep="true">
+        set(layer[youtube].width,"200px");
+        set(layer[doma_info].width,"700");
+        <!-- open_plan(); -->
+    </action>
+
+    <events name="mobile" keep="true"
+            onresize="if(stagewidth LT 1000, action_mobile(), action_mobile-no());"
+    />
+</krpano>
