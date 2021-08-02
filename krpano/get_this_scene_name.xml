@@ -1,0 +1,5 @@
+<krpano>
+<!--  получает имя текущей сцены  -->
+   <layer name="title"
+          html='get:scene[get(xml.scene)].title'/>
+</krpano>
