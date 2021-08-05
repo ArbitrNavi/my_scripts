@@ -7,15 +7,14 @@
                 <div class="cs_container_img">
                 
                     <div class="owl-carousel">
-                        <div><img src="img/1.jpg" alt=""></div>
-                        <div><img src="img/2.jpg" alt=""></div>
-                        <div><img src="img/3.jpg" alt=""></div>
+                        <div><img src="<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/1.jpg" alt=""></div>
+                        <div><img src="<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/2.jpg" alt=""></div>
+                        <div><img src="<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/3.jpg" alt=""></div>
                     </div>
 
                 </div>
                 <div class="cs_control">
                     <div id="btn_left" class="cs_btn btn_left"></div>
-
                     <div id="btn_right" class="cs_btn btn_right"></div>
                 </div>
             </div>

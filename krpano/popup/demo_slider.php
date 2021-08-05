@@ -7,9 +7,9 @@
                 <div class="cs_container_img">
                     
                     <div class="owl-carousel">
-                        <div><img src="img/1.jpg" alt=""></div>
-                        <div><img src="img/2.jpg" alt=""></div>
-                        <div><img src="img/3.jpg" alt=""></div>
+                        <div><img src="<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/1.jpg" alt=""></div>
+                        <div><img src="<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/2.jpg" alt=""></div>
+                        <div><img src="<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/3.jpg" alt=""></div>
                     </div>
 
                 </div>
