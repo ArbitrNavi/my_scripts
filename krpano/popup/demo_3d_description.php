@@ -7,7 +7,7 @@
             $('.spritespin').spritespin('api').requestFullscreen();
           });
           $('.spritespin').spritespin({
-            source: SpriteSpin.sourceArray('<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/{frame}.jpg', { frame: [31,42], digits: 1 }),
+            source: SpriteSpin.sourceArray('<?php echo dirname($_SERVER['PHP_SELF']) ?>/img/{frame}.jpg', { frame: [31,33], digits: 1 }),
             width: 540,
             height: 410,
             sense: -1,
