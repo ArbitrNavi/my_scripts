@@ -45,7 +45,7 @@
 	               controlbar_offset_closed="-40"
 	               controlbar_overlap.no-fractionalscaling="10"
 	               controlbar_overlap.fractionalscaling="0"
-	               design_skin_images="vtourskin.png"
+	               design_skin_images="vtourskin_musei_1.png"
 	               design_bgcolor="0x000000"
 	               design_bgalpha="0.6"
 	               design_bgborder="0"
