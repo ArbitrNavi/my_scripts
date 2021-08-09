@@ -1538,7 +1538,8 @@
 			onnewpano="
 			calc(layer[title].html, global.title + ' - ' + get(scene[get(xml.scene)].title));
 			calc(layer[title].html, xml.scene + ' - ' + get(scene[get(xml.scene)].title));
-			trace('onclick from the style');"
+			calc(layer[title].html, '' + get(scene[get(xml.scene)].title));
+			trace('events onowerpano');"
 	/>
 
 </krpano>
