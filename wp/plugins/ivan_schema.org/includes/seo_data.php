@@ -13,7 +13,6 @@
 // include plugin_dir_path( __FILE__ ) . '/microrazmetka/wpsidebar.php';
 // include plugin_dir_path( __FILE__ ) . '/microrazmetka/wpfooter.php';
 // include plugin_dir_path( __FILE__ ) . '/microrazmetka/
-// IN WORK
 /**
  * Возвращает seo данные, сохранённые для таксономий плагином Yoast SEO
  *
