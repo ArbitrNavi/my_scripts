@@ -1,4 +1,3 @@
-<?php $post_id = get_queried_object()->ID; ?>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

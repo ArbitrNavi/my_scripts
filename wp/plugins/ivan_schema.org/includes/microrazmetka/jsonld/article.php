@@ -1,23 +1,3 @@
-  <?php 
-  // Если есть миниатюра
-  if( has_post_thumbnail($post_id) ) {
-    $thumbnail_id  = get_post_thumbnail_id( $post_id );
-    $image_attributes = wp_get_attachment_image_src( $thumbnail_id );
-    $arr_thumbnail = array(
-      'src' => $image_attributes[0], 
-      'width' => $image_attributes[1], 
-      'height' => $image_attributes[2], 
-    );
-    // если миниатюры нет - выводим лого
-  }else {
-    $arr_thumbnail = array(
-      'src' => seo_info('logo'), 
-      'width' => seo_info('logo_w'), 
-      'height' => seo_info('logo_h'), 
-    );
-  };
-  ?>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
