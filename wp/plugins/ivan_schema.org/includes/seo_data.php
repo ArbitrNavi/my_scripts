@@ -274,11 +274,11 @@ function footer_schema() {
 		);
 		// если миниатюры нет - выводим лого
 	} elseif ( ! empty( first_post_image() ) ) {
+		$arr_img_content = image_downsize(get_image_id( first_post_image()['src'] ), 'full');
 		$arr_thumbnail = array(
-			'src'    => get_image_id( first_post_image()['src'] ),
-//			'src'    => wp_get_attachment_image_src('http://wp.loc/wp-content/uploads/2021/08/IMG_1.jpg', 'thumbnail')[0],
-			'width'  => seo_info( 'logo_w' ),
-			'height' => seo_info( 'logo_h' ),
+			'src'    => $arr_img_content[0],
+			'width'  => $arr_img_content[1],
+			'height' => $arr_img_content[2],
 		);
 	} else {
 		$arr_thumbnail = array(

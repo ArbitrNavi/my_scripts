@@ -1,10 +1,10 @@
-<?php 
+<?php
 /**
  * Plugin Name: ivan_schema.org
  * Description: Микроразметка schema.org
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
- * Author:      Иван	
+ * Author:      Иван
  * Version:     1.8
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
@@ -27,6 +27,7 @@
 // v1.6 CreativeWork и Article отображается для всех типов страниц, а не только для запсей и страниц
 // v1.7 Добавил функцию clean_content - которая чистит код из получаемого текста, а так же обрезка строки
 // v1.8 сделал год копирайтинга динамичным, теперь он всегда текущий, убрал поле "год" из админки, чуть изменил позиционирование полей в админке
+// v1.9 добавил ImageObject, так же добавил выдергивание картинок из контента постов при отсутствии миниатюры, оптимизировали форматировал некоторые участки кода. Удалил html версию schema
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
