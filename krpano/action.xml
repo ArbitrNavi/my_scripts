@@ -1,0 +1,4 @@
+<!--Срабатывает при запуске-->
+<action name="test" autorun="onstart">
+    trace(calc('test'));
+</action>
