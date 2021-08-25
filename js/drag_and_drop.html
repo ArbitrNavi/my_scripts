@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>drag and drop</title>
+</head>
+<body>
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial;
+        font-size: 16px;
+        line-height: normal;
+        font-weight: 400;
+    }
+
+    .hero {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .wrapper {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 100px 0;
+    }
+
+    .list__caption {
+        width: calc(25% - 40px);
+        margin: 0 20px;
+        list-style-type: none;;
+        font-weight: bold;
+        color: #0747a6;
+    }
+
+    .list__cell {
+        width: calc(25% - 40px);
+        margin: 20px;
+        min-height: 150px;
+        list-style-type: none;
+        box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .list__card {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        text-align: center;
+        min-height: 100%;
+        cursor: all-scroll;
+    }
+
+    .list__card-header {
+        font-weight: bold;
+        padding: 12px 20px;
+        background-color: #0747a6;
+        color: #ffffff;
+    }
+
+    .js-card {
+        background-color: #EEEEEE;
+    }
+
+    .list__card-info {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1; /*Занял все пространство*/
+        padding: 12px 20px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .hovered {
+        background-color: #d1d8e2;
+    }
+</style>
+<div class="hero">
+    <div class="wrapper">
+        <ul class="list">
+            <!--                title -->
+            <li class="list__caption">Planned</li>
+            <li class="list__caption">In dev</li>
+            <li class="list__caption">QA</li>
+            <li class="list__caption">Production</li>
+
+            <!--                work-->
+            <li class="list__cell js-cell">
+                <div class="list__card js-card" draggable="true">
+                    <div class="list__card-header">
+                        task title
+                    </div>
+                    <div class="list__card-info">
+                        task description
+                    </div>
+                </div>
+            </li>
+            <li class="list__cell js-cell"></li>
+            <li class="list__cell js-cell"></li>
+            <li class="list__cell js-cell"></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const dragAndDrop = () => {
+        const card = document.querySelector('.js-card');
+        const cells = document.querySelectorAll('.js-cell');
+
+        const dragSrart = function () {
+            setTimeout(() => {//хак для работы, что б не исчезало раньше времени
+                this.classList.add('hide');//скрываем изначальное отображение карточки
+            }, 0)
+        };
+
+        //событие когда закончили перемещение
+        const dragEnd = function () {
+            this.classList.remove('hide');//отобразить карточку
+        };
+
+        //событие перемещения карточки
+        const dragOver = function () {
+            // console.log('over');
+            event.preventDefault();//нужно для срабатывания dragDrop
+        }
+
+        //Навели на ячейку
+        const dragEnter = function () {
+            event.preventDefault();
+            console.log('enter');
+            this.classList.add('hovered');
+        }
+
+        //убрали с ячейки
+        const dragLeave = function () {
+            console.log('leave');
+            this.classList.remove('hovered')
+        }
+
+        //переместили в ячейку, работает только после dragover event.preventDefault();
+        const dragDrop = function () {
+            console.log('drop');
+            this.append(card);
+            this.classList.remove('hovered')
+        }
+
+        //перебор элементов
+        cells.forEach((cell) => {
+            // console.log(cell);
+            cell.addEventListener('dragover', dragOver)
+            cell.addEventListener('dragenter', dragEnter)
+            cell.addEventListener('dragleave', dragLeave)
+            cell.addEventListener('drop', dragDrop)
+        });
+
+        card.addEventListener('dragstart', dragSrart);//событие при начале перемещения
+        card.addEventListener('dragend', dragEnd);//событие при конце перемещения
+    };
+
+    dragAndDrop();
+</script>
+</body>
+</html>
