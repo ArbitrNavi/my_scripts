@@ -140,14 +140,14 @@
         };
 
         //событие перемещения карточки
-        const dragOver = function () {
+        const dragOver = function (evt) {
             // console.log('over');
-            event.preventDefault();//нужно для срабатывания dragDrop
+            evt.preventDefault();//нужно для срабатывания dragDrop
         }
 
         //Навели на ячейку
-        const dragEnter = function () {
-            event.preventDefault();
+        const dragEnter = function (evt) {
+            evt.preventDefault();
             console.log('enter');
             this.classList.add('hovered');
         }
@@ -158,7 +158,7 @@
             this.classList.remove('hovered')
         }
 
-        //переместили в ячейку, работает только после dragover event.preventDefault();
+        //переместили в ячейку, работает только после dragover evt.preventDefault();
         const dragDrop = function () {
             console.log('drop');
             this.append(card);
