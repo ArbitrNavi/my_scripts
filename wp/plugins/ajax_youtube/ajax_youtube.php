@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван	
- * Version:     3.0
+ * Version:     3.1
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -53,6 +53,9 @@
 
 // v3.0
 // удалил много js кода, сделал вывод изображений через php, добавил вывод в модальных окнах, добавил библиотеку jquery.modal. Исправил баг с дублированием внутреннего элемента. Сделал точный отступ в 10px между видео
+
+// v3.1
+// увеличил z-index модального окна
 
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';

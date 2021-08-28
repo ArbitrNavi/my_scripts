@@ -3,3 +3,7 @@
     max-height: 80vh;
     height: 80vh;
 }
+
+.blocker{
+    z-index:1000;
+}
