@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван	
- * Version:     2.6
+ * Version:     3.0
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -22,7 +22,8 @@
 
 // для добавления поместить файл в папку
 // добавить строку в файл functions.php require_once 'includes/youtube_click.php';
-// добавить подобный шорткод на страницу [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc, budU2vvJTYk, GcfKqPMiwwQ, OG9Cs6UFqiY, tiZei_2PUqk"] где ids это код видео с ютуба
+// добавить подобный шорткод на страницу
+// [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc, budU2vvJTYk, GcfKqPMiwwQ, OG9Cs6UFqiY, tiZei_2PUqk"] где ids это код видео с ютуба
 
 // v2.2
 // добавление страницы настроек и шаблонное использование на сайте, то есть в одном месте настроил видео и где надо они будут стоять одинаковые
@@ -50,6 +51,9 @@
 // v2.6
 // Исправлена значек плей, сделал ка как на ютубе
 
+// v3.0
+// удалил много js кода, сделал вывод изображений через php, добавил вывод в модальных окнах, добавил библиотеку jquery.modal. Исправил баг с дублированием внутреннего элемента. Сделал точный отступ в 10px между видео
+
 // страница настроек
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
 
@@ -74,3 +78,6 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/google_maps/google_maps_scr
 
 // Подключение стилей и скриптов
 require_once plugin_dir_path( __FILE__ ) . 'includes/add_style_scripts.php';
+
+// добавление HTML для модального окна
+require_once plugin_dir_path( __FILE__ ) . 'includes/modal.php';
