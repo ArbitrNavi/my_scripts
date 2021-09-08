@@ -36,15 +36,20 @@
     -webkit-align-items: center;
 }
 
-.youtube .play svg {
-    transition: all 0.2s ease-out;
-    width: 50px;
+.ay_play {
+    background-image: url('../img/play.svg');
+    background-size: 55px 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-out;
 }
 
-.youtube .play:hover svg path:first-child {
-    fill: #ff0000 !important;
-    fill-opacity: 1 !important;
-    transition: all .2s ease;
+.youtube .ay_play:hover,
+.youtube .ay_play:focus {
+    background-image: url('../img/play_red.svg');
+    background-size: 65px 46px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* responsive */
@@ -68,7 +73,6 @@
     bottom: 0;
 }
 
-
 .youtube.content_responsive {
     -webkit-background-size: cover;
     background-size: cover;
@@ -82,17 +86,14 @@
 /* При необходимости (для блоков, имеющих данные классы) */
 .item-4by3 {
     padding-top: 75%; /* (3:4)*100% */
-    /*background-color: green;*/
 }
 
 .item-2by1 {
     padding-top: 50%; /* (1:2)*100% */
-    /*background-color: yellow;*/
 }
 
 .item-1by1 {
     padding-top: 100%; /* (1:1)*100% */
-    /*background-color: magenta;*/
 }
 
 .video_resp_shablon {
