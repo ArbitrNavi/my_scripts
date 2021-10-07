@@ -1,17 +1,50 @@
 <krpano>
-    <action name="action_mobile" keep="true">
-        set(layer[youtube].width,"70px");
-        set(layer[doma_info].width,"85%");
-        <!-- close_plan(); -->
+    <!--events mobile-->
+    <action name="action_mobile-on" keep="true">
+        trace('action_mobile-on');
+
+        set(layer[youtube_1].visible,false);
     </action>
 
-    <action name="action_mobile-no" keep="true">
-        set(layer[youtube].width,"200px");
-        set(layer[doma_info].width,"700");
-        <!-- open_plan(); -->
+    <action name="action_mobile-off" keep="true">
+        trace('action_mobile-off');
+
+        set(layer[youtube_1].visible,true);
     </action>
+
+
+    <action name="vr_on">
+        set(is_vr,true);
+        <!--		trace('vr_on');-->
+    </action>
+
+    <action name="vr_off">
+        set(is_vr,false);
+        <!--		trace('vr_off');-->
+    </action>
+
+    <events name="is_vr" keep="true"
+            webvr_onentervr="vr_on()"
+            webvr_onexitvr="vr_off()"
+    />
+
 
     <events name="mobile" keep="true"
-            onresize="if(stagewidth LT 1000, action_mobile(), action_mobile-no());"
+            onresize="if(stagewidth LT 1000 OR is_vr, action_mobile-on(), action_mobile-off());"
+            webvr_onentervr=""
+            webvr_onexitvr=""
+    />
+
+    <!--  resize height  -->
+    <action name="height_big">
+        set(layer[wrap_list_usluga].visible,true);
+    </action>
+
+    <action name="height_small">
+        set(layer[wrap_list_usluga].visible,false);
+    </action>
+
+    <events name="mobile_height" keep="true"
+            onresize="if(stageheight LT 720 OR stagewidth LT 1000 OR is_vr, height_small(), height_big());"
     />
 </krpano>

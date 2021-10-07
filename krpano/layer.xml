@@ -1,0 +1,42 @@
+<krpano>
+<!--    внизу слева миниатюра ютуба-->
+<!--    добавить для работы попап	<include url="popup/popup_blur.xml" keep="true"/> -->
+<!--    иконка ютуба в папке img в корне гий каталога(my_scripts)-->
+    <layer name="youtube_1" keep="true" type="text"
+           align="leftbottom"
+           width="200px"
+           height="120x"
+           maskchildren="true"
+           bgalpha="0"
+           x="30"
+           y="35"
+    >
+        <layer name="youtube"
+               keep="true"
+               parent="youtube_1"
+               type="image"
+               url="skin/img_video.jpg"
+               bgcolor="0x000000"
+               width="100%"
+               height="100%"
+               bgroundedge="10"
+               youtube_h="60"
+               onclick="close_plan();popup('iframe', 'https://www.youtube.com/embed/qQouKuCUJ1E?rel=0&amp;hd=1&amp;vq=hd1080&amp;showinfo=0&amp;autoplay=1', 900, 506, false);"
+               ondown="drag_LinkSM()"
+        />
+
+        <layer name="youtube_btn"
+               keep="true"
+               parent="youtube_1"
+               type="image"
+               url="skin/youtube.png"
+               align="center"
+               bgcolor="0x000000"
+               width="50px"
+               height="prop"
+               enabled="false"
+               onclick=""
+               bgroundedge="10"
+        />
+    </layer>
+</krpano>

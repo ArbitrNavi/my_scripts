@@ -1534,6 +1534,7 @@
 
 	/>
 
+<!--	open scene events-->
 	<events name="onnewpano" keep="true"
 			onnewpano="
 			calc(layer[title].html, global.title + ' - ' + get(scene[get(xml.scene)].title));
