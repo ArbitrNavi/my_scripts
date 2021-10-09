@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Получение картинки с помощью API JS</title>
+</head>
+<body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #EDEEF0;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .card {
+        max-width: 600px;
+        padding: 16px;
+        background-color: #ffffff;
+        margin: 16px;
+        box-shadow: 5px 15px 10px grey;
+        border-radius: 10px;
+    }
+
+    .btn {
+        padding: 8px;
+    }
+</style>
+
+<div class="container">
+    <h2>Cats API</h2>
+    <div class="card">
+        <img class="img" src="https://purr.objects-us-east-1.dream.io/i/ckCaitb.jpg" alt="cats img">
+    </div>
+    <button class="btn" type="button">Random Cat</button>
+
+</div>
+
+<script>
+    const button = document.querySelector(".btn");
+    const image = document.querySelector(".img");
+    const url = "https://aws.random.cat/meow";
+
+    function fetchHandler(){
+        try{
+            const response = fetch(url)
+        } catch (error){//если будет ошибка - информация будет в консоли о ней
+            console.log(error)
+        }
+    }
+</script>
+</body>
+</html>
