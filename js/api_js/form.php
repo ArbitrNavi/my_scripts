@@ -251,5 +251,12 @@ $result = curl_exec($curl); // результат POST запроса
 
 //var_dump($result);
 
-echo "<h1>Your data has been sent successfully.</h1>"
+echo "<h1>Your data has been sent successfully.</h1>
+<script >
+alert('Your data has been sent successfully.');
+setTimeout(function(){
+  window.location.href = 'index.html';
+}, 5 * 1000);
+</script>
+";
 ?>
