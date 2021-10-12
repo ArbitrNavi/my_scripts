@@ -1,5 +1,22 @@
 <?php
 
+function formating_post($string)
+{
+    // убираем спец символы
+    $string = htmlspecialchars($string);
+    // декодирует любые кодирования
+    $string = urldecode($string);
+    // убираем отступы вначале и конце
+    $string = trim($string);
+
+    return $string;
+}
+
+$name = formating_post($_POST['name']);
+$surname = formating_post($_POST['surname']);
+$email = formating_post($_POST['email']);
+$phone = formating_post($_POST['phone']);
+
 function auth()
 {
     //curl --request POST \
@@ -52,11 +69,9 @@ function auth()
 }
 
 $auth = auth();
-var_dump($auth);
-
-//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYW5hZ2VyX3Njb3BlIjoiZmJhOWI1YzctZGI4ZS00YzczLWE5ZTMtYThmOTYwY2EyYjk1IiwidXNlcl9uYW1lIjoiYWRtaW50QGJvcmVhbGlzY2FwLmNvbToxMjciLCJzY29wZSI6W10sInBhcnRuZXJJZCI6MTI3LCJleHAiOjE2MzQwMTkwMjksImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJBRE1JTiIsIkNPTlRBQ1RfSU5GT19SRUFEIl0sImp0aSI6ImRmMDJhM2VkLTU0MWEtNGNlNC1hNDFmLWRkZWRkMzgxOTJiMCIsImVtYWlsIjoiYWRtaW50QGJvcmVhbGlzY2FwLmNvbSIsImNsaWVudF9pZCI6ImxpdmVNdHIxQ2xpZW50In0.LXKMmxWpfPhNx8snQYPb5jFWVcEpfvSFcMsKMvmBmdE
-
-//var_dump(auth());
+$access_token = auth()->access_token;
+//var_dump($access_token);
+$partnerId = auth()->partnerId;
 
 function register_a()
 {
@@ -188,84 +203,25 @@ function register_a()
     return ($result);
 }
 
-//var_dump(register_a());
+$url = 'https://mtco.match-trade.com/proxy/processing/api/accounts';
 
-function register_c($access_token)
-{
+$headers = [
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $access_token
+]; // заголовки нашего запроса
 
-//    //POST https://mtco.match-trade.com/proxy/processing/api/accounts
-//    //Accept: application/json
-//    //Content-Type: application/json
-//    //Authorization: Bearer {access_token_from_token_response}
-//    //{
-//    //    "offerUuid": "320c420d-d19e-4eec-b21d-35927f8c672b",
-//    //"account": {
-//    //    "partnerId": 0,
-//    //"email": "string@mail123.com",
-//    //"name": "string",
-//    //"surname": "string",
-//    //"dateOfBirth": "2020-07-31T13:53:09.156Z",
-//    //"phone": "string",
-//    //"country": "US",
-//    //"state": "string",
-//    //"city": "string",
-//    //"postCode": "string",
-//    //"address": "string",
-//    //"bankAddress": "string",
-//    //"bankSwiftCode": "string",
-//    //"bankAccount": "string",
-//    //"bankName": "string",
-//    //"parentTradingAccountUuid": "c5c0ecfc-bced-4d2b-a567-2c5739456c8b",
-//    //"password": "string123",
-//    //"accountManagerUuid": "c5c0ecfc-bced-4d2b-a567-2c5739456c8b"
-//    //}
-//    //}
-//    $url = 'https://mtco.match-trade.com/proxy/processing/api/accounts';
-//
-
-//
-////    var_dump("Authorization: Bearer " . $auth->access_token . "\r\n",);
-//
-//// use key 'http' even if you send the request to https://...
-//    $options = array(
-//        'http' => array(
-//            'method' => 'POST',
-//            'header' =>
-//                "Content-type: application/x-www-form-urlencoded\r\n" .
-//                "Authorization: Bearer " . "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYW5hZ2VyX3Njb3BlIjoiZmJhOWI1YzctZGI4ZS00YzczLWE5ZTMtYThmOTYwY2EyYjk1IiwidXNlcl9uYW1lIjoiYWRtaW50QGJvcmVhbGlzY2FwLmNvbToxMjciLCJzY29wZSI6W10sInBhcnRuZXJJZCI6MTI3LCJleHAiOjE2MzQwMTkwMjksImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJBRE1JTiIsIkNPTlRBQ1RfSU5GT19SRUFEIl0sImp0aSI6ImRmMDJhM2VkLTU0MWEtNGNlNC1hNDFmLWRkZWRkMzgxOTJiMCIsImVtYWlsIjoiYWRtaW50QGJvcmVhbGlzY2FwLmNvbSIsImNsaWVudF9pZCI6ImxpdmVNdHIxQ2xpZW50In0.LXKMmxWpfPhNx8snQYPb5jFWVcEpfvSFcMsKMvmBmdE" . "\r\n",
-//            'content' => http_build_query($data),
-////            'timeout' => 60
-//        )
-//    );
-//    $context = stream_context_create($options);
-//    $result = file_get_contents('$url', false, $context);
-////    if ($result === FALSE) { /* Handle error */
-////        $result = 'error';
-////    } else {
-////        $result = json_decode($result);
-////    }
-//
-////var_dump($options);
-//    return ($result);
-
-    $url = 'https://mtco.match-trade.com/proxy/processing/api/accounts';
-
-    $headers = [
-        'Accept: application/json',
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . $access_token
-    ]; // заголовки нашего запроса
-
-    $post_data = array(
-        'offerUuid' => '',
-        "account" => array(
-            "partnerId" => "127",
-            "email" => "string@mail123.com",
-            "name" => "string",
-            "surname" => "string",
+$post_data = array(
+    'offerUuid' => '',
+    "account" => array(
+        "partnerId" => $partnerId,
+        "email" => $email,
+        "name" => $name,
+        "surname" => $surname,
+        "phone" => $phone,
+        "country" => "US",
+        "password" => "string123",
 //            "dateOfBirth" => "2020-07-31T13:53:09.156Z",
-//            "phone" => "string",
-            "country" => "US",
 //            "state" => "string",
 //            "city" => "string",
 //            "postCode" => "string",
@@ -275,33 +231,25 @@ function register_c($access_token)
 //            "bankAccount" => "string",
 //            "bankName" => "string",
 //            "parentTradingAccountUuid" => "c5c0ecfc-bced-4d2b-a567-2c5739456c8b",
-            "password" => "string1Afdasdfa23",
+
 //            "accountManagerUuid" => "c5c0ecfc-bced-4d2b-a567-2c5739456c8b"
-        )
+    )
 
-    );
+);
 
-    $data_json = json_encode($post_data); // переводим поля в формат JSON
+$data_json = json_encode($post_data); // переводим поля в формат JSON
 
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_VERBOSE, 1);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data_json);
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_POST, true);
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_VERBOSE, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_json);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
 
-    $result = curl_exec($curl); // результат POST запроса
+$result = curl_exec($curl); // результат POST запроса
 
-    var_dump($result);
-}
+//var_dump($result);
 
-//var_dump(register_c($auth->access_token));
-register_c($auth->access_token);
-
-//GET https://mtco.match-trade.com/proxy/configuration/api/register-fields?partnerId=0&demo=true
-//Accept: application/json
-//Content-Type: application/json
-//Authorization: Bearer {access_token_from_token_response}
-
+echo "<h1>Your data has been sent successfully.</h1>"
 ?>
