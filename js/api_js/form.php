@@ -11,11 +11,16 @@ function formating_post($string)
 
     return $string;
 }
-
 $name = formating_post($_POST['name']);
 $surname = formating_post($_POST['surname']);
 $email = formating_post($_POST['email']);
 $phone = formating_post($_POST['phone']);
+
+//$name = formating_post('string');
+//$surname = formating_post('string');
+//$email = formating_post('strisng122s22@test.test');
+//$phone = formating_post('string');
+
 
 function auth()
 {
@@ -212,7 +217,7 @@ $headers = [
 ]; // заголовки нашего запроса
 
 $post_data = array(
-    'offerUuid' => '',
+    'offerUuid' => '3653c2e6-a7ae-4a3d-92de-f378ff664045',
     "account" => array(
         "partnerId" => $partnerId,
         "email" => $email,
@@ -249,14 +254,18 @@ curl_setopt($curl, CURLOPT_POST, true);
 
 $result = curl_exec($curl); // результат POST запроса
 
-//var_dump($result);
-
+//var_dump();
+$oneTimeToken = json_decode($result)->oneTimeToken;
 echo "<h1>Your data has been sent successfully.</h1>
 <script >
-alert('Your data has been sent successfully.');
+//    window.open('https://client.borealiscap.com/?auth=". $oneTimeToken ."');
+//alert('Your data has been sent successfully. Now you will be prompted to your personal account.');
 setTimeout(function(){
-  window.location.href = 'index.html';
-}, 5 * 1000);
+  window.location.href = 'https://platform.borealiscap.com/?auth=". $oneTimeToken ."';
+//  window.location.href = 'https://platform.borealiscap.com/web/login/?auth=". $oneTimeToken ."';
+}, 1 * 1000);
 </script>
+
+<a href='https://platform.borealiscap.com/web/'>Go to platform</a>
 ";
 ?>
