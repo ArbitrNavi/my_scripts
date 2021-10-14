@@ -7,7 +7,7 @@
     justify-content: space-between;
 }
 
-.theme-video-wrap .youtube,
+.theme-video-wrap .ay_youtube,
 .theme-video-wrap iframe {
     width: 49%;
     height: 190px;
@@ -15,7 +15,7 @@
     background-size: cover;
 }
 
-.youtube {
+.ay_youtube {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
@@ -25,7 +25,7 @@
     cursor: pointer;
 }
 
-.youtube .play {
+.ay_youtube .play {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -44,8 +44,8 @@
     transition: all 0.3s ease-out;
 }
 
-.youtube .ay_play:hover,
-.youtube .ay_play:focus {
+.ay_youtube .ay_play:hover,
+.ay_youtube .ay_play:focus {
     background-image: url('../img/play_red.svg');
     background-size: 65px 46px;
     background-position: center;
@@ -73,7 +73,7 @@
     bottom: 0;
 }
 
-.youtube.content_responsive {
+.ay_youtube.content_responsive {
     -webkit-background-size: cover;
     background-size: cover;
 }

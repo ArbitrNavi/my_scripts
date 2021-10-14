@@ -28,7 +28,7 @@ function theme_video_resp_func( $attrs ) {
 	}
 
 	$result = '<div class="item-responsive item-' . $size . '">';
-	$result .= '<div class="youtube content_responsive"  id="' . trim( $attrs["id"] ) . '" style="background-image:url(https://i.ytimg.com/vi/' . trim( $attrs["id"] ) . '/hqdefault.jpg)">'
+	$result .= '<div class="ay_youtube content_responsive"  id="' . trim( $attrs["id"] ) . '" style="background-image:url(https://i.ytimg.com/vi/' . trim( $attrs["id"] ) . '/hqdefault.jpg)">'
 	           . '<div class="play ay_play"></div>'
 	           . '</div>';
 	$result .= '</div>';
