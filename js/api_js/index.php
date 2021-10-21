@@ -1,4 +1,14 @@
-<!doctype html>
+<?php function formating_post($string)
+{
+    // убираем спец символы
+    $string = htmlspecialchars($string);
+    // декодирует любые кодирования
+    $string = urldecode($string);
+    // убираем отступы вначале и конце
+    $string = trim($string);
+
+    return $string;
+} ?><!doctype html>
 <html lang="ru">
 <head>
     <!-- Обязательные метатеги -->
@@ -55,6 +65,8 @@
                     <input class="form-check-input" type="checkbox" value="" id="check" required>
                     <label class="form-check-label" for="check">Durch das Senden dieses Formulars bestätige ich meine Einwilligung zur Verarbeitung meiner personenbezogenen Daten.</label>
                 </div>
+
+                <input type="text" style="display: none;" name="key_private" value="<?php echo formating_post($_GET["key_private"]); ?>">
                 <br>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success text-center">Senden</button>

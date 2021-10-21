@@ -15,12 +15,13 @@ $name = formating_post($_POST['name']);
 $surname = formating_post($_POST['surname']);
 $email = formating_post($_POST['email']);
 $phone = formating_post($_POST['phone']);
+$key_private = formating_post($_POST['key_private']);
 
 //$name = formating_post('string');
 //$surname = formating_post('string');
 //$email = formating_post('strisng122s22@test.test');
 //$phone = formating_post('string');
-
+//$key_private = formating_post('test');
 
 function auth()
 {
@@ -75,7 +76,7 @@ function auth()
 
 $auth = auth();
 $access_token = auth()->access_token;
-//var_dump($access_token);
+//var_dump($auth);
 $partnerId = auth()->partnerId;
 
 function register_a()
@@ -224,6 +225,7 @@ $post_data = array(
         "name" => $name,
         "surname" => $surname,
         "phone" => $phone,
+        "state" => $key_private,
         "country" => "US",
         "password" => date('U'),
 //            "dateOfBirth" => "2020-07-31T13:53:09.156Z",
