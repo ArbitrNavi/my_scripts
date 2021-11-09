@@ -21,8 +21,7 @@
 <div class="container">
     <div class="row justify-content-center  mt-5">
         <div class="col-10 col-lg-4 col-sm-8">
-            <!--            <form action="https://interac.express-connect.com/webflow?transaction=333" method="post">-->
-            <form action="info.php" method="post" id="form_gigadat">
+            <form action="login" method="post" id="form_gigadat">
                 <div class="text-center">
                     <!--                    <img src="192-192.png" alt="">-->
                 </div>
@@ -31,7 +30,7 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Name *</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp"
-                           value="test name" required>
+                           required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email *</label>
@@ -54,7 +53,7 @@
                 <br>
                 <br>
 
-                <input type="hidden1" name="token" value=""/>
+                <input type="hidden" name="token" id="token" value=""/>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success text-center" id="form_send">Senden</button>
                 </div>
@@ -64,51 +63,70 @@
 </div>
 
 <script>
-    const getQueryArray = (obj, path = [], result = []) =>
-        Object.entries(obj).reduce((acc, [k, v]) => {
-            path.push(k);
+    form_gigadat = document.querySelector("#form_gigadat");
+    form_gigadat_submit = document.querySelector("#form_gigadat button[type=submit]");
 
-            if (v instanceof Object) {
-                getQueryArray(v, path, acc);
-            } else {
-                acc.push(`${path.map((n, i) => i ? `[${n}]` : n).join('')}=${v}`);
-            }
+    form_gigadat.onsubmit = function (event) {
+        event.preventDefault();//убираем стандартное поведение
+        // выполняем нужные манипуляции перед отправкой формы
 
-            path.pop();
+        const getQueryArray = (obj, path = [], result = []) =>
+            Object.entries(obj).reduce((acc, [k, v]) => {
+                path.push(k);
 
-            return acc;
-        }, result);
+                if (v instanceof Object) {
+                    getQueryArray(v, path, acc);
+                } else {
+                    acc.push(`${path.map((n, i) => i ? `[${n}]` : n).join('')}=${v}`);
+                }
 
-    const getQueryString = obj => getQueryArray(obj).join('&');
+                path.pop();
+
+                return acc;
+            }, result);
+        const getQueryString = obj => getQueryArray(obj).join('&');
+
+        name = document.querySelector("#name").value;
+        email = document.querySelector("#email").value;
+        mobile = document.querySelector("#mobile").value;
+        amount = document.querySelector("#amount").value;
+
+        data = {
+            'name': name,
+            'email': email,
+            'mobile': mobile,
+            'amount': amount,
+        }
+
+        console.log(data)
 
 
-    data = {
-        'userId': '11112222',
-        'transactionId': 'AB12CD123456', // merchant defined value
-        'name': 'John Smith',
-        'email': 'john.smith@example.com',
-        'userIp': '70.67.168.5',
-        'mobile': '4031234567',
-        'amount': '33.33',
-    }
-    data = getQueryString(data);
-    console.log(data);
+        data = getQueryString(data);
+        // console.log(data);
 
-    var trueRequest = new XMLHttpRequest();
-    trueRequest.open('POST', 'info.php', true);
-    trueRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    trueRequest.send(data);
-    // trueRequest.send('foo1=foo=bar');
+        var trueRequest = new XMLHttpRequest();
+        trueRequest.open('POST', 'token.php', true);
+        trueRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        trueRequest.send(data);
 
-    trueRequest.onload = function () {
+        form_gigadat_submit.disabled=true;
+        form_gigadat_submit.innerText = "loading...";
 
-        var result = this.response;
-        console.log(result);
-        console.log('trueRequest.onload');
+        //result
+        trueRequest.onload = function () {
+            var result = this.response;
+            result = JSON.parse(result);
+            console.log(result);
+            document.querySelector("#token").value = result.token;
+            console.log('trueRequest.onload');
+            // form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId + '&token=' + result.token;
+            form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId;
+            form_gigadat.submit();//выполняем отправку формы
+        };
 
-    };
-    console.log('result end');
+        // form_gigadat.submit();//выполняем отправку формы
 
+    }; //.onsubmit
 </script>
 <!-- Дополнительный JavaScript; выберите один из двух! -->
 
