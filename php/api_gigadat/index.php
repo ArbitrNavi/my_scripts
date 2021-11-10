@@ -46,7 +46,7 @@
                 <div class="mb-3">
                     <label for="amount" class="form-label">Amount *</label>
                     <input type="number" class="form-control" id="amount" name="amount" step=""
-                           aria-describedby="emailHelp" required>
+                           aria-describedby="emailHelp" min="1" required>
                 </div>
 
                 <!--                <a class="link-secondary" href="#">У меня есть код партнера</a>-->
