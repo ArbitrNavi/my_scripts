@@ -116,6 +116,7 @@
         //result
         trueRequest.onload = function () {
             var result = this.response;
+            // console.log(result);
             result = JSON.parse(result);
             // console.log(result);
             document.querySelector("#token").value = result.token;
