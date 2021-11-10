@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Ajax подгузка видео роликов
- * Description: Позволяет загружать ролик только после нажатия на на него, изначально грузиться только изображения этого ролика, что существенно снижает нагрузку при загрузке страницы. Вывод по id [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]. Вывод из страницы настроек [theme_video_shablon metka="reklama"]. Одно видео определенной пропорции [theme_video_resp id="qZnuI1Zrdbs" size="16by9"]. Возможные варианты пропорций 16by9, 4by3, 2by1, 1by1
+ * Description: Вставка видео с ютуба. Вывод по id [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]. Вывод из страницы настроек [theme_video_shablon metka="reklama"]. Одно видео определенной пропорции [theme_video_resp id="qZnuI1Zrdbs" size="16by9"]. Возможные варианты пропорций 16by9, 4by3, 2by1, 1by1
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     3.4
+ * Version:     3.5
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -65,6 +65,9 @@
 
 // v3.4
 // изменил название класса с youtube на ay_youtube так как возникали конфликты
+
+// v3.5
+// если в шаблонах указано только одно видео - тогда оно выводится на всю ширину экрана
 
 
 // страница настроек
