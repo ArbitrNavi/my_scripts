@@ -19,7 +19,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Form page</title>
 </head>
 <body>
 <style>
@@ -36,15 +36,23 @@
     /*    position: relative;*/
     /*}*/
 
-    body{
+    body {
         overflow: hidden;
     }
 
-iframe{
-    width: 100vw;
-    height: calc(100vh + 120px);
-    margin-top: -130px;
-}
+    iframe {
+        width: 100vw;
+        height: calc(100vh + 120px);
+        margin-top: -130px;
+    }
+
+    @media (max-width: 768px) {
+        iframe {
+            width: 100vw;
+            height: calc(100vh + 120px);
+            margin-top: -150px;
+        }
+    }
 
 </style>
 <!--<div class="wrap">-->
@@ -53,10 +61,11 @@ iframe{
 $transaction = $_REQUEST['transaction'];
 $token = $_REQUEST['token'];
 ?>
-    <iframe id="iframeName" src="https://interac.express-connect.com/webflow?transaction=<?php echo $transaction;?>&token=<?php echo $token; ?>"
-            frameborder="0" >
+<iframe id="iframeName"
+        src="https://interac.express-connect.com/webflow?transaction=<?php echo $transaction; ?>&token=<?php echo $token; ?>"
+        frameborder="0">
 
-    </iframe>
+</iframe>
 <!--</div>-->
 
 <script>
