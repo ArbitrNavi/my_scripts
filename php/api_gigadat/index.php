@@ -121,7 +121,8 @@
             document.querySelector("#token").value = result.token;
             // console.log('trueRequest.onload');
             // form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId + '&token=' + result.token;
-            form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId;
+            // form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId;
+            form_gigadat.action='info.php?transaction=' + result.data.transactionId;
             form_gigadat.submit();//выполняем отправку формы
         };
 
