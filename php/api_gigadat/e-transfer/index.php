@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <title>Deposit</title>
+    <title>Withdrawal</title>
 </head>
 <body>
 <style>
@@ -23,10 +23,10 @@
         <div class="col-10 col-lg-4 col-sm-8">
             <form action="login" method="post" id="form_gigadat">
                 <div class="text-center">
-                        <img src="logo.png" alt="">
+                    <img src="../logo.png" alt="">
                 </div>
                 <br>
-                <h4>Deposit</h4>
+                <h4>Withdrawal</h4>
                 <p class="fs-4">Cash balance: <b>$<span id="balance">0</span></b> CAD</p>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name *</label>
@@ -117,14 +117,14 @@
         //result
         trueRequest.onload = function () {
             var result = this.response;
-            // console.log(result);
+            console.log(result);
             result = JSON.parse(result);
-            // console.log(result);
+            console.log(result);
             document.querySelector("#token").value = result.token;
             // console.log('trueRequest.onload');
-            // form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId + '&token=' + result.token;
+            form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId + '&token=' + result.token;
             // form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId;
-            form_gigadat.action='info.php?transaction=' + result.data.transactionId;
+            // form_gigadat.action='info.php?transaction=' + result.data.transactionId;
             form_gigadat.submit();//выполняем отправку формы
         };
 
@@ -139,6 +139,31 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+<script>
+    $.fn.setCursorPosition = function(pos) {
+        if ($(this).get(0).setSelectionRange) {
+            $(this).get(0).setSelectionRange(pos, pos);
+        } else if ($(this).get(0).createTextRange) {
+            var range = $(this).get(0).createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', pos);
+            range.moveStart('character', pos);
+            range.select();
+        }
+    };
+    $("#mobile").click(function(){
+        $(this).setCursorPosition(0);
+    }).mask("9999999999");
+
+    // $('#name').val('test name');
+    // $('#email').val('test@test.com');
+    // $('#mobile').val('111111111');
+    // $('#amount').val('123');
+
+</script>
 <!-- Вариант 2: Bootstrap JS отдельно от Popper
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
