@@ -23,19 +23,6 @@
 </head>
 <body>
 <style>
-    /*.remove-logo {*/
-    /*    position: absolute;*/
-    /*    width: calc(100% - 20px);*/
-    /*    height: 74px;*/
-    /*    background: #ffffff;*/
-    /*    top: 60px;*/
-    /*    left: 0;*/
-    /*}*/
-
-    /*.wrap{*/
-    /*    position: relative;*/
-    /*}*/
-
     body {
         overflow: hidden;
     }

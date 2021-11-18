@@ -23,9 +23,10 @@
         <div class="col-10 col-lg-4 col-sm-8">
             <form action="login" method="post" id="form_gigadat">
                 <div class="text-center">
-                    <img src="../logo.png" alt="">
+                    <img src="../logo_iterac.png" style="width: 150px;height: 150px;margin:auto;" alt="">
                 </div>
                 <br>
+                <p class="fs-6">®Trade-mark of Interac Corp. Used under license</p>
                 <h4>Withdrawal</h4>
                 <p class="fs-4">Cash balance: <b>$<span id="balance">0</span></b> CAD</p>
                 <div class="mb-3">
@@ -47,7 +48,7 @@
                 <div class="mb-3">
                     <label for="amount" class="form-label">Amount *</label>
                     <input type="number" class="form-control" id="amount" name="amount" step=""
-                           aria-describedby="emailHelp" min="1" onchange="document.querySelector('#balance').innerHTML = this.value" required>
+                           aria-describedby="emailHelp" min="5" max="3000" onchange="document.querySelector('#balance').innerHTML = this.value" required>
                 </div>
 
                 <!--                <a class="link-secondary" href="#">У меня есть код партнера</a>-->

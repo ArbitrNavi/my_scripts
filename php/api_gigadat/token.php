@@ -69,7 +69,7 @@ $post_data = array(
     'language' => 'en',
     'amount' => $amount,
     'type' => 'CPI',
-    'sandbox' => true,  // set this to false or remove it from request when in production
+    'sandbox' => false,  // set this to false or remove it from request when in production
 );
 
 $data_json = json_encode($post_data); // переводим поля в формат JSON
