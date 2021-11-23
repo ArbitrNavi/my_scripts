@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-    $(".youtube").on('click', function () {
+    $(".ay_youtube").on('click', function () {
         // console.log('click of the image video gallery');
 
         var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
