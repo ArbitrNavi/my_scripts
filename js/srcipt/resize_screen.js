@@ -1,13 +1,8 @@
 //Отслеживание изменения размера экрана resize
 
-document.addEventListener("DOMContentLoaded", function(event)
+function resize()
 {
-    window.onresize = function() {
-        resize_info();
-    };
-});
-
-function resize_info()
-{
-    // resize data
+    window.status = 'Ширина экрана: ' + document.body.clientWidth + 'px';
+    console.log('Ширина экрана: ' + document.body.clientWidth + 'px');
 }
+window.onresize = resize;
