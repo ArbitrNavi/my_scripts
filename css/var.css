@@ -1,0 +1,10 @@
+/*Использование переменных в стилях*/
+:root {
+    --my-silver: #CDD4E1;
+    --my-lightsilver: #EBEFF6;
+    --my-lightblue: #ECF4FD;
+}
+
+.class{
+    color: var(--my-silver);
+}
