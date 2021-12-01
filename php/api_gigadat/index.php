@@ -58,7 +58,7 @@
 
                 <input type="hidden" name="token" id="token" value=""/>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success text-center" id="form_send">Senden</button>
+                    <button type="submit" class="btn btn-success text-center" id="form_send">Deposit</button>
                 </div>
             </form>
         </div>
