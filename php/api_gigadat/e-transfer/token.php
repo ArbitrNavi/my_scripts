@@ -12,8 +12,9 @@ $campaignID_test = 'da7606c1adbec22a3b29189f4c6f7abc';
 
 //Campaign Token(ID) Production (Gigadat)
 $campaignID_prod = 'bc23b94e436202b3e4aeca7ae87c1587';
+$campaignID_Borealiscap = '427cbd7e11e76ce4464cd118fa50ec9f';
 
-$campaignId = $campaignID_prod;
+$campaignId = $campaignID_Borealiscap;
 
 $account_kyle = array(
     'email' => 'kyle@gigadatsolutions.com',
