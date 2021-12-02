@@ -21,8 +21,8 @@ $account_kyle = array(
     'pass' => '30Test1234',
 //    'access_token'=>'52d28ee8-0198-4a66-8481-49b1de445ac3',
 //    'security_token'=>'76106b0c-ea6c-4134-8904-75ab45c77c6a',
-    'access_token' => 'e923e277-2d21-445a-ac1e-784361c79a65',
-    'security_token' => 'fc1e8858-980e-4aff-b222-303e383acca7',
+    'access_token' => 'e923e277-2d21-445a-ac1e-784361c79a65', //PolarisMaritime
+    'security_token' => 'fc1e8858-980e-4aff-b222-303e383acca7', //PolarisMaritime
 );
 
 $url = 'https://interac.express-connect.com/api/payment-token/' . $campaignId;
