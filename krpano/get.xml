@@ -1,0 +1,10 @@
+<krpano>
+<!--    получить текущий x и текущий тип текста-->
+    <style name="style_menu_li"
+           type="text"
+           parent="style_wrap_menu"
+           css="font-family:Arial; font-size:20px;color:#ffffff;"
+           bgalpha="0"
+           onhover="trace(get(type));set('x','100');"
+    />
+</krpano>
