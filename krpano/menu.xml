@@ -21,9 +21,11 @@
     <style name="style_menu_li"
            type="text"
            parent="wrap_menu"
-           css="font-family:Arial; font-size:20px;color:#ffffff; border:1px solid red;"
+           css="font-family:Arial; font-size:20px;color:#ffffff;"
            bgalpha="0"
            x="0"
+           onhover="set(css,calc(css + 'border-bottom:3px solid;'))"
+           onout="set(css,'font-family:Arial; font-size:20px;color:#ffffff;')"
            onloaded="set(this_width_li,0);
                 setinterval(calc(width_null + name), 0.3,
                     if(calc(pixelwidth),
