@@ -5,9 +5,22 @@
     <my_skin_settings menu_indent="20"
     />
 
+    <style name="style_wrap_menu"
+           type="container"
+           keep="true"
+           maskchildren="true"
+           align="righttop"
+           width="777"
+           height="30"
+           x="30px"
+           y="30px"
+           bgcolor="0x888888"
+           bgalpha=".5"
+    />
+
     <style name="style_menu_li"
            type="text"
-           parent="style_wrap_menu"
+           parent="wrap_menu"
            css="font-family:Arial; font-size:20px;color:#ffffff; border:1px solid red;"
            bgalpha="0"
            x="0"
@@ -25,18 +38,62 @@
                     );
                 );
            "
+
     />
+
+    <layer name="info"
+           keep="true"
+           visible="false"
+           type="image"
+           align="righttop"
+           url="info.png"
+           width="35px"
+           height="35x"
+           x="30px"
+           y="130px"
+           onclick="toggle(layer[text].visible);"
+    />
+
+    <layer name="wrap_plan_total"
+           keep="true"
+           type="container"
+           width="180px"
+           height="50px"
+           bgcolor="0xFFFFFF"
+           y="180px"
+           x="30px"
+    >
+
+        <layer name="plan_total"
+               keep="true"
+               visible="true"
+               parent="wrap_plan_total"
+               type="image"
+               align="lefttop"
+               url="plan_icon.png"
+               width="70px"
+               height="50px"
+               onclick="popup('iframe', 'data/html/all.html', 800, 500, true);"
+
+        />
+
+        <layer name="plan_total_name" style="style_plan_name"
+               html="План дома"
+               align="rightcenter"
+        />
+    </layer>
 
     <layer name="wrap_menu" style="style_wrap_menu">
         <layer name="menu_li_1" style="style_menu_li"
                html="О нас"
+               onclick=""
         />
 
         <layer name="menu_li_2" style="style_menu_li"
-               html="О нас 2.1"
+               html="Контакты"
         />
         <layer name="menu_li_3" style="style_menu_li"
-               html="О нас 3.2.1"
+               html="Перейти на сайт"
         />
         <layer name="menu_li_4" style="style_menu_li"
                html="О нас"
