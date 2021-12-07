@@ -1,0 +1,46 @@
+<krpano>
+<!--    Создание меню -->
+
+<!--    настройка меню -->
+    <my_skin_settings menu_indent="20"
+    />
+
+    <style name="style_menu_li"
+           type="text"
+           parent="style_wrap_menu"
+           css="font-family:Arial; font-size:20px;color:#ffffff; border:1px solid red;"
+           bgalpha="0"
+           x="0"
+           onloaded="set(this_width_li,0);
+                setinterval(calc(width_null + name), 0.3,
+                    if(calc(pixelwidth),
+                        set(x,calc(this_width_li));
+
+                        trace(this_width_li);
+                        set(this_width_li, calc( calc(this_width_li) + calc(pixelwidth) + calc(my_skin_settings.menu_indent)));
+
+                        clearinterval(calc(width_null + name));
+                        ,
+                        trace('Не найдено значение ширины')
+                    );
+                );
+           "
+    />
+
+    <layer name="wrap_menu" style="style_wrap_menu">
+        <layer name="menu_li_1" style="style_menu_li"
+               html="О нас"
+        />
+
+        <layer name="menu_li_2" style="style_menu_li"
+               html="О нас 2.1"
+        />
+        <layer name="menu_li_3" style="style_menu_li"
+               html="О нас 3.2.1"
+        />
+        <layer name="menu_li_4" style="style_menu_li"
+               html="О нас"
+        />
+    </layer>
+
+</krpano>
