@@ -1,0 +1,51 @@
+/*Убрать лишний отступ справа у сладера slick*/
+/*Исходный вариант с https://codepen.io/Rapt0p7/pen/rrBypN*/
+/*.slick {*/
+/*    max-width: 1800px;*/
+/*    margin: 0 auto;*/
+/*    border: 1px solid black;*/
+/*    overflow: hidden;*/
+
+/*&-slide {*/
+/*     margin: 0 30px;*/
+
+
+/* }*/
+
+/*&-list {*/
+/*     margin-left: -30px;*/
+/*     margin-right: -30px;*/
+/* }*/
+
+/*//   &-active {*/
+/*      //     margin-right: 60px;*/
+
+/*//     &:not(:last-child) {*/
+/*        //       margin-right: 0;*/
+/*        //     }*/
+/*//   }*/
+
+/*&-item {*/
+/*     height: 200px;*/
+/* // width: 300px;*/
+/* }*/
+/*}*/
+
+/* bcc_container контейнер где лежит слайдер, к которому обращаемся через js*/
+.bcc_container.slick-slider {
+    margin: 0 auto;
+}
+
+.bcc_container.slick-slider .slick-slide {
+    margin: 0 10px;
+
+}
+
+.bcc_container.slick-slider .slick-list {
+    margin-left: -11px;
+    margin-right: -11px;
+}
+
+.bcc_container.slick-slider .slick-item {
+
+}
