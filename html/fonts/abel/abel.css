@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Abel';
+    src: url('AbelRUSbyDaymarius.eot');
+    src: url('AbelRUSbyDaymarius.eot?#iefix') format('embedded-opentype'),
+        url('AbelRUSbyDaymarius.woff2') format('woff2'),
+        url('AbelRUSbyDaymarius.woff') format('woff'),
+        url('AbelRUSbyDaymarius.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
