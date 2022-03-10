@@ -5,10 +5,10 @@
 
 // выводит одиночное видео
 
-function theme_video_resp_func( $attrs ) {
-
-// Определяем размер
-	switch ( $attrs['size'] ) {
+function theme_video_resp_func($attrs) {
+	$border_radius .= get_field('ay-border_radius', 'option');
+	// Определяем размер
+	switch ($attrs['size']) {
 		case '16by9':
 			$size = "16by9";
 			break;
@@ -28,13 +28,13 @@ function theme_video_resp_func( $attrs ) {
 	}
 
 	$result = '<div class="item-responsive item-' . $size . '">';
-	$result .= '<div class="ay_youtube content_responsive"  id="' . trim( $attrs["id"] ) . '" style="background-image:url(https://i.ytimg.com/vi/' . trim( $attrs["id"] ) . '/hqdefault.jpg)">'
-	           . '<div class="play ay_play"></div>'
-	           . '</div>';
+	$result .= '<div class="ay_youtube content_responsive"  id="' . trim($attrs["id"]) . '" style="border-radius: ' . $border_radius . 'px;background-image:url(https://i.ytimg.com/vi/' . trim($attrs["id"]) . '/hqdefault.jpg)">'
+		. '<div class="play ay_play"></div>'
+		. '</div>';
 	$result .= '</div>';
 
 	return $result;
 }
 
-add_shortcode( 'theme_video_resp', 'theme_video_resp_func' );
+add_shortcode('theme_video_resp', 'theme_video_resp_func');
 ?>
