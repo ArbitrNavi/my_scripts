@@ -1,0 +1,163 @@
+[
+    {
+        "key": "group_5c58186e20813",
+        "title": "шаблонное добавление аудио",
+        "fields": [
+            {
+                "key": "field_5c581953cdffa",
+                "label": "Шорткоды для вставки аудио портфолио",
+                "name": "shortcode_audio",
+                "type": "repeater",
+                "instructions": "Подборка аудио",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5c5819c3cdffc",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Добавить подборку",
+                "sub_fields": [
+                    {
+                        "key": "field_5c5819c3cdffc",
+                        "label": "Название подборки",
+                        "name": "title",
+                        "type": "text",
+                        "instructions": "например: Аранжировки РОК",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5c5860787a348",
+                        "label": "метка",
+                        "name": "metka",
+                        "type": "text",
+                        "instructions": "например: test_metka используется в шорткоде [theme_audio metka=\"test_metka\"]",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5c5819aecdffb",
+                        "label": "песни с информацией",
+                        "name": "repeater",
+                        "type": "repeater",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "collapsed": "field_5c581a6acdffe",
+                        "min": 0,
+                        "max": 0,
+                        "layout": "table",
+                        "button_label": "Добавить композицию",
+                        "sub_fields": [
+                            {
+                                "key": "field_5c581a25cdffd",
+                                "label": "Жанр",
+                                "name": "janr",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5c581a6acdffe",
+                                "label": "Название песни",
+                                "name": "name_audio",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5c581a94cdfff",
+                                "label": "аудио",
+                                "name": "audio",
+                                "type": "file",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url",
+                                "library": "all",
+                                "min_size": "",
+                                "max_size": "",
+                                "mime_types": ".mp3"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "shortkod_shablon_audio"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": false
+    }
+]
