@@ -48,4 +48,20 @@ function comment_form_defaults_custom($args) {
 	);
 
 	return $args;
-} ?>
+}
+
+//Вставить вначале формы
+add_action('comment_form_top', 'action_function_name_3068');
+function action_function_name_3068() {
+	echo '<div class="fc_wrap"><div class="fc_item fc_comment">';
+}
+
+
+//Вставить в конец формы
+add_action('comment_form', 'action_function_name_2375');
+function action_function_name_2375($post_id) {
+	echo '</div></div>';
+}
+
+
+?>
