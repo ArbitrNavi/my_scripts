@@ -1,6 +1,6 @@
-<?php if (function_exists('acf_add_local_field_group')):
+<?php if ( function_exists( 'acf_add_local_field_group' ) ):
 
-	acf_add_local_field_group(array(
+	acf_add_local_field_group( array(
 		'key'                   => 'group_5b5f2158d580b',
 		'title'                 => 'Шаблонное добавление шорткодов с выводом видео по клику',
 		'fields'                => array(
@@ -13,7 +13,49 @@
 				'required'          => 0,
 				'conditional_logic' => 0,
 				'wrapper'           => array(
-					'width' => '',
+					'width' => '33',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => 0,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'min'               => 0,
+				'max'               => '',
+				'step'              => 1,
+			),
+			array(
+				'key'               => 'field_622efec90bd8c',
+				'label'             => 'Отступ сверху px',
+				'name'              => 'margin-top',
+				'type'              => 'number',
+				'instructions'      => 'указывается в px',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '33',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => 0,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'min'               => 0,
+				'max'               => '',
+				'step'              => 1,
+			),
+			array(
+				'key'               => 'field_622efeec0bd8d',
+				'label'             => 'Отступ снизу',
+				'name'              => 'margin-bottom',
+				'type'              => 'number',
+				'instructions'      => 'указывается в px',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '33',
 					'class' => '',
 					'id'    => '',
 				),
@@ -125,6 +167,6 @@
 		'active'                => true,
 		'description'           => '',
 		'show_in_rest'          => 0,
-	));
+	) );
 
 endif; ?>

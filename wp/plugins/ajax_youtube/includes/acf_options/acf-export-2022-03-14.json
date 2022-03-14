@@ -12,7 +12,49 @@
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 0,
+                "max": "",
+                "step": 1
+            },
+            {
+                "key": "field_622efec90bd8c",
+                "label": "Отступ сверху px",
+                "name": "margin-top",
+                "type": "number",
+                "instructions": "указывается в px",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 0,
+                "max": "",
+                "step": 1
+            },
+            {
+                "key": "field_622efeec0bd8d",
+                "label": "Отступ снизу",
+                "name": "margin-bottom",
+                "type": "number",
+                "instructions": "указывается в px",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
                     "class": "",
                     "id": ""
                 },
