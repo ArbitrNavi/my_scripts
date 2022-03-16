@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     3.8
+ * Version:     3.9
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -78,6 +78,9 @@
 // v3.8
 // добавил функцию для переменных в файле includes/var.php border-radius, margin-top, margin-bottom
 // добавил возможность настройки одинаковых отступов для галереи видео и отдельно взятого видео
+
+// v3.9
+// изменил пропорции отображения и padding у модального окна
 
 // переменные плагина
 require_once plugin_dir_path( __FILE__ ) . 'includes/var.php';
