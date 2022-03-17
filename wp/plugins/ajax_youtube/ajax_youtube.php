@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     3.9
+ * Version:     3.10
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -38,7 +38,7 @@
 // //Добавляем шорткод
 // add_shortcode('test_shortcode','my_shortcode_output');
 // //выводим на экран
-// function my_shortcode_output($atts, $content = '', $tag){
+// function my_shortcode_output($attrs, $content = '', $tag){
 //     $html = '';
 //     $html .= '<p>Hello World</p>';
 //     return $html;
@@ -81,6 +81,9 @@
 
 // v3.9
 // изменил пропорции отображения и padding у модального окна
+
+// v3.10
+// исправил мелкие ошибки
 
 // переменные плагина
 require_once plugin_dir_path( __FILE__ ) . 'includes/var.php';
