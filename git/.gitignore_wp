@@ -1,0 +1,16 @@
+/wp-admin/
+/wp-includes/
+/wp-content/backupwordpress-ca5112fedc-backups/
+/wp-content/uploads/
+/wp-config.php
+/wp-content/plugins/
+/wp-content/languages/
+/wp-content/themes/manager/
+wp-config-sample.php
+wp-load.php
+wp-login.php
+wp-settings.php
+wp-signup.php
+readme.html
+/wp-content/backups-dup-lite/
+/wp-content/themes/twentytwentytwo/
