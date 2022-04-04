@@ -4,7 +4,7 @@
 // [theme_video_resp ids="qZnuI1Zrdbs, akweI7-LaWc"]
 // функция выводит блоки по переданным id ютуб роликов
 function theme_video_func($attrs) {
-	$style_margin = ay_var('style_margin');
+	$style_margin = ay_var('style_margin', $attrs);
 	// получаем размер
 	if (isset($attrs) && array_key_exists('size', $attrs)) {
 		$size = $attrs["size"];

@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Ajax подгузка видео роликов
- * Description: Вставка видео с ютуба. Вывод по id [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]. Вывод из страницы настроек [theme_video_shablon metka="reklama"]. Одно видео определенной пропорции [theme_video_resp id="qZnuI1Zrdbs" size="16by9"]. Возможные варианты пропорций 16by9, 4by3, 2by1, 1by1
+ * Description: Вставка видео с ютуба. Одно видео [theme_video_resp id="qZnuI1Zrdbs"]. Несколько видео [theme_video ids="qZnuI1Zrdbs, akweI7-LaWc"]. Вывод из "Шаблонные шорткоды видео" [theme_video_shablon metka="reklama"]. Пропорции: size="16by9|4by3|2by1|1by1". Отступы верх:margin_top, низ:margin_bottom, значение без px. [theme_video_resp id="qZnuI1Zrdbs"  size="16by9" margin_top="100" margin_bottom="50"]
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     3.10
+ * Version:     3.11
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -84,6 +84,9 @@
 
 // v3.10
 // исправил мелкие ошибки
+
+// v3.11
+// добавил индивидуальный отступ для каждого шорткода. Добавление отступов margin_top, margin_bottom, значение без px. Изменил описание плагина.
 
 // переменные плагина
 require_once plugin_dir_path( __FILE__ ) . 'includes/var.php';

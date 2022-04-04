@@ -6,7 +6,8 @@
 // выводит одиночное видео
 
 function theme_video_resp_func($attrs) {
-	$style_border = ay_var('style_border_radius');
+// 	var_dump($attrs);
+	$style_border = ay_var('style_border_radius', $attrs);
 	// если используется в галерее
 	if (isset($attrs) && array_key_exists('is_gallery_video', $attrs)) {
 		$is_gallery_video = filter_var($attrs['is_gallery_video'], FILTER_VALIDATE_BOOLEAN); // если используется в галерее
@@ -17,7 +18,7 @@ function theme_video_resp_func($attrs) {
 	if ($is_gallery_video) { //одиночная запись
 		$style_item = '';
 	} else {
-		$style_item = ay_var('style_margin');
+		$style_item = ay_var('style_margin', $attrs);
 	}
 
 	// Определяем размер
