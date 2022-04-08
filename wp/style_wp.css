@@ -2,8 +2,8 @@
 
 .alignnone, div.alignnone,
 .aligncenter, div.aligncenter {
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
 }
 
 .alignright {
@@ -41,6 +41,8 @@ a img.aligncenter {
 
 .wp-caption {
     max-width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 0;
     text-align: center;
 }
