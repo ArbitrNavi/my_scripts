@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name: Ivan share social Поделиться в социалках
- * Description: Поделиться в социалках
+ * Description: Поделиться в социалках [ivan-social-share]
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     1.00
+ * Version:     1.01
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -17,6 +17,10 @@
  *
  * Network:     Укажите "true" для возможности активировать плагин по все сети сайтов (для Мультисайтовой сборки).
  */
+
+
+//v 1.01
+// поправил главый файл описания, удалил временные файлы. Вывел пример шорткода в описание
 
 define('INCLUDES_PATH', 'includes/');
 define('STYLES_URL', plugin_dir_url(__FILE__) .'assets/styles/');
