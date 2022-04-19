@@ -1,0 +1,180 @@
+.ivan-social {
+    display: inline-block;
+}
+
+.ivan-social-item {
+    display: inline-block;
+}
+
+.ivan-social.links.circle {
+    display: flex;
+}
+
+.ivan-social.links.circle a {
+    display: flex;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.ivan-social.links.circle a:hover {
+    background: #8393ab
+}
+
+.ivan-social.links.circle a:hover i {
+    color: #fff !important;
+}
+
+.ivan-social.links.circle a i {
+    font-size: 12px;
+    width: 100%;
+    color: #fff;
+}
+
+.ivan-social.links.circle a i.fa-vk {
+    color: #507299;
+}
+
+.ivan-social.links.circle a i.fa-facebook {
+    color: #4267b2;
+}
+
+.ivan-social.links.circle a i.fa-youtube-play {
+    color: #f00;
+}
+
+.ivan-social.links.circle a i.fa-google-plus {
+    color: #db4437;
+}
+
+.social_share {
+    color: #308ceb;
+}
+
+.social_share .ivan_wrap_social_icon {
+    height: 15px;
+}
+
+.ivan_share .window-share {
+    position: absolute;
+    z-index: 1;
+
+    display: flex;
+    display: -moz-flex;
+    -webkit-align-items: center;
+
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 20px;
+    padding: 10px 20px;
+
+    border: 1px solid #1d4b9b;
+    background: #fff;
+}
+
+.ivan_share .wrap-window-share {
+    position: absolute;
+    left: 0;
+
+    display: none;
+}
+
+.ivan_share .window-share:before {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+    transform: rotate(45deg);
+
+    border-top: 1px solid #1d4b9b;
+    border-left: 1px solid #1d4b9b;
+    background: #fff;;
+}
+
+.ss-social-share {
+    text-decoration: none !important;
+}
+
+.ivan_share span {
+    vertical-align: middle;
+}
+
+.button-share__wrapper {
+    position: relative;
+}
+
+.ivan_share {
+    display: inline-block;
+}
+
+.social_share .ivan_wrap_social_icon {
+    fill: #308ceb;
+}
+
+.ivan-social-share {
+    font-size: 13px;
+    display: inline-block;
+    width: 120px;
+    margin: 5px 0;
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff !important;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #007dbd 5%, #006496 35%, #006496 75%, #007dbd 99%);
+}
+
+.ivan_wrap_social_icon {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+}
+
+.ivan_wrap_social_icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.ivan-social-share svg {
+    fill: #ffffff;
+}
+
+.ivan-social-share:hover {
+    background: linear-gradient(180deg, #006496 5%, #007dbd 35%, #007dbd 75%, #006496 99%);
+}
+
+.ivan-social-share.vk-share {
+
+}
+
+.ivan-social-share.facebook-share {
+
+}
+
+.ivan-social-share.twitter-share {
+
+}
+
+.ivan-social-share.google-plus-share {
+
+}
+
+.ivan-social-share i {
+    display: inline-block;
+    width: 20px;
+    margin-right: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
