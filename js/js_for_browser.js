@@ -32,6 +32,12 @@ javascript: (function () {
 })();
 void (0);
 
+//скрыть и отобразить админ панель
+javascript:(function () {
+    document.getElementById('wpadminbar').style.display = (document.getElementById('wpadminbar').style.display == 'none') ? '' : 'none';
+})();
+void (0);
+
 
 
 
