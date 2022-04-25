@@ -61,7 +61,6 @@
 		position: relative;
 		display: none;
 		background: #000000;
-		outline: 1px solid #22f500;
 		cursor: pointer;
 		width: 50px;
 		height: 50px;
@@ -95,21 +94,6 @@
 		display: block;
 	}
 
-
-	.my_mobile_menu ul {
-		display: flex;
-		align-items: flex-end;
-		flex-direction: column;
-		justify-content: flex-start;
-		margin-left: auto;
-		padding-right: 20px;
-		list-style: none;
-	}
-
-	.my_mobile_menu li:not(:last-child) {
-		margin: 0 0 10px;
-	}
-
 	.my_mobile_menu {
 		position: fixed;
 		z-index: 1;
@@ -124,6 +108,20 @@
 		transition: all 0.3s ease-in-out;
 		text-align: center;
 		opacity: 0;
+	}
+
+	.my_mobile_menu ul {
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column;
+		justify-content: flex-start;
+		margin-left: auto;
+		padding-right: 20px;
+		list-style: none;
+	}
+
+	.my_mobile_menu li:not(:last-child) {
+		margin: 0 0 10px;
 	}
 
 	.my_mobile_menu.overlay {
