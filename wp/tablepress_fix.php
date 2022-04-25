@@ -39,11 +39,16 @@ function tablepress_print_name_html_tag_function($str) {
 	}
 
 
+	/* @media */
 	/*адаптация таблицы*/
 	/*добавить закругления для первых двух ячеек, другие ячейки скрыть*/
 	.tablepress th:not(.column-1):not(.column-2),
 	.tablepress td:not(.column-1):not(.column-2) {
 		display: none !important;
+	}
+
+	.tablepress{
+		word-break: break-all;
 	}
 
 	.tablepress thead tr th.column-2 {
