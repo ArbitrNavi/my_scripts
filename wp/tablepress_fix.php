@@ -1,6 +1,13 @@
 <?php
 //fix tablepress
 
+// фильтр для заголовков таблицы
+add_filter('tablepress_print_name_html_tag', 'tablepress_print_name_html_tag_function', 10, 1);
+function tablepress_print_name_html_tag_function($str) {
+	$str = 'h3';
+	return $str;
+}
+
 ?>
 
 
@@ -24,13 +31,13 @@
 
 
 	/*адаптация таблицы*/
-	/*добавить закругления в других ячеек */
-	.tablepress-id-1 .column-3,
-	.tablepress-id-1 .column-4 {
-		display: none;
+	/*добавить закругления для первых двух ячеек, другие ячейки скрыть*/
+	.tablepress th:not(.column-1):not(.column-2),
+	.tablepress td:not(.column-1):not(.column-2) {
+		display: none !important;
 	}
 
-	.tablepress-id-1 thead tr th.column-2 {
+	.tablepress thead tr th.column-2 {
 		border-radius: 0 20px 0 0 !important;
 	}
 
