@@ -12,21 +12,30 @@ function tablepress_print_name_html_tag_function($str) {
 
 
 <style>
+	:root {
+		--my-tablepress-radius: 20px;
+	}
+
 	/* убрать закругленные края у таблицы */
 	.tablepress thead tr th:not(:first-child, :last-child) {
 		border-radius: 0 !important;
 	}
 
 	.tablepress thead tr th:first-child {
-		border-radius: 20px 0 0 0 !important;
+		border-radius: var(--my-tablepress-radius) 0 0 0 !important;
 	}
 
 	.tablepress thead tr th:last-child {
-		border-radius: 0 20px 0 0 !important;
+		border-radius: 0 var(--my-tablepress-radius) 0 0 !important;
 	}
 
 	.tablepress thead p {
 		text-indent: 0;
+	}
+
+	/*правка для colspan */
+	.tablepress th[colspan]:not([colspan='1']) {
+		border-radius: var(--my-tablepress-radius) var(--my-tablepress-radius) 0 0 !important;
 	}
 
 
@@ -38,11 +47,11 @@ function tablepress_print_name_html_tag_function($str) {
 	}
 
 	.tablepress thead tr th.column-2 {
-		border-radius: 0 20px 0 0 !important;
+		border-radius: 0 var(--my-tablepress-radius) 0 0 !important;
 	}
 
 	.tablepress tbody tr:last-child .column-2 {
-		border-radius: 0 0 10px 0;
+		border-radius: 0 0 var(--my-tablepress-radius) 0;
 	}
 
 </style>
