@@ -12,4 +12,5 @@ function get_url_img_is_sub_field($name_field_image_id, $img_size = 'full', $img
 	}
 
 	return $resoult;
-} ?>
+}
+?>
