@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Яндекс БЭМ</title>
+</head>
+<body>
+<!-- Блок - что это? - имя-класса-блока(слова разделать -(тире)) - about-search -  функционально независимый компонент страницы, который может быть использован множество раз -->
+<!-- Блоки можно вкладывать друг в друга-->
+<!-- name-block - правильно-->
+<!-- Блок about-->
+<div class="about">
+	<!--	Вложенный блок 'title'-->
+	<div class="title"></div>
+	<!--	Вложенный блок 'subtitle'-->
+	<div class="title"></div>
+
+</div>
+
+
+<!-- Элемент - что это - имя-класса-блока__имя-элемента - составная часть блока, которая не может быть использована без него-->
+<!-- Элементы можно вкладывать друг в друга, допустима любая вложенность элементов, элемент это всегда часть блока, а не другого элемента-->
+<!-- Элемент - не обязательная часть блока -->
+<!-- имяклассаблока__имяэлемента - правильно-->
+
+<!-- имяклассаблока__имяэлемента__имяэлемента - так неправильно-->
+<!-- блок .menu -->
+<nav class="menu">
+	<!--элементы .menu__link-->
+	<a class="menu__link" href="#"></a>
+	<a class="menu__link" href="#"></a>
+	<a class="menu__link" href="#"></a>
+	<a class="menu__link" href="#"></a>
+</nav>
+
+<div class="row">
+	<!--	элемент .row__column -->
+	<div class="row__column">
+		<!--		элемент .row__item -->
+		<div class="row__item"></div>
+	</div>
+</div>
+
+<!-- Блок - если фрагмент кода уже используется повторно или может использоваться на других страницах сайта, при этом он не зависит от реализации других компонентов страницы-->
+<!-- Элемент - фрагмент кода не будет или не может использоваться без родительского блока-->
+
+
+<!-- Модификатор - Какой? - имяклассаблока_модификатор, имяклассаблока__элемент_модификатор -  дополняет/уточняет стиль блока либо элемента, когда нужно выделить-->
+<!-- блок .menu -->
+<nav class="menu">
+	<!--элементы .menu__link-->
+	<a class="menu__link menu__link_active" href="#"></a>
+	<a class="menu__link" href="#"></a>
+	<a class="menu__link" href="#"></a>
+	<a class="menu__link" href="#"></a>
+</nav>
+
+<!-- Микс-->
+
+<!-- Блок .about-->
+<div class="about">
+	<!--	Элемент 'about_title'-->
+	<div class="about_title title"></div>
+	<!--	Элемент 'about__subtitle'-->
+	<div class="about__subtitle subtitle"></div>
+
+	<!-- элемент юabout__row -->
+	<div class="about__row">
+		<!--		элемент .about__column-->
+		<div class="about__column">
+			<!-- блок .item-about-->
+			<div class="item-about">
+				<!-- элемент .item-about__icon-->
+				<div class="item-about__icon">
+					<img alt="" src="">
+				</div>
+				<!-- элемент .item-about__title-->
+				<div class="item-about__title">title</div>
+				<!-- элемент .item-about__text-->
+				<div class="item-about__text">Lorem ipsum dolor sit amet.</div>
+			</div>
+
+			<div class="item-about">
+				<div class="item-about__icon">
+					<img alt="" src="">
+				</div>
+				<div class="item-about__title">title</div>
+				<div class="item-about__text">Lorem ipsum dolor sit amet.</div>
+			</div>
+
+			<div class="item-about">
+				<div class="item-about__icon">
+					<img alt="" src="">
+				</div>
+				<div class="item-about__title">title</div>
+				<div class="item-about__text">Lorem ipsum dolor sit amet.</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
