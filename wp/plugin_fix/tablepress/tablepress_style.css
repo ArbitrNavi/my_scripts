@@ -1,9 +1,11 @@
 /*--------------------Table tablepress*/
 :root {
-    --tb-text-color: rgb(255, 255, 255);
-    --tb-border-color: rgba(255, 255, 255, .2);
-    --tb-bg-header: rgba(255, 255, 255, 0.3);
-    --tb-tr-bg-hover: rgba(255, 54, 54, 0.4);
+    --tb-text-color: #000000;
+    --tb-table-name: 24px;
+    --tb-table-description: 16px;
+    --tb-border-color: rgba(0, 0, 0, 0.2);
+    --tb-bg-header: rgba(0, 178, 190, 1);
+    --tb-tr-bg-hover: rgba(255, 193, 7, 0.3);
     --tb-tr-bg: transpanent;
     --tb-tr-odd-bg: rgba(255, 255, 255, 0.05);
     --tb-border-radius: 20px;
@@ -45,6 +47,15 @@ body .container .tablepress-table-name {
 body .container .tablepress-table-name:before {
     display: none;
 }
+
+.tablepress-table-name {
+    font-size: var(--tb-table-name);
+}
+
+.tablepress-table-description {
+    font-size: var(--tb-table-description);
+}
+
 
 .tablepress__wrap .tablepress {
     font-family: 'Gilroy', sans-serif;
