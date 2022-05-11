@@ -1,0 +1,4 @@
+Перенос на новый домен
+UPDATE wp_options SET option_value = REPLACE(option_value, 't-webstudio.ru', 't-webstudio.loc') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET post_content = REPLACE (post_content, 't-webstudio.ru', 't-webstudio.loc');
+UPDATE wp_postmeta SET meta_value = REPLACE (meta_value, 't-webstudio.ru','t-webstudio.loc');
