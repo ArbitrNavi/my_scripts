@@ -9,3 +9,14 @@ $0;
 
 (\d{1,2})(\/)(\d{1,2})(\/)(\d{4})
 $3.$1.$5
+
+чистка кода от лишних тегов, оставит только шорткод
+<div class="bltwu_block_2_table_wrap" style="margin-top: 10px;">
+    <div class="wrap_table_title">
+        <p class="table_title">[table id=19 /]</p>
+    </div>
+</div>
+[table id=19 /]
+
+(<div class=\"bltwu_block_2_table_wrap[\w\W]+?)(\[table[\w\W]+?\/])(<\/[\w\W]+?<\/div>[\w\W]+?<\/div>)
+$2
