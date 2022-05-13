@@ -48,12 +48,16 @@ body .container .tablepress-table-name:before {
     display: none;
 }
 
-.tablepress-table-name {
+.tablepress__header .tablepress-table-name {
     font-size: var(--tb-table-name);
+    padding: initial;
+    font-weight: initial;
 }
 
-.tablepress-table-description {
+.tablepress__header .tablepress-table-description {
     font-size: var(--tb-table-description);
+    padding: initial;
+    font-weight: initial;
 }
 
 
