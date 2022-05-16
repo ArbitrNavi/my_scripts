@@ -6,27 +6,26 @@
 //Аттрибутами(размер, цвет, скорость, ...)
 //Поведениями(бегать, прыгать, читать, ...)
 
-class Car
-{
-    public $color;
-    public $year;
-    public $manufacturer;
-
-    //    функции в объекте называют действия/методы
-
-    public function go()
-    {
-        //    реализация езды
-    }
-
-}
-
-$myCar = new Car;//Создать новый экземляр машины на основе чертежа Car,
-// теперь переменная $myCar это объект машины, не имеет конкретных данных
-
-$myCar->color = 'red';
-$myCar->year = 2017;
-$myCar->manufacturer = 'Mersedes';
+//class Car
+//{
+//	public $color;
+//	public $year;
+//	public $manufacturer;
+//
+//	//    функции в объекте называют действия/методы
+//
+//	public function go() {
+//		//    реализация езды
+//	}
+//
+//}
+//
+//$myCar = new Car;//Создать новый экземляр машины на основе чертежа Car,
+//// теперь переменная $myCar это объект машины, не имеет конкретных данных
+//
+//$myCar->color = 'red';
+//$myCar->year = 2017;
+//$myCar->manufacturer = 'Mersedes';
 
 
 //жизненный цикл - сценарий который постоянно повторяется
@@ -46,46 +45,44 @@ $myCar->manufacturer = 'Mersedes';
 //Класс Car - состоит из свойств (чертеж)
 class Car
 {
-    public $color;
-    public $year;
-    public $manufacturer;
+	public $color;
+	public $year;
+	public $manufacturer;
 
-//    действия / методы к объекту
+	//    действия / методы к объекту
 
-    public function __construct($color, $year, $izgotovitel)
-    {
-        $this->color = $color;
-        $this->year = $year;
-        $this->year = $izgotovitel;
-    }
+	public function __construct($color, $year, $izgotovitel) {
+		$this->color = $color;
+		$this->year = $year;
+		$this->manufacturer = $izgotovitel;
+	}
 
-    public function startEngine()
-    {
-//    большой кусок сода завода мотора
-    }
+	public function startEngine() {
+		//    большой кусок кода завода мотора
+	}
 
-    public function changeColor($color)
-    {
-        $this->color = $color;
-    }
+	public function changeColor($color) {
+		$this->color = $color;
+	}
 
-    public function go()
-    {
-    //    реализация езды
-    }
+	public function go() {
+		//    реализация езды
+	}
 
-//действие КОНСТРУКТОР - выполняется без явного вызова
+	//действие КОНСТРУКТОР - выполняется без явного вызова
 }
 
-$myCar = new Car; // конкретный объект - создать новый экземпляр машины на основе чертежа Car. Теперь это экземляр машины
+$myCar = new Car('red',2022,'lada'); // конкретный объект - создать новый экземпляр машины на основе чертежа Car. Теперь это экземляр машины
+$myCar->color = 'green';
+//$myCar->color = 'red';
+//$myCar->year = 2017;
+//$myCar->manufacturer = 'Mersedes';
+//
+//$myCar->startEngine();//заводим машину
+//$myCar->go();//едем
 
-$myCar->color = 'red';
-$myCar->year = 2017;
-$myCar->manufacturer = 'Mersedes';
-
-$myCar->startEngine();//заводим машину
-$myCar->go();//едем
+var_dump($myCar);
 
 //каждый объект имеет один экземляр класса Car
-$myCar2 = new Car;
-$myCar3 = new Car;
+//$myCar2 = new Car;
+//$myCar3 = new Car;
