@@ -117,7 +117,10 @@
 		justify-content: flex-start;
 		margin-left: auto;
 		padding-right: 20px;
+		padding-left: 0;
 		list-style: none;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.my_mobile_menu li:not(:last-child) {
