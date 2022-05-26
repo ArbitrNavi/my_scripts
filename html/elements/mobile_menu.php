@@ -47,20 +47,31 @@
 //		)
 //);
 //
+//for wp
 //wp_nav_menu([
+//		'container_class' => 'my_mobile_menu',
+//		'container_id' => 'my_mobile_menu',
 //		'theme_location' => 'mobile',
-//		'menu_class'     => 'my_mobile_menu',
-//		'menu_id'        => 'my_mobile_menu',
 //		'depth'          => 0, // количество уровней вложенности
 //		'items_wrap'     => '<ul class="mobile__menu__list">%3$s</ul>'
 //]);
 ?>
 
 <style>
+	:root {
+		--mm-btn-bg: none;
+		--mm-btn-color: rgb(255, 255, 255);
+
+		--mm-bg: rgba(0, 0, 0, 0.6);
+		--mm-color: #ffffff;
+		--mm-color-hover: rgba(2, 2, 2, 0.46);
+		--mm-font-size: 27px;
+	}
+
 	.menu__burger_wrap_img {
 		position: relative;
 		display: none;
-		background: #000000;
+		background: var(--mm-btn-bg);
 		cursor: pointer;
 		width: 50px;
 		height: 50px;
@@ -74,8 +85,8 @@
 		object-position: center;
 	}
 
-	.menu__burger_wrap_img svg path {
-
+	.menu__burger_wrap_img svg {
+		fill: var(--mm-btn-color);
 	}
 
 	.menu__burger_img-close {
@@ -96,7 +107,7 @@
 
 	.my_mobile_menu {
 		position: fixed;
-		z-index: 1;
+		z-index: 10;
 		top: 62px;
 		left: 0;
 		display: none;
@@ -135,17 +146,14 @@
 	}
 
 	.my_mobile_menu.overlay a {
-		font-size: 27px;
+		font-size: var(--mm-font-size);
 		text-decoration: none;
 		color: #ffffff;
 	}
 
-	.my_mobile_menu.overlay a:focus {
-		color: #000000;
-	}
-
+	.my_mobile_menu a:focus,
 	.my_mobile_menu a:hover {
-		color: #000;
+		color: var(--mm-color-hover);
 	}
 
 	@media only screen and (max-width: 720px) {
@@ -159,7 +167,6 @@
 
 	}
 </style>
-
 
 <script>
 	var burgerMenu = document.getElementById('burger-menu');
