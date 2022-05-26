@@ -5,12 +5,11 @@
 	<title>Bottom line btn</title>
 </head>
 <body>
-
 <div class="mobail-line">
 	<ul class="mobail-line__cont">
-		<li><a class="mobail-line__link" href="/uslugi-i-tsenyi/">ЦЕНЫ</a></li>
-		<li><a class="mobail-line__link" href="/portfolio-studii-zvukozapisi/">РАБОТЫ</a></li>
-		<li><a class="mobail-line__link mobail-line__link_phone " href="tel:89060502728">ПОЗВОНИТЬ</a></li>
+		<li><a class="mobail-line__link" href="/uslugi-i-tsenyi/">Цены</a></li>
+		<li><a class="mobail-line__link" href="/portfolio/">Портфолио</a></li>
+		<li><a class="mobail-line__link mobail-line__link_phone " href="tel:+79060502728">ПОЗВОНИТЬ</a></li>
 	</ul>
 </div>
 
@@ -19,6 +18,7 @@
 	:root {
 		--ml-media-width: 991;
 		--min-width: 1000px;
+		--ml-font-size: 14px;
 		--ml-text-transform: none;
 		--ml-block-color-1: #4a7895;
 		--ml-block-color-2: #4a7895;
@@ -50,7 +50,7 @@
 	}
 
 	.mobail-line__cont a {
-		font-size: 14px;
+		font-size: var(--ml-font-size);
 		line-height: 25px;
 		display: inline-block;
 		margin: 0 5px;
