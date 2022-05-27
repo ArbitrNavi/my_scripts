@@ -5,7 +5,7 @@ javascript:(function () {
 void (0);
 
 
-// Подсветить тег
+// Подсветить элемент
 javascript:(function () {
     custom_select_tag_active = localStorage.getItem('custom_select_tag') || "a";
     custom_select_tag = prompt('Что подсветить?(Выборка jq)', custom_select_tag_active);
@@ -42,7 +42,7 @@ javascript:(function () {
 })();
 void (0);
 
-//подсветить элемент'
+//подсветить элемент
 javascript: (function () {
     var style = document.getElementById('bstrongemhighlight');
     if (style) {
