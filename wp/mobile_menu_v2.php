@@ -284,6 +284,10 @@ register_nav_menus(array(
 	}
 
 	@media only screen and (max-width: 1200px) {
+		body {
+			margin-top: var(--mh-height);
+		}
+
 		.mobile-header,
 		.mobile-block {
 			display: block;
