@@ -9,6 +9,9 @@ function phone_format($phone_string) {
 
 //echo phone_format(' 8 (905) 506-3-506');
 
+//Вытащить цифры из стороки
+preg_replace('/[^0-9]/', '', $str);
+
 //Обернуть найденное совпадение
 $tablepress__header_tag = 'div';
 $tablepress__header_class = 'tablepress__header';
@@ -22,4 +25,5 @@ $replacement = $tablepress__header_start . '${0}' . $tablepress__header_end;
 $subject = $table;
 $resoult = preg_replace($pattern, $replacement, $subject);
 echo $resoult;
+
 ?>
