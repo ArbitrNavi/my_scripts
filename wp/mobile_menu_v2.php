@@ -7,9 +7,9 @@ register_nav_menus(array(
 
 <div class="mobile-header">
 	<div class="mobile-header__wrap">
-		<!--		<div class="mobile-header__logo">-->
-		<!--			<img src="/wp-content/uploads/2018/12/logo_big.png" alt="Логотип" title="Логотип">-->
-		<!--		</div>-->
+		<div class="mobile-header__logo">
+			<img src="URL_LOGO" alt="Логотип" title="Логотип">
+		</div>
 		<div class="mobile-header__name">
 			<p class="mobile-header__title">ТАМАРА</p>
 			<p class="mobile-header__description">РЕКЛАМНОЕ АГЕНСТВО</p>
