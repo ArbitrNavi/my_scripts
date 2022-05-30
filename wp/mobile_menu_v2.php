@@ -1,7 +1,7 @@
 <?php
 //add fot functions.php
 register_nav_menus(array(
-	'mobile'        => 'Мобильное меню',
+		'mobile' => 'Мобильное меню',
 ));
 ?>
 
@@ -86,11 +86,11 @@ register_nav_menus(array(
 	}
 
 	.mobile-header {
+		display: none;
 		position: fixed;
 		z-index: 10;
 		top: 0;
 		left: 0;
-		display: block;
 		box-sizing: border-box;
 		width: 100%;
 		height: var(--mh-height);
@@ -206,15 +206,13 @@ register_nav_menus(array(
 	/* block visible menu */
 	.mobile-block {
 		position: fixed;
-		display: flex;
-		justify-content: flex-end;
+		display: none;
 		z-index: 10;
 		top: var(--mh-height);
 		right: 0;
 		visibility: hidden;
 		width: 300px;
 		transition: all 0.3s ease-in-out;
-		text-align: center;
 		opacity: 0;
 	}
 
@@ -229,9 +227,11 @@ register_nav_menus(array(
 		list-style: none;
 		width: 100%;
 		box-sizing: border-box;
+
 	}
 
 	.mobile-block__list li {
+		list-style: none;
 		text-align: left;
 	}
 
@@ -281,6 +281,13 @@ register_nav_menus(array(
 	.mobile-block a:focus,
 	.mobile-block a:hover {
 		color: var(--mb-color-hover);
+	}
+
+	@media only screen and (max-width: 1200px) {
+		.mobile-header,
+		.mobile-block {
+			display: block;
+		}
 	}
 </style>
 
