@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     2.00
+ * Version:     2.1
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -18,9 +18,11 @@
  */
 
 // v2.0 интеграция со станицей настроек acf
+// v2.1 импорт настроек acf
 
-// страница настроек
+// страница настроек acf
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
 
 // Подключение стилей и скриптов
 require_once plugin_dir_path( __FILE__ ) . 'includes/moduls/mobile_header/mobile_header.php';
