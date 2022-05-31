@@ -17,8 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: var(--ml-height);
     width: 90%;
+    height: var(--ml-height);
     margin: 0 auto;
     list-style: none;
 }
@@ -39,9 +39,10 @@
 }
 
 .mobail-line__cont a.mobail-line__link_phone {
+    font-weight: bold;
     display: flex;
     align-items: center;
-    color: var(--ml-btn-color);
+    color: var(--ml-btn-phone-color);
     background: var(--ml-btn-phone-bg-color);
 }
 

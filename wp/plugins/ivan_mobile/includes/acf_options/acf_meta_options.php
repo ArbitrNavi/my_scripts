@@ -1,4 +1,4 @@
-<?php if( function_exists('acf_add_local_field_group') ):
+<?php 			if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
 		'key' => 'group_6294be8bde7d8',
@@ -903,6 +903,42 @@
 				'enable_opacity' => 1,
 				'return_format' => 'string',
 			),
+			array(
+				'key' => 'field_6295bec3afa98',
+				'label' => 'Цвет текста кнопки телефона',
+				'name' => 'ml-btn-phone-color',
+				'type' => 'color_picker',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '20',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => 'rgba(212,56,44,1)',
+				'enable_opacity' => 1,
+				'return_format' => 'string',
+			),
+			array(
+				'key' => 'field_6295c29211b33',
+				'label' => 'Поставить иконку телефона?',
+				'name' => 'ml-btn-phone-is_icon',
+				'type' => 'true_false',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '20',
+					'class' => '',
+					'id' => '',
+				),
+				'message' => '',
+				'default_value' => 0,
+				'ui' => 1,
+				'ui_on_text' => '',
+				'ui_off_text' => '',
+			),
 		),
 		'location' => array(
 			array(
@@ -924,4 +960,4 @@
 		'show_in_rest' => 0,
 	));
 
-endif; ?>
+endif;		 ?>

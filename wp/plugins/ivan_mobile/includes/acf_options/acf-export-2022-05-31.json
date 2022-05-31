@@ -901,6 +901,42 @@
                 "default_value": "rgba(212,56,44,1)",
                 "enable_opacity": 1,
                 "return_format": "string"
+            },
+            {
+                "key": "field_6295bec3afa98",
+                "label": "Цвет текста кнопки телефона",
+                "name": "ml-btn-phone-color",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "rgba(212,56,44,1)",
+                "enable_opacity": 1,
+                "return_format": "string"
+            },
+            {
+                "key": "field_6295c29211b33",
+                "label": "Поставить иконку телефона?",
+                "name": "ml-btn-phone-is_icon",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
             }
         ],
         "location": [
