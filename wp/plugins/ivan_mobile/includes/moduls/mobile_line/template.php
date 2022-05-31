@@ -17,11 +17,11 @@
 	}
 
 	@media (max-width: <?php echo (get_field('mobile_line_width_between', 'options'))?: "580"; ?>px) {
-		.mobail-line__cont {
+		body .mobail-line__cont {
 			justify-content: space-between;
 		}
 
-		.mobail-line__cont a {
+		body .mobail-line__cont a {
 			padding: 0 10px;
 		}
 	}
