@@ -86,11 +86,11 @@ body .dataTables_scrollBody thead th {
     padding: 0 !important;
 }
 
+.tablepress__wrap .tablepress td[colspan],
 .tablepress__wrap .tablepress tfoot th,
 .tablepress__wrap .tablepress thead th {
     color: var(--tb-header-color);
-    background-color: var(--tb-header-bg);
-
+    background-color: var(--tb-header-bg)!important;
 }
 
 .tablepress .even td,
