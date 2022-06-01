@@ -5,6 +5,7 @@
 		--ml-text-transform: <?php echo (get_field('ml-text-transform', 'options'))?"uppercase": "none"; ?>;
 		--ml-block-bg: <?php echo (get_field('ml-block-bg', 'options'))?: "#4a7895"; ?>;
 		--ml-block-border-color: <?php echo (get_field('ml-block-border-color', 'options'))?: "rgb(0, 0, 0)"; ?>;
+		--ml-btn-height: <?php echo (get_field('ml-btn-height', 'options'))?: "47"; ?>px;
 		--ml-btn-color: <?php echo (get_field('ml-btn-color', 'options'))?: "#ffffff"; ?>;
 		--ml-btn-bg-color: <?php echo (get_field('ml-btn-bg-color', 'options'))?: "#4a7895"; ?>;
 		--ml-btn-phone-color: <?php echo (get_field('ml-btn-phone-color', 'options'))?: "#ffffff"; ?>;
@@ -21,8 +22,12 @@
 			justify-content: space-between;
 		}
 
+		body .mobail-line__cont li {
+			margin-left: 0;
+		}
+
 		body .mobail-line__cont a {
-			padding: 0 10px;
+			padding: 0 14px;
 		}
 	}
 
@@ -34,6 +39,7 @@
 		body .mobail-line {
 			display: block;
 		}
+
 
 	<?php echo (get_field('mobile_line-elements-hidden', 'options'))? get_field('mobile_line-elements-hidden', 'options') . "{display:none!important};" : null;  ?>
 

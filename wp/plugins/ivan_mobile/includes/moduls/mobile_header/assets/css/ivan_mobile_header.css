@@ -126,7 +126,7 @@
 /* block visible menu */
 .mobile-block {
     position: fixed;
-    z-index: 10;
+    z-index: 11;
     top: var(--mh-height);
     right: 0;
     display: none;
@@ -137,8 +137,9 @@
 }
 
 .mobile-block__wrap {
+    box-sizing: border-box;
     width: 100%;
-    padding-bottom: var(--mobile-padding);
+    padding: var(--mobile-padding);
 }
 
 .mobile-block__list {
@@ -152,27 +153,27 @@
 
 .mobile-block__list li {
     list-style: none;
-    text-align: left;
+    text-align: var(--mobile-textalign);
 }
 
 .mobile-block li a {
     font-size: var(--mb-fontsize);
     display: block;
-    padding: var(--mobile-padding);
+    box-sizing: border-box;
+    padding: var(--mobile-padding) 0;
     text-decoration: none;
     color: var(--mobile-color);
-    border-bottom: 2px solid;
 }
 
 
 .mobile-block__info {
-    padding: 0 var(--mobile-padding);
+    text-align: var(--mobile-textalign);
+    border-top: 1px solid var(--mobile-color);
 }
 
 .mobile-block__text {
     font-size: var(--mb__text-fontsize);
     margin-top: var(--mobile-padding);
-    text-align: left;
     color: var(--mobile-color);
 }
 

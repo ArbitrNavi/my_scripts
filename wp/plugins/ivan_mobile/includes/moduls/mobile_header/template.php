@@ -3,6 +3,7 @@
 		--mobile-padding: <?php echo (get_field('mobile-padding', 'options'))?: "10"; ?>px;
 		--mobile-bg: <?php echo (get_field('mobile-bg', 'options'))?: "#308ceb"; ?>;
 		--mobile-color: <?php echo (get_field('mobile-color', 'options'))?: "#ffffff"; ?>;
+		--mobile-textalign: <?php echo (get_field('mobile-textalign', 'options'))?"left": "right"; ?>;
 
 		--mh-height: <?php echo (get_field('mh-height', 'options'))?: "60"; ?>px;
 

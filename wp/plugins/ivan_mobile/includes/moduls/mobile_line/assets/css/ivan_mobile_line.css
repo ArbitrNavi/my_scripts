@@ -17,18 +17,30 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
     height: var(--ml-height);
     margin: 0 auto;
+    padding: 0 10px;
     list-style: none;
+}
+
+.mobail-line__cont li {
+    box-sizing: border-box;
+    width: calc(33% - 5px);
+    max-width: 140px;
+    margin-left: 10px;
+
 }
 
 .mobail-line__cont a {
     font-size: var(--ml-font-size);
-    line-height: 25px;
-    display: inline-block;
-    margin: 0 5px;
-    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--ml-btn-height);
     text-align: center;
     text-decoration: none;
     text-transform: var(--ml-text-transform);
