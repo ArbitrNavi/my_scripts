@@ -4,11 +4,13 @@
     --tb-border-color: rgba(0, 0, 0, 0.2);
     --tb-border-radius: 20px;
 
+    --tb-table-name-bg: #308CEB;
+    --tb-table-name-color: #ffffff;
     --tb-table-name-size: 24px;
     --tb-table-description-size: 16px;
 
-    --tb-header-bg: rgba(0, 178, 190, 1);
-    --tb-header-color: #ffffff;
+    --tb-header-bg: #eaf3fa;
+    --tb-header-color: #000000;
 
     --tb-tr-bg: transpanent;
     --tb-tr-odd-bg: rgba(255, 255, 255, 0.05);
@@ -51,6 +53,8 @@ body .container .tablepress-table-name {
     box-sizing: border-box;
     min-height: 50px;
     padding: 5px 40px;
+    color: var(--tb-table-name-color);
+    background: var(--tb-table-name-bg);
 }
 
 .tablepress-table-description {
@@ -102,7 +106,7 @@ body .dataTables_scrollBody thead th {
 .tablepress__wrap .tablepress tfoot th,
 .tablepress__wrap .tablepress thead th {
     color: var(--tb-header-color);
-    background-color: var(--tb-header-bg)!important;
+    background-color: var(--tb-header-bg) !important;
 }
 
 .tablepress .even td,
