@@ -5,6 +5,16 @@ javascript:(function () {
 void (0);
 
 
+//ширина и высота экрана
+javascript:(function () {
+    width = window.screen.width;
+    height = window.screen.height;
+    text = "Данные экрана: \n Ширина: " + width + "px\n Высота: " + height + "px";
+    alert(text);
+})();
+void (0);
+
+
 // Подсветить элемент
 javascript:(function () {
     custom_select_tag_active = localStorage.getItem('custom_select_tag') || "a";
