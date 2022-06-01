@@ -32,6 +32,18 @@ body .container .tablepress-table-name {
     border-radius: var(--tb-border-radius);
 }
 
+.tablepress__wrap h1,
+.tablepress__wrap h2,
+.tablepress__wrap h3,
+.tablepress__wrap h4,
+.tablepress__wrap h5,
+.tablepress__wrap h6,
+.tablepress__wrap p,
+.tablepress__wrap a {
+    margin: 0;
+    padding: 0;
+}
+
 .tablepress__header {
     display: flex;
     align-items: center;
