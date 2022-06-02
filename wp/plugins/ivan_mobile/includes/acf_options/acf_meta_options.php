@@ -975,7 +975,7 @@
 					'class' => '',
 					'id' => '',
 				),
-				'default_value' => 'rgba(212,56,44,1)',
+				'default_value' => 'rgba(255,255,255,1)',
 				'enable_opacity' => 1,
 				'return_format' => 'string',
 			),
