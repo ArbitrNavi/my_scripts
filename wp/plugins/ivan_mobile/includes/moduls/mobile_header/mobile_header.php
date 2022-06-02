@@ -1,4 +1,10 @@
-<?php if (get_field('mobile_menu_is_visible', 'options')) {
+<?php
+
+register_nav_menus(array(
+	'mobile' => 'Мобильное меню',
+));
+
+if (get_field('mobile_menu_is_visible', 'options')) {
 	require_once plugin_dir_path(__FILE__) . 'add_style_scripts.php';
 
 	function ivan_mobile_header() {

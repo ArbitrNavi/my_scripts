@@ -143,7 +143,7 @@
     padding: var(--mobile-padding);
 }
 
-.mobile-block__list {
+.mobile-block__menu ul {
     box-sizing: border-box;
     width: 100%;
     margin-left: auto;
@@ -152,7 +152,7 @@
 
 }
 
-.mobile-block__list li {
+.mobile-block__menu li {
     list-style: none;
     text-align: var(--mobile-textalign);
 }
