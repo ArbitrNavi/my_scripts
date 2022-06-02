@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     2.4
+ * Version:     2.5
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -21,12 +21,16 @@
 // v2.1 импорт настроек acf
 // v2.2 возможность скрыть иконку телефона, жирный текст номера телефона, цвет иконки берется из цвета текста кнопки
 // v2.3 пофиксил выравнивание по ширине на мобильной версии
-// v2.4 добавил возможность выбора высоты кнопок в нижней линии и возможность выбрать направление текста в мобильном меню, убрал полоски в меню, переверстал некоторые элементы
+// v2.4 добавил возможность выбора высоты кнопок, убрал полоски в меню, переверстал некоторые элементы
+// v2.5 добавил выбор скрытия телефона и майла из шапки
 
 // страница настроек acf
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
 
-// Подключение стилей и скриптов
+// ----- Подключение модулей
+// мобильная шапка
 require_once plugin_dir_path( __FILE__ ) . 'includes/moduls/mobile_header/mobile_header.php';
+
+// нижнее меню
 require_once plugin_dir_path( __FILE__ ) . 'includes/moduls/mobile_line/mobile_line.php';

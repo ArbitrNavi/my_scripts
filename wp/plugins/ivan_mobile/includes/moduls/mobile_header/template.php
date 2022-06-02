@@ -48,7 +48,7 @@
 				<?php echo (get_field('mobile-header__description', 'options')) ? "<p class='mobile-header__description'>" . get_field('mobile-header__description', 'options') . "</p>" : null; ?>
 			</div>
 		<?php } ?>
-		<?php if (get_field('menu-header__tel', 'options') || get_field('menu-header__email', 'options')) { ?>
+		<?php if (get_field('mobile-header__info_is-visible', 'options') && (get_field('menu-header__tel', 'options') || get_field('menu-header__email', 'options'))) { ?>
 			<div class="menu-header__info">
 				<?php if (get_field('menu-header__tel', 'options')) { ?>
 					<a href="tel:<?php echo preg_replace('/[^0-9]/', '', get_field('menu-header__tel', 'options')); ?>" class="menu-header__tel"><?php echo get_field('menu-header__tel', 'options'); ?></a>
