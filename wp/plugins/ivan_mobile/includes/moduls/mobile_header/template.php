@@ -7,7 +7,6 @@
 
 		--mh-height: <?php echo (get_field('mh-height', 'options'))?: "60"; ?>px;
 
-		--mh__logo-width: <?php echo (get_field('mh__logo-width', 'options'))?: "50"; ?>px;
 		--mh__title-fontsize: <?php echo (get_field('mh__title-fontsize', 'options'))?: "26"; ?>px;
 		--mh__description-fontsize: <?php echo (get_field('mh__description-fontsize', 'options'))?: "10"; ?>px;
 		--mh__tel-fontsize: <?php echo (get_field('mh__tel-fontsize', 'options'))?: "18"; ?>px;
@@ -60,11 +59,11 @@
 		<?php } ?>
 		<div class="menu-header__btn">
 			<div class="menu-header__icons" id="burger-menu">
-				<svg class="menu-header__icons-open" alt="меню" title="меню" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-					<path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/>
+				<svg class="menu-header__icons-open" alt="меню" title="меню" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 846.66 846.66">
+					 <path class="black" d="M-0 71.63c0,-38.9 27.08,-70.45 60.48,-70.45l725.7 0c33.46,0 60.48,31.55 60.48,70.45 0,38.97 -27.02,70.46 -60.48,70.46l-725.7 0c-33.4,0 -60.48,-31.49 -60.48,-70.46zm0 352.29c0,-38.98 27.08,-70.46 60.48,-70.46l725.7 0c33.46,0 60.48,31.48 60.48,70.46 0,38.97 -27.02,70.45 -60.48,70.45l-725.7 0c-33.4,0 -60.48,-31.48 -60.48,-70.45zm786.18 422.73l-725.7 0c-33.4,0 -60.48,-31.48 -60.48,-70.45 0,-38.97 27.08,-70.46 60.48,-70.46l725.7 0c33.46,0 60.48,31.49 60.48,70.46 0,38.97 -27.02,70.45 -60.48,70.45z"/>
 				</svg>
-				<svg class="menu-header__icons-close" alt="меню" title="меню" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">&lt;!&ndash;! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. &ndash;&gt;
-					<path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
+				<svg xmlns="http://www.w3.org/2000/svg" class="menu-header__icons-close" alt="меню" title="меню" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 846.66 846.66">
+					<path class="fil0" d="M813.85 692.98c32.28,32.28 32.28,84.57 0,116.85 -16.02,16.13 -37.19,24.14 -58.35,24.14 -21.16,0 -42.3,-8.07 -58.42,-24.2l-272.1 -271.97 -272.07 271.91c-16.15,16.25 -37.29,24.26 -58.45,24.26 -21.15,0 -42.25,-8.01 -58.41,-24.26 -32.28,-32.28 -32.28,-84.57 0,-116.85l272.15 -272.15 -272.15 -272.03c-32.28,-32.27 -32.28,-84.57 0,-116.84 32.27,-32.28 84.57,-32.28 116.84,0l272.09 272.29 272.15 -272.15c32.28,-32.28 84.57,-32.28 116.85,0 32.27,32.27 32.27,84.57 0,116.84l-272.15 272.15 272.02 272.01z"/>
 				</svg>
 			</div>
 		</div>

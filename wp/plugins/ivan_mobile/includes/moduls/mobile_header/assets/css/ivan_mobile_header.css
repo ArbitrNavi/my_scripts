@@ -28,11 +28,8 @@
     padding: var(--mobile-padding);
 }
 
-.mobile-header__wrap > div {
-}
-
 .mobile-header__logo {
-    width: var(--mh__logo-width);
+    width: auto;
     height: 100%;
     margin-right: 10px;
 }
@@ -199,7 +196,8 @@
     background: var(--mobile-bg);
 }
 
-.mobile-block.mobile-block_active li a:hover,
+.menu-header__info a:focus,
+.menu-header__info a:hover,
 .mobile-block a:focus,
 .mobile-block a:hover {
     color: var(--mb-color-hover);
