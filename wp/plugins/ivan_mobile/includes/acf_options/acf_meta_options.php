@@ -1047,7 +1047,7 @@
 			),
 			array(
 				'key' => 'field_629da56936ed0',
-				'label' => 'Цвет таблицы',
+				'label' => 'Цвет текста в таблице',
 				'name' => 'tb-table-color',
 				'type' => 'color_picker',
 				'instructions' => '',

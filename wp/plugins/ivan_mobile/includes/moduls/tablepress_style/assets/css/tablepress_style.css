@@ -1,0 +1,163 @@
+/*--------------------Table tablepress*/
+body .container .tablepress-table-name {
+    font-size: 23px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tablepress__wrap {
+    overflow: hidden;
+    margin-top: 10px;
+    color: var(--tb-table-color);
+    border: 1px solid var(--tb-border-color);
+    border-radius: var(--tb-border-radius);
+}
+
+.tablepress__wrap h1,
+.tablepress__wrap h2,
+.tablepress__wrap h3,
+.tablepress__wrap h4,
+.tablepress__wrap h5,
+.tablepress__wrap h6,
+.tablepress__wrap p,
+.tablepress__wrap a {
+    margin: 0;
+    padding: 0;
+}
+
+.tablepress__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-height: 50px;
+    padding: 5px 40px;
+    color: var(--tb-table-name-color);
+    background: var(--tb-table-name-bg);
+}
+
+.tablepress-table-description {
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: auto;
+    text-align: right;
+}
+
+.su-table h3:before,
+body .container .tablepress-table-name:before {
+    display: none;
+}
+
+.tablepress__header .tablepress-table-name {
+    font-size: var(--tb-table-name-size);
+    font-weight: initial;
+    padding: initial;
+}
+
+.tablepress__header .tablepress-table-description {
+    font-size: var(--tb-table-description-size);
+    font-weight: initial;
+    padding: initial;
+}
+
+
+.tablepress__wrap .tablepress {
+    font-family: 'Gilroy', sans-serif;
+    margin-bottom: 0;
+}
+
+.tablepress thead th,
+.tablepress tbody td,
+.tablepress tfoot th {
+    padding-left: 20px;
+    border: none !important;
+}
+
+.tablepress tbody td:not([colspan]) {
+    font-weight: 400 !important;
+}
+
+body .dataTables_scrollBody thead th {
+    padding: 0 !important;
+}
+
+.tablepress__wrap .tablepress td[colspan],
+.tablepress__wrap .tablepress tfoot th,
+.tablepress__wrap .tablepress thead th {
+    font-weight: 700;
+    color: var(--tb-header-color);
+    background-color: var(--tb-header-bg) !important;
+}
+
+.tablepress .even td,
+.tablepress .odd td {
+    background-color: transparent !important;
+}
+
+.tablepress .odd {
+    background: var(--tb-tr-odd-bg);
+}
+
+.tablepress tbody tr {
+    background: var(--tb-tr-bg);
+}
+
+.tablepress tbody tr:hover {
+    background: var(--tb-tr-bg-hover);
+}
+
+.tablepress td {
+    position: relative;
+}
+
+.tablepress td span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 39px;
+    height: 36px;
+    content: '';
+    background: var(--tb-img-fire) no-repeat center top / contain;
+}
+
+.tablepress tbody td:not(.tablepress tbody tr:last-child td) {
+    border-bottom: 1px solid var(--tb-border-color) !important;
+}
+
+.dataTables_scrollBody {
+}
+
+.tablepress__wrap .dataTables_wrapper {
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.dataTables_scroll,
+.dataTables_scrollHead,
+.dataTables_scrollBody,
+.dataTables_scrollFoot {
+    box-sizing: border-box;
+}
+
+.dataTables_scroll .tablepress {
+    width: 100% !important;
+    border-radius: 0;
+}
+
+@media (max-width: 768px) {
+    .tablepress {
+        word-break: break-all;
+    }
+
+    .tablepress td span {
+        display: none;
+    }
+
+    .tablepress th:not(.column-1):not(.column-2),
+    .tablepress td:not(.column-1):not(.column-2) {
+        display: none !important;
+    }
+}
