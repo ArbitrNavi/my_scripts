@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     2.9
+ * Version:     3.0
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -27,14 +27,23 @@
 // v2.7 изменил цвет по умолчанию для "Цвет текста кнопки телефона" на белый
 // v2.8 пофиксил добавление меню в админку, переназначил стили на случай, если меню не выбрано, что б не ломалось
 // v2.9 ширина логотипа выстраивается автоматически, поправил выбор цвета для кнопки при наведении, изменил поля по умолчанию, изменил svg изображение, что б занимали всю область контейнера
+// v3.0 добавил модуль "Настройка таблицы(tablepress)", так же разбил на страницы опции плагина, раздел называется Иван модули. Добавил возможность выбирать брать поля из php или wp. В названии групп произвольных полей добавил префикс IM для удобства отображения
 
 // страница настроек acf
-require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_page.php';
-require_once plugin_dir_path( __FILE__ ) . 'includes/acf_options/acf_meta_options.php';
+require_once plugin_dir_path(__FILE__) . 'includes/acf_options/acf_page.php';
+// поля для программиста
+require_once plugin_dir_path(__FILE__) . 'includes/acf_options/setting_programmer.php';
+
+if (!get_field('ivan__acf-include', 'options')) {
+	require_once plugin_dir_path(__FILE__) . 'includes/acf_options/acf_meta_options.php';
+}
 
 // ----- Подключение модулей
 // мобильная шапка
-require_once plugin_dir_path( __FILE__ ) . 'includes/moduls/mobile_header/mobile_header.php';
+require_once plugin_dir_path(__FILE__) . 'includes/moduls/mobile_header/mobile_header.php';
 
 // нижнее меню
-require_once plugin_dir_path( __FILE__ ) . 'includes/moduls/mobile_line/mobile_line.php';
+require_once plugin_dir_path(__FILE__) . 'includes/moduls/mobile_line/mobile_line.php';
+
+// настройка внешнего вида для tablepress
+require_once plugin_dir_path(__FILE__) . 'includes/moduls/tablepress_style/tablepress_style.php';
