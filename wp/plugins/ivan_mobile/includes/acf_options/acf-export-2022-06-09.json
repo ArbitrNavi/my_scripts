@@ -1044,43 +1044,9 @@
                 "endpoint": 0
             },
             {
-                "key": "field_629da56936ed0",
-                "label": "Цвет текста в таблице",
-                "name": "tb-table-color",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "20",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "#000000",
-                "enable_opacity": 1,
-                "return_format": "string"
-            },
-            {
-                "key": "field_629da5c136ed1",
-                "label": "Цвет границ",
-                "name": "tb-border-color",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "20",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "rgba(0, 0, 0, 0.2)",
-                "enable_opacity": 1,
-                "return_format": "string"
-            },
-            {
-                "key": "field_629da5d236ed2",
-                "label": "Закругление границ",
-                "name": "tb-border-radius",
+                "key": "field_62a1915a159f1",
+                "label": "Внешний отступ вверху",
+                "name": "tb-table-mt",
                 "type": "number",
                 "instructions": "",
                 "required": 0,
@@ -1099,10 +1065,10 @@
                 "step": ""
             },
             {
-                "key": "field_629da62436ed3",
-                "label": "Фон заголовка",
-                "name": "tb-table-name-bg",
-                "type": "color_picker",
+                "key": "field_62a1917a159f2",
+                "label": "Внешний отступ внизу",
+                "name": "tb-table-mb",
+                "type": "number",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -1111,26 +1077,13 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "#308CEB",
-                "enable_opacity": 1,
-                "return_format": "string"
-            },
-            {
-                "key": "field_629da64e36ed4",
-                "label": "Цвет текста у заголовка",
-                "name": "tb-table-name-color",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "20",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "#ffffff",
-                "enable_opacity": 1,
-                "return_format": "string"
+                "default_value": 20,
+                "placeholder": "px",
+                "prepend": "",
+                "append": "",
+                "min": 0,
+                "max": "",
+                "step": ""
             },
             {
                 "key": "field_629da66136ed5",
@@ -1173,6 +1126,95 @@
                 "min": "",
                 "max": "",
                 "step": ""
+            },
+            {
+                "key": "field_629da5d236ed2",
+                "label": "Закругление границ",
+                "name": "tb-border-radius",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 20,
+                "placeholder": "px",
+                "prepend": "",
+                "append": "",
+                "min": 0,
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_629da56936ed0",
+                "label": "Цвет текста в таблице",
+                "name": "tb-table-color",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#000000",
+                "enable_opacity": 1,
+                "return_format": "string"
+            },
+            {
+                "key": "field_629da5c136ed1",
+                "label": "Цвет границ",
+                "name": "tb-border-color",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "rgba(0, 0, 0, 0.2)",
+                "enable_opacity": 1,
+                "return_format": "string"
+            },
+            {
+                "key": "field_629da62436ed3",
+                "label": "Фон заголовка",
+                "name": "tb-table-name-bg",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#308CEB",
+                "enable_opacity": 1,
+                "return_format": "string"
+            },
+            {
+                "key": "field_629da64e36ed4",
+                "label": "Цвет текста у заголовка",
+                "name": "tb-table-name-color",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ffffff",
+                "enable_opacity": 1,
+                "return_format": "string"
             },
             {
                 "key": "field_629dc1511f282",
