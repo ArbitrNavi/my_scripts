@@ -11,6 +11,7 @@
 		--mh__description-fontsize: <?php echo (get_field('mh__description-fontsize', 'options'))?: "10"; ?>px;
 		--mh__tel-fontsize: <?php echo (get_field('mh__tel-fontsize', 'options'))?: "18"; ?>px;
 		--mh__email-fontsize: <?php echo (get_field('mh__email-fontsize', 'options'))?: "12"; ?>px;
+		--menu-header__popup_bgcolor: <?php echo (get_field('menu-header__popup_bgcolor', 'options'))?: "rgba(212,56,44,1)"; ?>;
 
 		/* mobile-block */
 		--mb-color-hover: <?php echo (get_field('mb-color-hover', 'options'))?: "rgba(2, 2, 2, 0.46)"; ?>;
@@ -47,24 +48,29 @@
 				<?php echo (get_field('mobile-header__description', 'options')) ? "<p class='mobile-header__description'>" . get_field('mobile-header__description', 'options') . "</p>" : null; ?>
 			</div>
 		<?php } ?>
-		<?php if (get_field('mobile-header__info_is-visible', 'options') && (get_field('menu-header__tel', 'options') || get_field('menu-header__email', 'options'))) { ?>
-			<div class="menu-header__info">
-				<?php if (get_field('menu-header__tel', 'options')) { ?>
-					<a href="tel:<?php echo preg_replace('/[^0-9]/', '', get_field('menu-header__tel', 'options')); ?>" class="menu-header__tel"><?php echo get_field('menu-header__tel', 'options'); ?></a>
-				<?php } ?>
-				<?php if (get_field('menu-header__tel', 'options')) { ?>
-					<a href="mailto:<?php echo get_field('menu-header__email', 'options'); ?>" class="menu-header__email"><?php echo get_field('menu-header__email', 'options'); ?></a>
-				<?php } ?>
-			</div>
-		<?php } ?>
-		<div class="menu-header__btn">
-			<div class="menu-header__icons" id="burger-menu">
-				<svg class="menu-header__icons-open" alt="меню" title="меню" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 846.66 846.66">
+		<div class="menu-header__right">
+			<?php if (get_field('mobile-header__info_is-visible', 'options') && (get_field('menu-header__tel', 'options') || get_field('menu-header__email', 'options'))) { ?>
+				<div class="menu-header__info">
+					<?php if (get_field('menu-header__tel', 'options')) { ?>
+						<a href="tel:<?php echo preg_replace('/[^0-9]/', '', get_field('menu-header__tel', 'options')); ?>" class="menu-header__tel"><?php echo get_field('menu-header__tel', 'options'); ?></a>
+					<?php } ?>
+					<?php if (get_field('menu-header__tel', 'options')) { ?>
+						<a href="mailto:<?php echo get_field('menu-header__email', 'options'); ?>" class="menu-header__email"><?php echo get_field('menu-header__email', 'options'); ?></a>
+					<?php } ?>
+				</div>
+			<?php } ?>
+			<?php if (get_field('menu-header__popup', 'options') && get_field('menu-header__popup_title', 'options')) { ?>
+				<a href="#" class="menu-header__popup <?php echo get_field('menu-header__popup_class', 'options'); ?>" style="cursor: pointer;"><?php echo get_field('menu-header__popup_title', 'options'); ?></a>
+			<?php } ?>
+			<div class="menu-header__btn">
+				<div class="menu-header__icons" id="burger-menu">
+					<svg class="menu-header__icons-open" alt="меню" title="меню" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 846.66 846.66">
 					 <path class="black" d="M-0 71.63c0,-38.9 27.08,-70.45 60.48,-70.45l725.7 0c33.46,0 60.48,31.55 60.48,70.45 0,38.97 -27.02,70.46 -60.48,70.46l-725.7 0c-33.4,0 -60.48,-31.49 -60.48,-70.46zm0 352.29c0,-38.98 27.08,-70.46 60.48,-70.46l725.7 0c33.46,0 60.48,31.48 60.48,70.46 0,38.97 -27.02,70.45 -60.48,70.45l-725.7 0c-33.4,0 -60.48,-31.48 -60.48,-70.45zm786.18 422.73l-725.7 0c-33.4,0 -60.48,-31.48 -60.48,-70.45 0,-38.97 27.08,-70.46 60.48,-70.46l725.7 0c33.46,0 60.48,31.49 60.48,70.46 0,38.97 -27.02,70.45 -60.48,70.45z"/>
 				</svg>
-				<svg xmlns="http://www.w3.org/2000/svg" class="menu-header__icons-close" alt="меню" title="меню" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 846.66 846.66">
+					<svg xmlns="http://www.w3.org/2000/svg" class="menu-header__icons-close" alt="меню" title="меню" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 846.66 846.66">
 					<path class="fil0" d="M813.85 692.98c32.28,32.28 32.28,84.57 0,116.85 -16.02,16.13 -37.19,24.14 -58.35,24.14 -21.16,0 -42.3,-8.07 -58.42,-24.2l-272.1 -271.97 -272.07 271.91c-16.15,16.25 -37.29,24.26 -58.45,24.26 -21.15,0 -42.25,-8.01 -58.41,-24.26 -32.28,-32.28 -32.28,-84.57 0,-116.85l272.15 -272.15 -272.15 -272.03c-32.28,-32.27 -32.28,-84.57 0,-116.84 32.27,-32.28 84.57,-32.28 116.84,0l272.09 272.29 272.15 -272.15c32.28,-32.28 84.57,-32.28 116.85,0 32.27,32.27 32.27,84.57 0,116.84l-272.15 272.15 272.02 272.01z"/>
 				</svg>
+				</div>
 			</div>
 		</div>
 	</div>
