@@ -35,7 +35,7 @@
 }
 
 .mobile-header__logo img {
-    width: 100%;
+    width: auto;
     height: 100%;
     vertical-align: baseline;
     object-fit: contain;
