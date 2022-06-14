@@ -112,16 +112,6 @@ body .dataTables_scrollBody thead th {
     position: relative;
 }
 
-.tablepress td span {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    display: block;
-    width: 39px;
-    height: 36px;
-    content: '';
-    background: var(--tb-img-fire) no-repeat center top / contain;
-}
 
 .tablepress tbody td:not(.tablepress tbody tr:last-child td) {
     border-bottom: 1px solid var(--tb-border-color) !important;

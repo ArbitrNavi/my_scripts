@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     3.4
+ * Version:     3.5
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -32,6 +32,7 @@
 // v3.2 добавил выбор отступов у таблицы
 // v3.3 добавил кнопку в шапку для обратной связи
 // v3.4 пофиксил размер логотипа для iphone, так как при width 100% отображается некорректно
+// v3.5 добавил возможность убрать значек огня при вставке тега span
 
 // страница настроек acf
 require_once plugin_dir_path(__FILE__) . 'includes/acf_options/acf_page.php';

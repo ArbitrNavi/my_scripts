@@ -1374,6 +1374,25 @@
                 "default_value": "rgba(255, 193, 7, 0.3)",
                 "enable_opacity": 1,
                 "return_format": "string"
+            },
+            {
+                "key": "field_62a868270e6f9",
+                "label": "Отображать иконку при вставке тега <span><\/span>, вставляется  \"Огонь\"",
+                "name": "tb-td_is-icon",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
             }
         ],
         "location": [
