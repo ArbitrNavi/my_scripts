@@ -59,27 +59,30 @@ class Car
 
 	public function startEngine() {
 		//    большой кусок кода завода мотора
+		echo 'Завели машину<br>';
 	}
 
 	public function changeColor($color) {
 		$this->color = $color;
+		echo 'изменили цвет на ' . $color . '<br>';
 	}
 
 	public function go() {
 		//    реализация езды
+		echo 'Машина поехала<br>';
 	}
 
 	//действие КОНСТРУКТОР - выполняется без явного вызова
 }
 
 $myCar = new Car('red',2022,'lada'); // конкретный объект - создать новый экземпляр машины на основе чертежа Car. Теперь это экземляр машины
-$myCar->color = 'green';
+$myCar->changeColor('Green');
 //$myCar->color = 'red';
 //$myCar->year = 2017;
 //$myCar->manufacturer = 'Mersedes';
 //
-//$myCar->startEngine();//заводим машину
-//$myCar->go();//едем
+$myCar->startEngine();//заводим машину
+$myCar->go();//едем
 
 var_dump($myCar);
 
