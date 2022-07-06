@@ -94,7 +94,7 @@ body .container .tablepress-table-name:before {
     border: none !important;
 }
 
-.tablepress tbody td {
+.tablepress tbody td:not([colspan]) {
     font-weight: 400 !important;
 }
 
@@ -107,6 +107,7 @@ body .dataTables_scrollBody thead th {
 .tablepress__wrap .tablepress thead th {
     color: var(--tb-header-color);
     background-color: var(--tb-header-bg) !important;
+    font-weight: 700;
 }
 
 .tablepress .even td,
