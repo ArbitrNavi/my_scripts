@@ -1,0 +1,7 @@
+/*точки переключения слайдов внизу*/
+body .su-image-carousel>ol.flickity-page-dots{
+    position:
+            static;
+    transition: none;
+    -webkit-transform: none;
+}
