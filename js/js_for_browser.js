@@ -5,6 +5,13 @@ javascript:(function () {
 void (0);
 
 
+//открыть wp-admin текущего сайта
+javascript:(function () {
+    window.open('/wp-admin');
+})();
+void (0);
+
+
 //ширина и высота экрана
 javascript:(function () {
     width = window.screen.width;
