@@ -68,3 +68,8 @@ if ( ! function_exists( 'get_num_ending' ) ) {
 		return $ending;
 	}
 }
+
+
+function js_log($data){
+	echo "<script>console.log('". $data ."');</script>";
+}
