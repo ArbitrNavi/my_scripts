@@ -22,6 +22,11 @@ if (function_exists('acf_add_options_page')) {
 		'menu_slug'   => 'ivan__tablepress',
 		'parent_slug' => 'ivan__moduls',
 	));
+	acf_add_options_sub_page(array(
+		'page_title'  => 'Шорткоды 360',
+		'menu_slug'   => 'ivan__panorama',
+		'parent_slug' => 'ivan__moduls',
+	));
 
 }
 

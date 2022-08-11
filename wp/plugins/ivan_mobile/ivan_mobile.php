@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name: Ivan mobile(мобильное меню + нижняя полоса)
- * Description: мобильное меню + нижняя полоса
+ * Description: мобильное меню + нижняя полоса, настройка таблицы(tablepress), Позволяет вставить миниатюры панорам в 2 колонки или на всю ширину с помощью шорткода [p3d ids="name_metka"] если указать width=100 то будет на всю ширину. Так же если указать ids=all выведутся все заданные панорамы. Данные подтягивюатся из страницы опций acf.
+Требует наличие плагина acf pro!
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     3.5
+ * Version:     4.0
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -33,6 +34,7 @@
 // v3.3 добавил кнопку в шапку для обратной связи
 // v3.4 пофиксил размер логотипа для iphone, так как при width 100% отображается некорректно
 // v3.5 добавил возможность убрать значек огня при вставке тега span
+// v4.0 добавил шорткод вывода миниатюр панорам
 
 // страница настроек acf
 require_once plugin_dir_path(__FILE__) . 'includes/acf_options/acf_page.php';
@@ -52,3 +54,6 @@ require_once plugin_dir_path(__FILE__) . 'includes/moduls/mobile_line/mobile_lin
 
 // настройка внешнего вида для tablepress
 require_once plugin_dir_path(__FILE__) . 'includes/moduls/tablepress_style/tablepress_style.php';
+
+// шорткоды 3д туров
+require_once plugin_dir_path(__FILE__) . 'includes/moduls/shortcode_360/shortcode_360.php';
