@@ -64,6 +64,7 @@
 .p3d_container_img img {
     width: 100%;
     height: auto;
+    margin: 0;
 }
 
 .p3d_title {
