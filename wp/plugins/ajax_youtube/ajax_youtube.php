@@ -5,7 +5,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     3.2
+ * Version:     3.21
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -93,6 +93,9 @@
 
 // v3.2
 // изменил название объекта на modalIvan так как возникали конфликты с элементором
+
+// v3.21
+// изменил версию на 3.21 так как считает, что 3.2 меньше, чем 3.12
 
 // переменные плагина
 require_once plugin_dir_path( __FILE__ ) . 'includes/var.php';
