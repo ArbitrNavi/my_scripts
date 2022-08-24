@@ -6,10 +6,10 @@ jQuery(document).ready(function ($) {
         var iframe = '<iframe frameborder="0" src="' + iframe_url + '" style="width: 100%; height: 100%;"></iframe>'
         // console.log(iframe);
 
-        $('#ajax_youtube_modal').html(iframe).modal(); //заменяем содержимое
+        $('#ajax_youtube_modal').html(iframe).modalIvan(); //заменяем содержимое
     })
 
-    $('#ajax_youtube_modal').on($.modal.BEFORE_CLOSE, function () {
+    $('#ajax_youtube_modal').on($.modalIvan.BEFORE_CLOSE, function () {
         // console.log('close modal');
         $('#ajax_youtube_modal').html(''); //удаляем содержимое
     });
