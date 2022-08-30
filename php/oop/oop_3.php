@@ -28,9 +28,10 @@ class Cat extends Animal{
     public function move()
     {
         //реализация #2
+		echo 'run move';
     }
 }
 
 $myCat = new Cat;
-$myCat->name;
+//$myCat->name('test');
 $myCat->move(); //реализация #2
