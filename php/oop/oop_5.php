@@ -30,10 +30,6 @@ class Car
 		}
 	}
 
-	//Заглушили двигатель
-	public function startEngine() {
-		$this->engine->on();
-	}
 
 	//	поворотники
 	public function arrowLight($course) {
@@ -47,7 +43,12 @@ class Car
 		$this->arrowLight = $arrowLight;
 	}
 
+	//Запустили двигатель
+	public function startEngine() {
+		$this->engine->on();
+	}
 
+	// Заглушили двигатель
 	// setter
 	public function stopEngine() {
 		$this->engine->off();
@@ -81,7 +82,7 @@ class arrowLight
 	}
 
 	public function course($course) {
-		echo strtoupper($course) . " arrow signal " . strtoupper($this->color) . "<br>";
+		echo strtoupper($course) . " arrow signal " . strtoupper($this->color) . " (arrowLight)<br>";
 	}
 
 }
@@ -89,6 +90,7 @@ class arrowLight
 //изготавливаем мотор
 $engine = new Engine();
 
+//создаем нужные свет
 $lightWhite = new arrowLight('white');
 $lightYellow = new arrowLight('yellow');
 $lightRed = new arrowLight('red');
@@ -100,10 +102,8 @@ echo "<pre>";
 var_dump($myCar);
 $myCar->changeColor("blue");
 echo $myCar->displayColor();
-//echo $myNewCar->displayColor();
 echo "<hr>";
-//$myCar->startEngine();
+$myCar->startEngine();
 $myCar->arrowLight("right");
-//$myCar->stopEngine();
-//$myCar->arrowLeft();
+$myCar->stopEngine();
 echo "</pre>";
