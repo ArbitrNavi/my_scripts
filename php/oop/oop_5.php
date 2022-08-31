@@ -10,7 +10,8 @@ class Car
 
 
 	//Engine $newEngine - указали, что ожидаем исключительно объект типа Engine
-	function __construct($color, $year, $izgotovitel, $newEngine, $arrowLight) {
+	// Engine $newEngine - объект $newEngine должен быть типа Engine
+	function __construct($color, $year, $izgotovitel, Engine $newEngine, arrowLight $arrowLight) {
 
 		$this->changeColor($color);
 		$this->year = $year;
