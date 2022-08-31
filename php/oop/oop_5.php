@@ -1,5 +1,13 @@
 <?php
 
+
+interface EngineInterface
+{
+	public function on();
+
+	public function off();
+}
+
 class Car
 {
 	private $color;
@@ -10,8 +18,9 @@ class Car
 
 
 	//Engine $newEngine - указали, что ожидаем исключительно объект типа Engine
-	// Engine $newEngine - объект $newEngine должен быть типа Engine
-	function __construct($color, $year, $izgotovitel, Engine $newEngine, arrowLight $arrowLight) {
+	// Engine $newEngine - объект $newEngine должен быть класса типа Engine
+	// EngineInterface $newEngine у объекта должен быть данный интерфейс
+	function __construct($color, $year, $izgotovitel, EngineInterface $newEngine, arrowLight $arrowLight) {
 
 		$this->changeColor($color);
 		$this->year = $year;
@@ -62,18 +71,7 @@ class Car
 
 }
 
-//Мотор
-class Engine
-{
-	public function on() {
-		echo "on(class Engine) <br>";
-	}
-
-	public function off() {
-		echo "off(class Engine) <br>";
-	}
-}
-
+// Свет
 class arrowLight
 {
 	private $color;
@@ -88,9 +86,34 @@ class arrowLight
 
 }
 
+
+//Мотор
+class Engine implements EngineInterface
+{
+	public function on() {
+		echo "on(class Engine) <br>";
+	}
+
+	public function off() {
+		echo "off(class Engine) <br>";
+	}
+}
+
+
+class anotherEngine implements EngineInterface
+{
+	public function on() {
+		//		code
+	}
+
+	public function off() {
+		//		code
+	}
+}
+
 //изготавливаем мотор
 $engine = new Engine();
-
+$anotherEngine = new anotherEngine();
 //создаем нужные свет
 $lightWhite = new arrowLight('white');
 $lightYellow = new arrowLight('yellow');
@@ -107,4 +130,6 @@ echo "<hr>";
 $myCar->startEngine();
 $myCar->arrowLight("right");
 $myCar->stopEngine();
+
+
 echo "</pre>";
