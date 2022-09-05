@@ -6,7 +6,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     4.1
+ * Version:     4.2
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -36,6 +36,7 @@
 // v3.5 добавил возможность убрать значек огня при вставке тега span
 // v4.0 добавил шорткод вывода миниатюр панорам
 // v4.1 исправил конфликт стилей
+// v4.2 исправил конфликт скриптов
 
 // страница настроек acf
 require_once plugin_dir_path(__FILE__) . 'includes/acf_options/acf_page.php';
