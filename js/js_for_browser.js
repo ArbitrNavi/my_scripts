@@ -81,5 +81,13 @@ javascript:(function () {
 void (0);
 
 
+//убрать назойливую анкету на gb.ru
+javascript:(function () {
+    document.getElementById("modal-1662372738319").remove();
+    document.getElementsByTagName('body')[0].style.overflow = "auto";
+})();
+void (0);
+
+
 
 
