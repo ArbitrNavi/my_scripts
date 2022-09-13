@@ -10,9 +10,17 @@
 <body>
 <!-- Тест отправки формы при пустом action -->
 <?php var_dump($_REQUEST); ?>
+<?php var_dump((bool)$_REQUEST["MarkAgree"]); ?>
 
 <form action="" type="POST">
-    <input type="text" name="action_empty">
+
+    <div class="chk-container bump-bottom-sm">
+
+        <input type="checkbox" class="form-check-input" id="MarkAgree" name="MarkAgree" value="true">
+        <input type="text" id="MarkAgree_hidden" value='MarkAgree_hidden'>
+    </div>
+
+    <input type="text" name="action_empty2">
     <input type="submit">
 </form>
 
