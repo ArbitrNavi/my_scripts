@@ -3,14 +3,15 @@
 function phone_format($phone_string) {
 	$pattern = '/\D/i';
 	$replacement = '';
-	$resoult = preg_replace($pattern, $replacement, $phone_string);
-	return $resoult;
+	$phone = preg_replace($pattern, $replacement, $phone_string);
+	$resoult = (substr($phone, 0, 1) == "7") ? "+" . $phone : $phone;
+	return $resoult; //89055063506 || +79055063506
 }
 
-//echo phone_format(' 8 (905) 506-3-506');
+//echo phone_format(' +7 (905) 506-3-506');
 
 //Вытащить цифры из стороки
-preg_replace('/[^0-9]/', '', $str);
+//echo preg_replace('/[^0-9]/', ' 8 (905) 506-3-506', $str);
 
 //Обернуть найденное совпадение
 $tablepress__header_tag = 'div';
