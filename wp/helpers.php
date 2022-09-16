@@ -73,3 +73,12 @@ if ( ! function_exists( 'get_num_ending' ) ) {
 function js_log($data){
 	echo "<script>console.log('". $data ."');</script>";
 }
+
+
+function phone_format($phone_string) { //' +7 (905) 506-3-506'
+	$pattern = '/\D/i';
+	$replacement = '';
+	$phone = preg_replace($pattern, $replacement, $phone_string);
+	$resoult = (substr($phone, 0, 1) == "7") ? "+" . $phone : $phone;
+	return $resoult; //89055063506 || +79055063506
+}
