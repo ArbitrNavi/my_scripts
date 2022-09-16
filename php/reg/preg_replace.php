@@ -1,6 +1,6 @@
 <?php
 //preg_replace example
-function phone_format($phone_string) {
+function phone_format($phone_string) { //' +7 (905) 506-3-506'
 	$pattern = '/\D/i';
 	$replacement = '';
 	$phone = preg_replace($pattern, $replacement, $phone_string);
