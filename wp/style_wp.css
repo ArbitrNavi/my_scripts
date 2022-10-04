@@ -1,5 +1,13 @@
 /*стили WordPress из визуального редактора*/
 
+.alignnone,
+.aligncenter,
+.alignright,
+.alignleft {
+    max-width: 100%;
+    height: auto;
+}
+
 .alignnone, div.alignnone,
 .aligncenter, div.aligncenter {
     margin-right: auto;
@@ -56,7 +64,7 @@ a img.aligncenter {
 }
 
 .wp-caption img {
-    width: auto;
+    width: 100%;
     max-width: 100%;
     height: auto;
     margin: 0;
@@ -111,4 +119,26 @@ strong {
 
 em {
     font-style: italic;
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+ol {
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+
+ul ul, ol ul {
+    margin-left: 15px;
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
+ol ol, ul ol {
+    margin-left: 15px;
+    list-style-position: inside;
+    list-style-type: lower-latin;
 }
