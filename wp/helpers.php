@@ -104,7 +104,7 @@ function getIdCatPost() {
 
 function getField( $field ) {
 	$result = '';
-	if ( is_tax() ) {
+	if ( is_category() ) {
 		$result = get_field( $field, 'term_' . getIdCat() );
 	} else {
 		$result = get_field( $field );
