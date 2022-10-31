@@ -102,9 +102,12 @@ function getIdCatPost() {
 	return $catID;
 }
 
-function getField( $field ) {
-	$result = '';
-	if ( is_category() ) {
+// get field for all page
+function getField( $field, $is_parent_cat = false ) {
+	if ( $is_parent_cat && is_single() ) {
+		$parentCatID = get_the_category( get_the_ID() )[0]->term_id;
+		$result      = get_field( $field, 'term_' . $parentCatID );
+	} elseif ( is_category() ) {
 		$result = get_field( $field, 'term_' . getIdCat() );
 	} else {
 		$result = get_field( $field );
