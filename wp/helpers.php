@@ -115,3 +115,10 @@ function getField( $field, $is_parent_cat = false ) {
 
 	return $result;
 }
+
+function myRand( $length = 10 ) {
+	$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+	$stringRand      = substr( str_shuffle( $permitted_chars ), 0, $length );
+
+	return $stringRand;
+}
