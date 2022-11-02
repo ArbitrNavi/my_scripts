@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lession 4</title>
+</head>
+<body>
+
+<script>
+    // Функции конструкторы - функции на основе которых мы заполняем объект свойствами
+    function Car(marka, price, year) {
+        this.marka = marka;
+        this.price = price;
+        this.year = year;
+        this.show = function () {
+            console.log(this.marka + " стоит " + this.price);
+            // this.test();
+        }
+    }
+
+    var car1 = new Car("Audi", 1000, 2020);
+    var car2 = new Car("BMW", 1100, 2021);
+    var car3 = new Car("VM", 900, 2020);
+
+    var mas = [car1, car2, car3];
+
+    mas.push(new Car("Shkoda", 905, 2021));
+
+    for(var item of mas) {
+        item.show();
+    }
+
+	console.log('test');
+
+
+    // var car4 = mas[3]
+
+    // console.log(mas[3].show());
+
+
+</script>
+</body>
+</html>
