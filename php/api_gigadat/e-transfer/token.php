@@ -78,7 +78,7 @@ $post_data = array(
     'language' => 'en',
     'amount' => $amount,
     'type' => 'ETO',
-    'sandbox' => false,  // set this to false or remove it from request when in production
+    'sandbox' => true,  // set this to false or remove it from request when in production
 );
 
 $data_json = json_encode($post_data); // переводим поля в формат JSON
@@ -89,6 +89,7 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_VERBOSE, 1);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data_json);
 curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_URL, 'https://borealiscap.com/login/response.php?type=transfer');
 curl_setopt($curl, CURLOPT_POST, true);
 
 $token = curl_exec($curl); // результат POST запроса

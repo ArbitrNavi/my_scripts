@@ -125,7 +125,7 @@
             // console.log('trueRequest.onload');
             // form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId + '&token=' + result.token;
             console.log('https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId);
-            form_gigadat_submit.disabled=false;
+            // form_gigadat_submit.disabled=false;
             form_gigadat.action='https://interac.express-connect.com/webflow?transaction=' + result.data.transactionId;
             // form_gigadat.action='info.php?transaction=' + result.data.transactionId;
             form_gigadat.submit();//выполняем отправку формы

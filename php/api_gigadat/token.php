@@ -9,17 +9,18 @@
 
 //Campaign Token(ID) Testing (Gigadat)
 $campaignID_test = 'da7606c1adbec22a3b29189f4c6f7abc';
+$campaignID_test_b = 'c18640e5c26e2ad2891e25e06d0f6f4e';
 
 //Campaign Token(ID) Production (Gigadat)
 $campaignID_prod = 'bc23b94e436202b3e4aeca7ae87c1587';
 
 $campaignID_Borealiscap = '427cbd7e11e76ce4464cd118fa50ec9f';
 
-$campaignId = $campaignID_Borealiscap;
+$campaignId = $campaignID_prod;
 
 $account_kyle = array(
-    'email' => 'kyle@gigadatsolutions.com',
-    'pass' => '30Test1234',
+//    'email' => 'kyle@gigadatsolutions.com',
+//    'pass' => '30Test1234',
 //    'access_token'=>'52d28ee8-0198-4a66-8481-49b1de445ac3',
 //    'security_token'=>'76106b0c-ea6c-4134-8904-75ab45c77c6a',
     'access_token' => 'e923e277-2d21-445a-ac1e-784361c79a65',//PolarisMaritime
@@ -27,7 +28,7 @@ $account_kyle = array(
 );
 
 $url = 'https://interac.express-connect.com/api/payment-token/' . $campaignId;
-//print_r($url);
+//var_dump($url);
 
 $headers = [
     'Accept: application/json',
@@ -56,6 +57,13 @@ $name = formating_post($_POST['name']);
 $email = formating_post($_POST['email']);
 $mobile = formating_post($_POST['mobile']);
 $amount = formating_post($_POST['amount']);
+
+//testing var
+//$name = 'name';
+//$email = 'email@mail.com';
+//$mobile = '4036669999';
+//$amount = '222';
+
 $userIp = $_SERVER['HTTP_CF_CONNECTING_IP'];
 
 
@@ -71,9 +79,9 @@ $post_data = array(
     'language' => 'en',
     'amount' => $amount,
     'type' => 'CPI',
-    'sandbox' => false,  // set this to false or remove it from request when in production
+    'sandbox' => true,  // set this to false or remove it from request when in production
 );
-
+//print_r($post_data);
 $data_json = json_encode($post_data); // переводим поля в формат JSON
 
 $curl = curl_init();
