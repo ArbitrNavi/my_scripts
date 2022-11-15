@@ -23,7 +23,7 @@ $email = trim($email);
 
 // Даные письма
 $komy = "Dnis0847@yandex.ru";
-$ot_kogo = "info@site.ru";
+$ot_kogo = "info@dynamicssoft.ru";
 $tema = "Заявка с сайта";
 $content = "Имя:<b>".$name.".</b><br> Телефон: <b>".$tel."</b><br>E-mail: <b>" .$email.".</b><br>";
 
