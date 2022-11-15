@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<form action="">
+	<input type="text" name="Name">
+	<input type="text" name="Phone">
+	<input type="text" name="Input">
+</form>
+
+<script type="text/javascript">
+	const getQueryArray = (obj, path = [], result = []) =>
+			Object.entries(obj).reduce((acc, [k, v]) => {
+				path.push(k);
+
+				if (v instanceof Object) {
+					getQueryArray(v, path, acc);
+				} else {
+					acc.push(`${path.map((n, i) => i ? `[${n}]` : n).join('')}=${v}`);
+				}
+
+				path.pop();
+
+				return acc;
+			}, result);
+	const getQueryString = obj => getQueryArray(obj).join('&');
+
+	setTimeout(function () {
+		document.querySelector('.t396 form').addEventListener('submit', (e) => {//событие отправки
+			e.preventDefault();
+			const data = Object.fromEntries(new FormData(e.target).entries());//все данные формы
+
+			t396_name = document.querySelector('.t396 input[name="Name"]').value;
+			t396_phone = document.querySelector('.t396 input[name="Phone"]').value;
+			t396_message = document.querySelector('.t396 input[name="Input"]').value;
+
+			var dataForm = {
+				"name": t396_name,
+				"phone": t396_phone,
+				"message": t396_message,
+			}
+
+			var xmlhttp = new XMLHttpRequest();
+			var handler = "sendMail.php";
+			var sendAdd = getQueryString(dataForm);
+
+			// console.log(sendAdd);
+
+			//отправка POST
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == XMLHttpRequest.DONE) { // XMLHttpRequest.DONE == 4
+					if (xmlhttp.status == 200) {
+
+						responsive = xmlhttp.responseText;// Ответ сервера
+						alert(responsive);// выводим ответ сервера
+					} else if (xmlhttp.status == 400) {
+						alert('Произошла ошибка 400');
+					} else {
+						alert('было возвращено что-то еще, кроме 200');
+					}
+				}
+			};
+
+			xmlhttp.open("POST", handler, true);
+			xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+			xmlhttp.send(sendAdd);
+
+			console.log(data)
+
+		});//form
+
+	}, 1000);
+</script>
+</body>
+</html>
