@@ -47,14 +47,14 @@ javascript:(function () {
 })();
 void (0);
 
-// вернуть элемент
+// вернуть(отобразить) элемент
 javascript:(function () {
     custom_select_tag_active = localStorage.getItem('custom_select_tag') || "a";
     custom_select_tag = prompt('Какой вернуть тег?(Выборка jq)', custom_select_tag_active);
     localStorage.setItem('custom_select_tag', custom_select_tag);
     const custom_select_tag_query = document.querySelectorAll(custom_select_tag);
     for (var i = 0, length = custom_select_tag_query.length; i < length; i++) {
-        custom_select_tag_query[i].style.display = '';
+        custom_select_tag_query[i].style.display = 'block';
     }
 })();
 void (0);
