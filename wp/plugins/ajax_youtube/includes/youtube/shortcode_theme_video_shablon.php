@@ -20,7 +20,7 @@ function func_theme_video_shablon($attrs) {
 			$metka_field = get_sub_field('metka');//id шорткода
 			$all_video = get_sub_field('all_video');//повторитель со сборником видео
 
-			if ($attrs['metka'] == $metka_field) { //совпадение с меткой
+			if ($attrs['metka'] == $metka_field || $attrs['metka'] == "all") { //совпадение с меткой
 
 				// видео внутри
 				foreach ($all_video as $value) {
