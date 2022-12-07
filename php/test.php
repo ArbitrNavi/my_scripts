@@ -1,4 +1,5 @@
 <?php
+echo "<pre>";
 $toReturn = array(
 	0 => array(
 		false,
@@ -121,3 +122,11 @@ $testBoolean = [];
 
 var_dump($testBoolean);
 var_dump((bool) $testBoolean);
+
+$stringArr = 'Взрослый / Детский: Детский, 2 этап: Название кружка: Студия "Ателье для кукол", Длительность: 120, 3 этап: Выберите ФИО педагога: Лесовая Е.К.';
+$stringArr = explode(',',$stringArr)[1];//разбили строку на массив и выбрали элемент с индексом 1
+$stringArr = substr($stringArr,13); //удалили вначале 13 знаков
+var_dump($stringArr);
+
+
+echo "</pre>";
