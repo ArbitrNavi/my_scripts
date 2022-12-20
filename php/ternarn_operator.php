@@ -45,5 +45,17 @@ echo __LINE__ . '<br>';
 
 //	Если $b существует = то прибавляем 1, если нет, то ставим значение 1
 //	$b=1;
-echo(($b) ? ++$b : 1)
+echo(($b) ? ++$b : 1);
+
+echo "<hr>";
+//
+//function ternar($arrayTest = []){
+//	var_dump($arrayTest);
+//}
+//
+//ternar();
+$arrOptions=false;
+$arrOptions = ($arrOptions) ?: ['value' => 'null', 'label' => 'Выбрать'];
+
+var_dump($arrOptions);
 ?>
