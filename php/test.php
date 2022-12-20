@@ -128,5 +128,14 @@ $stringArr = explode(',',$stringArr)[1];//разбили строку на ма�
 $stringArr = substr($stringArr,13); //удалили вначале 13 знаков
 var_dump($stringArr);
 
+var_dump((bool)$noneVar);
+
+var_dump(!empty(null));
+
+
+
+
 
 echo "</pre>";
+
+
