@@ -8,11 +8,13 @@ function getPersonalizaciyaStyleBg($fieldCat = false, $fieldOptions = false, $da
 		$bg_faces_url = wp_get_attachment_image_url($faceBgImgId, 'full');
 	} elseif (get_field($fieldOptions, 'options')) {//изображение со страницы настроек темы
 		$bg_faces_url = wp_get_attachment_image_url(get_field($fieldOptions, 'options'), 'full');
-	} else {//изображение по умолчанию
+	} elseif($dataDefault){//изображение по умолчанию
 		$bg_faces_url = $dataDefault;
+	} else{
+		$bg_faces_url = null;
 	}
 
-	$bg_faces = "background: url(\"" . $bg_faces_url . "\") center top / cover;";
+	$bg_faces = ($bg_faces_url) ? "background: url(\"" . $bg_faces_url . "\") center top / cover;" : null;
 	return $bg_faces;
 }
 ?>
