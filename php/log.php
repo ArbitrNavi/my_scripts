@@ -25,4 +25,16 @@ chmod($name_txt, $chmod);  // восьмеричное, верный спосо�
 //Запись в файл
 file_put_contents($name_txt, $data_all, FILE_APPEND);
 //var_dump($name_txt, $chmod);
+
+
+
+
+//еще один вариант записи логов
+$thisDate = date('d.m.Y H:i:s');
+
+//write to file
+$req_dump = PHP_EOL . PHP_EOL . "------------" . PHP_EOL . $thisDate . PHP_EOL . print_r($_REQUEST, true);
+$fp = fopen('request.log', 'a');
+fwrite($fp, $req_dump);
+fclose($fp);
 ?>
