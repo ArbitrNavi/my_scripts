@@ -1,0 +1,290 @@
+/*
+Theme Name: Моя дочерняя тема
+Template: twentytwenty
+Theme URI: https://vk.com/ivan26ru
+Author URI: https://vk.com/ivan26ru
+Version: 1.0
+*/
+@import url("assets/fonts/inter/inter.css");
+
+:root {
+    --my-silver-light: #F4F4F4;
+    --my-silver: #D9D9D9;
+    --my-green: #43B05C;
+    --my-orange: #ED8A19;
+}
+
+body > * {
+    /*outline: 1px solid red;*/
+}
+
+* {
+    font-family: inter, Arial, sans-serif;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    box-sizing: border-box;
+    margin-top: 30px;
+}
+
+.header__info {
+    padding: 30px;
+    background: var(--my-silver-light);
+}
+
+.header__title {
+    font-size: 32px;
+    line-height: 38px;
+}
+
+.header__menu {
+    padding: 0 30px;
+    background: var(--my-silver);
+}
+
+.header__menu-ul {
+    display: flex;
+    list-style: none;
+}
+
+.header__menu-ul li {
+    margin-right: 40px;
+}
+
+.header__menu-ul a {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 40px;
+    text-decoration: none;
+    color: #000000;
+}
+
+main {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.sidebar {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    width: 293px;
+    margin-left: 30px;
+    padding: 30px;
+    background: var(--my-silver-light);
+}
+
+.section-content {
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: 30px;
+    background: var(--my-silver-light);
+}
+
+.title {
+    font-size: 32px;
+    line-height: 38px;
+}
+
+.category-posts__posts {
+    margin-top: 30px;
+}
+
+.category-posts__posts .category-posts__posts:first-child {
+    margin-top: 0;
+}
+
+.category-posts__posts {
+    margin-top: 30px;
+}
+
+.post-line {
+    display: flex;
+    background: #ffffff;
+}
+
+.post-line__thumb {
+    flex: 0 0 auto;
+    width: 170px;
+    height: 170px;
+}
+
+.post-line__thumb img {
+    width: 100%;
+    height: 100%;
+    vertical-align: baseline;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-line__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.post-line__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.post-line__excerpt {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 15px;
+    color: #888888;
+}
+
+.post-line__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.post-line__author {
+    font-size: 18px;
+    line-height: 22px;
+    color: #888888;
+}
+
+.post-line__author span {
+    color: #000000;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating__edit {
+    font-size: 20px;
+    line-height: 20px;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 100%;
+
+}
+
+.rating__edit_up {
+    background: var(--my-green);
+}
+
+.rating__edit_down {
+    background: var(--my-orange);
+}
+
+.rating__total {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 10px;
+    color: var(--my-green);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination a, .pagination .current {
+    line-height: 30px;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 100%;
+}
+
+.pagination .prev,
+.pagination .next {
+    width: auto;
+}
+
+.pagination .current {
+    color: #ffffff;
+    background: #000000;
+}
+
+.footer {
+    margin: 172px 0 30px;
+}
+
+.footer__wrap {
+    box-sizing: border-box;
+    padding: 30px;
+    background: var(--my-silver-light);
+}
+
+
+@media (max-width: 1230px) {
+    .wrap {
+        box-sizing: border-box;
+        width: calc(100% - 30px);
+    }
+
+    main {
+        flex-wrap: wrap;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-top: 30px;
+        margin-left: 0;
+    }
+
+    .footer {
+        margin-top: 50px;
+    }
+
+
+}
+
+@media (max-width: 760px) {
+    .header__info {
+        padding: 15px;
+    }
+
+    .header__menu {
+        padding: 0 20px;
+    }
+
+    .section-content {
+        padding: 15px;
+    }
+
+    .post-line {
+        flex-wrap: wrap;
+    }
+
+    .post-line__thumb {
+        width: 100%;
+    }
+
+    .post-line__footer {
+        margin-top: 15px;
+    }
+
+    .footer {
+        margin-top: 50px;
+    }
+}
