@@ -38,13 +38,13 @@
 <div class="mobile-header">
 	<div class="mobile-header__wrap">
 		<?php if (wp_get_attachment_image_url(get_field('mobile-header__logo', 'options'), 'full')) { ?>
-			<div class="mobile-header__logo">
+			<a href="<?php echo get_home_url(); ?>" class="mobile-header__logo">
 				<img src="<?php echo wp_get_attachment_image_url(get_field('mobile-header__logo', 'options'), 'full'); ?>" alt="Логотип" title="Логотип">
-			</div>
+			</a>
 		<?php } ?>
 		<?php if (get_field('mobile-header__title', 'options')) { ?>
 			<div class="mobile-header__name">
-				<p class="mobile-header__title"><?php echo get_field('mobile-header__title', 'options'); ?></p>
+				<a href="<?php echo get_home_url(); ?>" class="mobile-header__title"><?php echo get_field('mobile-header__title', 'options'); ?></a>
 				<?php echo (get_field('mobile-header__description', 'options')) ? "<p class='mobile-header__description'>" . get_field('mobile-header__description', 'options') . "</p>" : null; ?>
 			</div>
 		<?php } ?>

@@ -46,6 +46,7 @@
     font-size: var(--mh__title-fontsize);
     font-weight: bold;
     line-height: var(--mh__title-fontsize);
+    color: var(--mobile-color);
 }
 
 .mobile-header__description {

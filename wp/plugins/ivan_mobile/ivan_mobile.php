@@ -6,7 +6,7 @@
  * Plugin URI:  https://vk.com/ivan26ru
  * Author URI:  https://vk.com/ivan26ru
  * Author:      Иван
- * Version:     4.2
+ * Version:     4.3
  *
  * Text Domain: Идентификатор перевода, указывается в load_plugin_textdomain()
  * Domain Path: Путь до файла перевода. Нужен если файл перевода находится не в той же папке, в которой находится текущий файл.
@@ -37,6 +37,7 @@
 // v4.0 добавил шорткод вывода миниатюр панорам
 // v4.1 исправил конфликт стилей
 // v4.2 исправил конфликт скриптов
+// v4.3 добавил ссылку на главную страницу в шапку
 
 // страница настроек acf
 require_once plugin_dir_path(__FILE__) . 'includes/acf_options/acf_page.php';
