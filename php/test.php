@@ -134,8 +134,41 @@ var_dump(!empty(null));
 
 
 
+if (false || (!false && !false)){
+	echo "138 true";
+
+}else {
+	echo "141 false";
+}
+
+echo "<hr>";
+
+var_dump((boolean)[]);
 
 
+$arr = array(
+	"index"=> "value",
+	"index2"=> "value2",
+);
+
+print_r($arr);
+$arrACF = array(
+	'key' => 'group_62b2c0acee323',
+	'title' => 'theme Главная страница',
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'theme_setting',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+);
+$arrJSON = json_encode($arrACF, JSON_UNESCAPED_UNICODE);
+print_r($arrJSON);
 echo "</pre>";
 
 
