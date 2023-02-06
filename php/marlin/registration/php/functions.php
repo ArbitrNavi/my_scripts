@@ -72,3 +72,58 @@ function login($email, $password) {
 	}
 }
 
+
+function get_users() {
+	$pdo = connectBD();
+	$sql = "SELECT * FROM users";
+	$statement = $pdo->prepare($sql);
+	$statement->execute();
+	$users = $statement->fetchAll(PDO::FETCH_ASSOC);
+	return $users;
+}
+
+function log_in() {
+	$_SESSION["user"] = [
+		"id"    => 1,
+		"name"  => "admin",
+		"email" => "admin@test.loc",
+	];
+}
+
+log_in();
+
+function thisUser() {
+	if (isLogin()) {
+		return $_SESSION["user"];
+	}
+	return false;
+}
+
+function isCurrentUser($user) {
+	if (thisUser()["id"] == $user["id"]) {
+		return true;
+	}
+	return false;
+}
+
+function isAdmin() {
+	if (isLogin() && thisUser()["id"] == "1") {
+		return true;
+	}
+	return false;
+}
+
+function log_out() {
+	unset($_SESSION["user"]);
+}
+
+function isLogin() {
+	if (isset($_SESSION["user"])) {
+		return true;
+	}
+	return false;
+}
+
+function is_not_login() {
+	return !isLogin();
+}
