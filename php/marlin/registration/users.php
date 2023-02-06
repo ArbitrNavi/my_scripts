@@ -1,10 +1,10 @@
-<?php session_start();include_once "php/functions.php"; var_dump($_SESSION);?><!DOCTYPE html>
+<?php session_start();include_once "php/functions.php"; //var_dump($_SESSION);?><!DOCTYPE html>
 <html lang="en">
 <head>
 
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<meta name="description" content="Chartist.html">
+	<meta name="description" content="Chartist.php">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
 
@@ -19,7 +19,7 @@
 </head>
 <body class="mod-bg-1 mod-nav-link">
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-primary-gradient">
-	<a class="navbar-brand d-flex align-items-center fw-500" href="users.html"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a>
+	<a class="navbar-brand d-flex align-items-center fw-500" href="users.php"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a>
 	<button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor02" data-toggle="collapse" type="button">
 		<span class="navbar-toggler-icon"></span></button>
 	<div class="collapse navbar-collapse" id="navbarColor02">
@@ -51,7 +51,7 @@
 		<div class="col-xl-12">
 			<?php
 			if (isAdmin()) { ?>
-				<a class="btn btn-success" href="create_user.html">Добавить</a>
+				<a class="btn btn-success" href="create_user.php">Добавить</a>
 			<?php } ?>
 
 			<div class="border-faded bg-faded p-3 mb-g d-flex mt-3">
@@ -87,16 +87,16 @@
 								</a>
 								<?php if (isCurrentUser($user) || isAdmin()) { ?>
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="edit.html">
+										<a class="dropdown-item" href="edit.php?id=<?php echo $user["id"]; ?>">
 											<i class="fa fa-edit"></i>
 											Редактировать</a>
-										<a class="dropdown-item" href="security.html">
+										<a class="dropdown-item" href="security.php">
 											<i class="fa fa-lock"></i>
 											Безопасность</a>
-										<a class="dropdown-item" href="status.html">
+										<a class="dropdown-item" href="status.php">
 											<i class="fa fa-sun"></i>
 											Установить статус</a>
-										<a class="dropdown-item" href="media.html">
+										<a class="dropdown-item" href="media.php">
 											<i class="fa fa-camera"></i>
 											Загрузить аватар
 										</a>
@@ -149,8 +149,8 @@
 	</div>
 	<div>
 		<ul class="list-table m-0">
-			<li><a href="intel_introduction.html" class="text-secondary fw-700">Home</a></li>
-			<li class="pl-3"><a href="info_app_licensing.html" class="text-secondary fw-700">About</a></li>
+			<li><a href="intel_introduction.php" class="text-secondary fw-700">Home</a></li>
+			<li class="pl-3"><a href="info_app_licensing.php" class="text-secondary fw-700">About</a></li>
 		</ul>
 	</div>
 </footer>
