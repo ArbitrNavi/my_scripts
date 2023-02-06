@@ -1,4 +1,4 @@
-<?php session_start(); ?></рpp><!DOCTYPE html>
+<?php session_start(); require_once "php/functions.php";?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -58,7 +58,8 @@
 						</div>
 						<div class="col-xl-6 ml-auto mr-auto">
 							<div class="card p-4 rounded-plus bg-faded">
-								<?php if (array_key_exists('is_create_user', $_SESSION) && !$_SESSION['is_create_user']) { ?>
+								<?php
+								if (arrayValue($_SESSION, "is_create_user") === false) { ?>
 									<div class="alert alert-danger text-dark" role="alert">
 										<strong>Уведомление!</strong> Этот эл. адрес уже занят другим пользователем.
 									</div>
