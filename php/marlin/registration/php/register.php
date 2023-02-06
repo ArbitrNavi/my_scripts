@@ -5,6 +5,7 @@ if (isset($_POST["email"]) || isset($_POST["password"])) {
 	$password = $_POST["password"];
 } else {
 	header('Location: ../page_register.php');
+	die();
 }
 
 $sqlData = [
