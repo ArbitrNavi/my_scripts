@@ -33,13 +33,19 @@
 	</div>
 	<div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
 		<?php
-		if (arrayValue($_SESSION, "is_create_user") === false) { ?>
+		if (arrayValue($_SESSION, "is_create_user") === true) { ?>
 			<div class="alert alert-success">
 				Регистрация успешна!
 			</div>
-		<?php } ?>
+		<?php } elseif (arrayValue($_SESSION, "incorrect")!=="null") { ?>
+			<div class="alert alert-warning">
+				<?php echo $_SESSION["incorrect"]; ?>
+			</div>
+		<?php }
+		unset($_SESSION["incorrect"], $_SESSION["is_create_user"]);
+		?>
 
-		<form action="php/register.php" method="POST">
+		<form action="php/login.php" method="POST">
 			<div class="form-group">
 				<label class="form-label" for="username">Email</label>
 				<input type="email" id="username" class="form-control" placeholder="Эл. адрес" value="test@test.test" name="email">
@@ -52,7 +58,7 @@
 		</form>
 	</div>
 	<div class="blankpage-footer text-center">
-		Нет аккаунта? <a href="page_register.html"><strong>Зарегистрироваться</strong>
+		Нет аккаунта? <a href="page_register.php"><strong>Зарегистрироваться</strong>
 	</div>
 </div>
 <video poster="img/backgrounds/clouds.png" id="bgvid" playsinline autoplay muted loop>
