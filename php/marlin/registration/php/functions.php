@@ -21,62 +21,53 @@ function arrayValue($array, $key = false) {//return null, for none key
 //}
 
 
-function connectBD(){
+function connectBD() {
 	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 	$pdo = new PDO("mysql:host=localhost;dbname=marlin_php1;", "root", "", $options);
 	return $pdo;
 }
 
-function redirect($redirect)
-{
+function redirect($redirect) {
 	header("Location: {$redirect}");
 	exit;
 }
 
-function add_user($email, $password)
-{
+function add_user($email, $password) {
 	$pdo = connectBD();
 	$sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
 	$statement = $pdo->prepare($sql);
 	$statement->execute([
-		'email' => $email,
+		'email'    => $email,
 		'password' => $password,
 	]);
 }
 
 
-function flesh_message($name, $message)
-{
+function flesh_message($name, $message) {
 	$_SESSION[$name] = $message;
 }
 
-function login($email , $password){
-	$pdo = new PDO('mysql:host=localhost;dbname=register','root', '');
-	$sql = "SELECT email FROM authUsers WHERE email=:email";
+function login($email, $password) {
+	$pdo = connectBD();
+	$sql = "SELECT email FROM users WHERE email=:email AND password=:password";
 	$statement = $pdo->prepare($sql);
-	$statement->execute(['email'=>$email]);
-	$mail = $statement->fetch(PDO::FETCH_ASSOC);
+	$statement->execute(['email' => $email, 'password' => $password]);
+	$user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
-	$sq = "SELECT password FROM authUsers WHERE password=:password ";
-	$state = $pdo->prepare($sq);
-	$state->execute(['password'=>$password]);
-	$pass = $state->fetch(PDO::FETCH_ASSOC);
-
-
-	if (!empty($mail) && !empty($pass)){
-		$mysql = 'SELECT * FROM authUsers WHERE email=:email';
+	if ($user) {
+		$mysql = 'SELECT * FROM users WHERE email=:email';
 		$stat = $pdo->prepare($mysql);
-		$stat->execute(['email'=>$email]);
+		$stat->execute(['email' => $email]);
 		$user = $stat->fetch(PDO::FETCH_ASSOC);
 		$_SESSION['user'] = $user;
-		var_dump($_SESSION['user']);
-		header('Location: /registerPHP/users.php');
+		//		var_dump($_SESSION['user']);
+		redirect('../users.php');
 
 		exit();
-	}else{
-		$_SESSION['incorrect'] = 'Неверный логин или пароль';
-		header('Location: /registerPHP/page_login.php');
+	} else {
+		flesh_message('incorrect', 'Неверный логин или пароль');
+		redirect('../page_login.php');
 		exit();
 	}
 }
