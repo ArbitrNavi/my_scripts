@@ -1,24 +1,18 @@
 <?php session_start();
-
-if (isset($_POST["email"]) || isset($_POST["password"])) {
+include_once "functions.php";
+if ( arrayValue($_POST, "email") === 'null' || arrayValue($_POST, 'password') === 'null') {
+	redirect('../page_register.php');
+	die();
+} else {
 	$email = $_POST["email"];
 	$password = $_POST["password"];
-} else {
-	header('Location: ../page_register.php');
-	die();
 }
 
 $sqlDataWhere = [
 	"email" => $email,
 ];
 
-$sqlDataInsert = [
-	"email"    => $email,
-	"password" => $password,
-];
-
-$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-$pdo = new PDO("mysql:host=localhost;dbname=marlin_php1;", "root", "", $options);
+$pdo = connectBD();
 
 $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email"); //ЗАПРОС SELECT
 //$statement = $pdo->prepare("SELECT * FROM users WHERE email = :email AND password = :password;"); //ЗАПРОС SELECT
@@ -27,16 +21,17 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ
 
 
 if ($users) {
-	$is_create_user = false;
-} else {
-	$sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
-	$statement = $pdo->prepare($sql);
-	$statement->execute($sqlDataInsert);
+	$_SESSION["is_create_user"] = false;
 
-	$is_create_user = true;
+	redirect('/page_register.php');
+} else {
+	add_user($email, $password);
+
+	$_SESSION["is_create_user"] = true;
+
+	redirect('/page_login.php');
 }
 
-$_SESSION["is_create_user"] = $is_create_user;
 
 
 //echo "<pre>";
@@ -48,5 +43,4 @@ $_SESSION["is_create_user"] = $is_create_user;
 //var_dump($_SESSION);
 //echo "</pre>";
 
-header('Location: ../page_register.php');
 ?>
