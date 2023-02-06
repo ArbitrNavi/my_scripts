@@ -40,8 +40,10 @@ function add_user($email, $password) {
 		'email'    => $email,
 		'password' => $password,
 	]);
-}
+	$id = $pdo->lastInsertId();
 
+	return $id;
+}
 
 function flesh_message($name, $message) {
 	$_SESSION[$name] = $message;
@@ -126,4 +128,43 @@ function isLogin() {
 
 function is_not_login() {
 	return !isLogin();
+}
+
+function setUserField($userID = false, $field = false, $value = null) {
+	if ($userID && $field) {
+		$arrSQL = [
+			"id"    => $userID,
+			"value" => $value
+		];
+		$pdo = connectBD();
+
+		$sql = "UPDATE users SET {$field}=:value WHERE id=:id";
+
+		$statement = $pdo->prepare($sql);
+		$result = $statement->execute($arrSQL);
+
+		return $result;
+	} else {
+		return false;
+	}
+}
+
+function getUserField($userID = false, $field = false) {
+	if ($userID && $field) {
+		$arrSQL = [
+			"id" => $userID,
+		];
+
+		$pdo = connectBD();
+		$sql = "SELECT {$field} FROM users WHERE id=:id";
+		$statement = $pdo->prepare($sql);
+		$statement->execute($arrSQL);
+
+		$thisField = $statement->fetchAll(PDO::FETCH_ASSOC);
+		$thisField = $thisField[0][$field];
+
+		return $thisField;
+	} else {
+		return false;
+	}
 }
