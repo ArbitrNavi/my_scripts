@@ -15,7 +15,3 @@ SELECT `id`, `name`, `surname`, `date` FROM `user` WHERE 1
 INSERT INTO `user`(`id`, `name`, `surname`, `date`) VALUES ([value-1],[value-2],[value-3],[value-4])
 UPDATE `user` SET `id`=[value-1],`name`=[value-2],`surname`=[value-3],`date`=[value-4] WHERE 1
 DELETE FROM `user` WHERE 0
-
-
-
-
