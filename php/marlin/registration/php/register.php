@@ -8,7 +8,11 @@ if (isset($_POST["email"]) || isset($_POST["password"])) {
 	die();
 }
 
-$sqlData = [
+$sqlDataWhere = [
+	"email" => $email,
+];
+
+$sqlDataInsert = [
 	"email"    => $email,
 	"password" => $password,
 ];
@@ -16,8 +20,9 @@ $sqlData = [
 $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 $pdo = new PDO("mysql:host=localhost;dbname=marlin_php1;", "root", "", $options);
 
-$statement = $pdo->prepare("SELECT * FROM users WHERE email = :email AND password = :password;"); //ЗАПРОС SELECT
-$statement->execute($sqlData); //ПОЛУЧИТЬ РЕЗУЛЬТАТ
+$statement = $pdo->prepare("SELECT * FROM users WHERE email = :email"); //ЗАПРОС SELECT
+//$statement = $pdo->prepare("SELECT * FROM users WHERE email = :email AND password = :password;"); //ЗАПРОС SELECT
+$statement->execute($sqlDataWhere); //ПОЛУЧИТЬ РЕЗУЛЬТАТ
 $users = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ В ПЕРЕМЕННУЮ USER
 
 
@@ -26,7 +31,7 @@ if ($users) {
 } else {
 	$sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
 	$statement = $pdo->prepare($sql);
-	$statement->execute($sqlData);
+	$statement->execute($sqlDataInsert);
 
 	$is_create_user = true;
 }
