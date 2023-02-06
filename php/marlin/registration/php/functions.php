@@ -33,16 +33,19 @@ function redirect($redirect) {
 }
 
 function add_user($email, $password) {
-	$pdo = connectBD();
-	$sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
-	$statement = $pdo->prepare($sql);
-	$statement->execute([
-		'email'    => $email,
-		'password' => $password,
-	]);
-	$id = $pdo->lastInsertId();
+	if (!isExistsEmail($email)) {
+		$pdo = connectBD();
+		$sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
+		$statement = $pdo->prepare($sql);
+		$statement->execute([
+			'email'    => $email,
+			'password' => $password,
+		]);
+		$id = $pdo->lastInsertId();
 
-	return $id;
+		return $id;
+	}
+	return false;
 }
 
 function flesh_message($name, $message) {
