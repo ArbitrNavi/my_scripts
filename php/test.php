@@ -172,3 +172,4 @@ print_r($arrJSON);
 echo "</pre>";
 
 
+var_dump(false["id"] == "999");
