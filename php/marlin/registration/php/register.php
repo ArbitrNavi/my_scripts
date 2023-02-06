@@ -1,7 +1,11 @@
 <?php session_start();
 
-$email = "nikolay@test.test3";
-$password = "1112";
+if (isset($_POST["email"]) || isset($_POST["password"])) {
+	$email = $_POST["email"];
+	$password = $_POST["password"];
+} else {
+	header('Location: ../page_register.php');
+}
 
 $sqlData = [
 	"email"    => $email,
@@ -17,19 +21,26 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ
 
 
 if ($users) {
-	$userStatus = false;
+	$is_create_user = false;
 } else {
 	$sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
 	$statement = $pdo->prepare($sql);
 	$statement->execute($sqlData);
-	$userStatus = true;
 
+	$is_create_user = true;
 }
-$_SESSION["is_create_user"] = $userStatus;
+
+$_SESSION["is_create_user"] = $is_create_user;
 
 
-echo "<pre>";
-var_dump($users);
-var_dump($_SESSION);
-echo "</pre>";
+//echo "<pre>";
+//echo "POST ";
+//var_dump($_POST);
+//echo "DB ";
+//var_dump($users);
+//echo "SESSION ";
+//var_dump($_SESSION);
+//echo "</pre>";
+
+header('Location: ../page_register.php');
 ?>
