@@ -23,13 +23,13 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ
 if ($users) {
 	$_SESSION["is_create_user"] = false;
 
-	redirect('/page_register.php');
+	redirect('../page_register.php');
 } else {
 	add_user($email, $password);
 
 	$_SESSION["is_create_user"] = true;
 
-	redirect('/page_login.php');
+	redirect('../page_login.php');
 }
 
 
