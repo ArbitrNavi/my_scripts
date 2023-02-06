@@ -74,6 +74,15 @@ function login($email, $password) {
 	}
 }
 
+function isExistsEmail($email) {
+	$pdo = connectBD();
+	$sql = "SELECT email FROM users WHERE email=:email";
+	$statement = $pdo->prepare($sql);
+	$statement->execute(['email' => $email]);
+	$result = $statement->fetch(PDO::FETCH_ASSOC);
+	return $result;
+}
+
 
 function get_users() {
 	$pdo = connectBD();
