@@ -64,7 +64,7 @@
 										<strong>Уведомление!</strong> Этот эл. адрес уже занят другим пользователем.
 									</div>
 								<?php }; ?>
-								<form id="js-login" novalidate="" action="php/register.php" method="POST">
+								<form id="js-login" novalidate="" action="php/addUserAddData.php" method="POST">
 									<div class="form-group">
 										<label class="form-label" for="emailverify">Email</label>
 										<input type="email" id="emailverify" class="form-control" placeholder="Эл. адрес" required name="email" value="register@mail.loc">
