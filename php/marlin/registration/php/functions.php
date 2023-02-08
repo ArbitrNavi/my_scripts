@@ -33,7 +33,7 @@ function redirect($redirect) {
 }
 
 function add_user($email, $password) {
-	if (!isExistsEmail($email)) {
+	if (!isExistsEmail($email) && $email && $password) {
 		$pdo = connectBD();
 		$sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
 		$statement = $pdo->prepare($sql);
@@ -132,7 +132,7 @@ function log_out() {
 }
 
 function isLogin() {
-	if (isset($_SESSION["user"])) {
+	if (!empty($_SESSION["user"])) {
 		return true;
 	}
 	return false;
