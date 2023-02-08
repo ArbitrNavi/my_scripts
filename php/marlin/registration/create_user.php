@@ -1,9 +1,9 @@
 <?php session_start();
 require_once "php/functions.php";
-if (is_not_login() || !isAdmin()) {
+if (!isAdmin()) {
 	redirect("page_login.php");
 	exit();
-};
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@ if (is_not_login() || !isAdmin()) {
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-primary-gradient">
-	<a class="navbar-brand d-flex align-items-center fw-500" href="users.html"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a>
+	<a class="navbar-brand d-flex align-items-center fw-500" href="users.php"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a>
 	<button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor02" data-toggle="collapse" type="button">
 		<span class="navbar-toggler-icon"></span></button>
 	<div class="collapse navbar-collapse" id="navbarColor02">
@@ -33,7 +33,7 @@ if (is_not_login() || !isAdmin()) {
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="page_login.html">Войти</a>
+				<a class="nav-link" href="page_login.php">Войти</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">Выйти</a>
@@ -45,8 +45,6 @@ if (is_not_login() || !isAdmin()) {
 	<div class="subheader">
 		<h1 class="subheader-title">
 			<i class='subheader-icon fal fa-plus-circle'></i> Добавить пользователя </h1>
-
-
 	</div>
 	<form action="">
 		<div class="row">
@@ -59,8 +57,8 @@ if (is_not_login() || !isAdmin()) {
 						<div class="panel-content">
 							<!-- username -->
 							<div class="form-group">
-								<label class="form-label" for="simpleinput">Имя</label>
-								<input type="text" id="simpleinput" class="form-control">
+								<label class="form-label" for="simpleinput"></label>
+								<input type="text" id="simpleinput" class="form-control" value="">
 							</div>
 
 							<!-- title -->
@@ -95,7 +93,7 @@ if (is_not_login() || !isAdmin()) {
 							<!-- email -->
 							<div class="form-group">
 								<label class="form-label" for="simpleinput">Email</label>
-								<input type="text" id="simpleinput" class="form-control">
+								<input type="text" id="simpleinput" class="form-control" value="">
 							</div>
 
 							<!-- password -->
