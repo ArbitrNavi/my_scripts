@@ -105,7 +105,7 @@
 										</a>
 									</div>
 								<?php } ?>
-								<span class="text-truncate text-truncate-xl">IT Director, Gotbootstrap Inc.</span>
+								<span class="text-truncate text-truncate-xl"><?php echo $user["works"]; ?></span>
 							</div>
 							<button class="js-expand-btn btn btn-sm btn-default d-none" data-toggle="collapse" data-target="#c_1 > .card-body + .card-body" aria-expanded="false">
 								<span class="collapsed-hidden">+</span>
@@ -115,21 +115,21 @@
 					</div>
 					<div class="card-body p-0 collapse show">
 						<div class="p-3">
-							<a href="tel:+13174562564" class="mt-1 d-block fs-sm fw-400 text-dark">
-								<i class="fas fa-mobile-alt text-muted mr-2"></i> +1 317-456-2564</a>
-							<a href="mailto:oliver.kopyov@smartadminwebapp.com" class="mt-1 d-block fs-sm fw-400 text-dark">
+							<a href="tel:<?php echo $user["phone"]; ?>" class="mt-1 d-block fs-sm fw-400 text-dark">
+								<i class="fas fa-mobile-alt text-muted mr-2"></i> <?php echo $user["phone"]; ?></a>
+							<a href="mailto:<?php echo $user["email"]; ?>" class="mt-1 d-block fs-sm fw-400 text-dark">
 								<i class="fas fa-mouse-pointer text-muted mr-2"></i> <?php echo $user["email"]; ?></a>
 							<address class="fs-sm fw-400 mt-4 text-muted">
-								<i class="fas fa-map-pin mr-2"></i> 15 Charist St, Detroit, MI, 48212, USA
+								<i class="fas fa-map-pin mr-2"></i> <?php echo $user["address"]; ?>
 							</address>
 							<div class="d-flex flex-row">
-								<a href="javascript:void(0);" class="mr-2 fs-xxl" style="color:#4680C2">
+								<a href="<?php echo $user["vk"]; ?>" class="mr-2 fs-xxl" style="color:#4680C2">
 									<i class="fab fa-vk"></i>
 								</a>
-								<a href="javascript:void(0);" class="mr-2 fs-xxl" style="color:#38A1F3">
+								<a href="<?php echo $user["telegram"]; ?>" class="mr-2 fs-xxl" style="color:#38A1F3">
 									<i class="fab fa-telegram"></i>
 								</a>
-								<a href="javascript:void(0);" class="mr-2 fs-xxl" style="color:#E1306C">
+								<a href="<?php echo $user["instagram"]; ?>" class="mr-2 fs-xxl" style="color:#E1306C">
 									<i class="fab fa-instagram"></i>
 								</a>
 							</div>
