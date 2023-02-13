@@ -6,4 +6,5 @@
 		url('lato_heavy.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
 		url('lato_heavy.ttf') format('truetype'), /* Safari, Android, iOS */
 		url('lato_heavy.svg#lato_heavy') format('svg'); /* Chrome < 4, Legacy iOS */
+	font-display: swap;
 }

@@ -6,4 +6,5 @@
 			 url("RobotoRegular.ttf") format("truetype");
 	font-style: normal;
 	font-weight: normal;
+	font-display: swap;
 }
