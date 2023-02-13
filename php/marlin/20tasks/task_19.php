@@ -38,7 +38,7 @@
 								<form action="upload.php" method="POST" enctype="multipart/form-data">
 									<div class="form-group">
 										<label class="form-label" for="simpleinput">Image</label>
-										<input type="file" id="simpleinput" class="form-control" name="file">
+										<input type="file" id="simpleinput" class="form-control" name="file[]" multiple>
 									</div>
 									<button class="btn btn-success mt-3">Submit</button>
 								</form>
