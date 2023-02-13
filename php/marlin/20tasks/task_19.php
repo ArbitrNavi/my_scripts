@@ -1,3 +1,6 @@
+<?php session_start();
+//$_SESSION["galleryID"] = 48;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,12 +68,44 @@
 							<div class="row">
 
 
-								<?php for ($i = 0; $i < 2; $i++) { ?>
-									<div class="col-md-3 image">
-										<img src="img/demo/gallery/1.jpg">
-									</div>
-								<?php } ?>
+								<?php
 
+								if (!empty($_SESSION["galleryID"])) {
+									$galleryID = $_SESSION["galleryID"];
+									$arrGalleryID = json_decode($galleryID);//48
+									//									var_dump($arrGallery);
+									function connectBD() {
+										$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+										$pdo = new PDO("mysql:host=localhost;dbname=marlin_php1;", "root", "", $options);
+										return $pdo;
+									}
+
+									$pdo = connectBD();
+
+									$field = 'gallery';
+									$sql = "SELECT {$field} FROM my_table WHERE id=:id";
+									$statement = $pdo->prepare($sql);
+									$statement->execute([
+											"id" => $arrGalleryID//48
+									]);
+
+									$thisGallery = $statement->fetchAll(PDO::FETCH_ASSOC)[0]["gallery"];//array
+									$thisGallery = json_decode($thisGallery);// to decode for Array
+									//								echo "<pre>";
+									//								var_dump($thisGallery);
+									//								echo "</pre>";
+
+									foreach ($thisGallery as $index => $item) {
+										$imgUrl = "uploads/" . $item[0];
+										$imgTitle = $item[1];
+										?>
+										<div class="col-md-3 image">
+											<img src="<?php echo $imgUrl ?>" alt="<?php echo $imgTitle; ?>">
+										</div>
+									<?php }
+
+								}//!empty($_SESSION["galleryID"])
+								?>
 
 							</div>
 						</div>
