@@ -15,9 +15,12 @@ function uploadImg($fileName, $tmp) {
 	return $result;
 }
 
-var_dump($_FILES['file']['name'][0], $_FILES['file']['tmp_name'][0]);
-uploadImg($_FILES['file']['name'][0], $_FILES['file']['tmp_name'][0]);
 
+$countArrayFiles = count($_FILES['file']['name']);//3
+for ($i=0; $i <$countArrayFiles ; $i++) {
+//	var_dump($_FILES['file']['name'][$i], $_FILES['file']['tmp_name'][$i]);
+	uploadImg($_FILES['file']['name'][$i], $_FILES['file']['tmp_name'][$i]);
+}
 
 echo "</pre>";
 
