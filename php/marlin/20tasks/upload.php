@@ -8,20 +8,27 @@ function uploadImg($fileName, $tmp) {
 	$imgName = $fileName;
 	$imgNameInfo = pathinfo($imgName);
 	$imgNameType = $imgNameInfo["extension"];
-	$newNameImg = uniqid() . "." . $imgNameType;
+	$newNameImg = uniqid() . "." . $imgNameType; //63ea0f1bc1659.jpg
 
 	// 2. сохранить
 	$result = move_uploaded_file($tmp, 'uploads/' . $newNameImg);
+	if ($result) {
+		$result = $newNameImg;
+	}
 	return $result;
 }
 
-
+$arrListFiles = [];
 $countArrayFiles = count($_FILES['file']['name']);//3
-for ($i=0; $i <$countArrayFiles ; $i++) {
-//	var_dump($_FILES['file']['name'][$i], $_FILES['file']['tmp_name'][$i]);
-	uploadImg($_FILES['file']['name'][$i], $_FILES['file']['tmp_name'][$i]);
+for ($i = 0; $i < $countArrayFiles; $i++) {
+	//	var_dump($_FILES['file']['name'][$i], $_FILES['file']['tmp_name'][$i]);
+	$fileName = $_FILES['file']['name'][$i];
+	$tmpName = $_FILES['file']['tmp_name'][$i];
+	$arrListFiles[] = uploadImg($fileName, $tmpName);
 }
 
+
+var_dump($arrListFiles);
 echo "</pre>";
 
 
