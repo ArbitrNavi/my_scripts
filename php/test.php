@@ -234,69 +234,49 @@ if (!function_exists('get_vd')) {
 		}
 	}
 }
-
-
-$countElements = 7;
+$countElements = 120;
 for ($i = 1; $i <= $countElements; $i++) {
 	$arrPosts[$i] = [];
-	$arrPostsLinks[$i] = ["ids" => [], "repeat" => 0,];
 }
 
-$countLinks = 4;
-$firstPostId = 0;
-
-$i = 0;
-$i2 = 0;
-foreach ($arrPosts as $idParent => $arrPost) {
-	$numberElement = 0;
-	$flexId = "";
-
-	foreach ($arrPosts as $idChild => $arrPost2) {
-		if (count($arrPostsLinks[$idParent]["ids"]) < $countLinks) {
-
-			if ($i <= $countLinks) {  // 3 < 4 начальный перебор
-				if ($idParent <> $idChild) {
-
-					if ($arrPostsLinks[$idChild]["repeat"] < $countLinks) {
-						$arrPostsLinks[$idChild]["repeat"]++;
-						$arrPostsLinks[$idParent]["ids"][] = $idChild;
-					}
-
-				}
-			} elseif ($numberElement < $countLinks) { //3 > 4 смешивание
-
-				$thisId = $arrPostsLinks[$idChild]["ids"][$numberElement];
-				//				while (in_array($thisId, $arrPostsLinks[$idParent]["ids"])) {
-				//					$thisId = "+";
-				//				}
-				//
-				//									if (in_array($thisId, $arrPostsLinks[$idParent]["ids"])) {
-				//										$thisId = "+";
-				//									} else {
-				// }
-
-				if (in_array($thisId, $arrPostsLinks[$idParent]["ids"])) {
-					//					$thisId .= " yes";
-
-				} else {
-					//					$thisId .= " no";
-					$arrPostsLinks[$idChild]["ids"][$numberElement] = $idParent;//заменил значение
-					$arrPostsLinks[$idParent]["ids"][$numberElement] = $thisId;//добавил значение
-					$arrPostsLinks[$idParent]["repeat"]++;
-					$numberElement++;
-				}
-
-
-			}
-
-
+function perebor($arrPosts = false, $countLinks = 4) {
+	if ($arrPosts) {
+		foreach ($arrPosts as $index => $item) {
+			$arrPostsLinks[$index] = ["ids" => [], "repeat" => 0,];
 		}
 
+		$i = 0;
+		foreach ($arrPosts as $idParent => $arrPost) {
+			$numberElement = 0;
 
+			foreach ($arrPosts as $idChild => $arrPost2) {
+				if (count($arrPostsLinks[$idParent]["ids"]) < $countLinks) {
+					if ($i <= $countLinks) {  // 3 < 4 начальный перебор
+						if ($idParent <> $idChild) {
+							if ($arrPostsLinks[$idChild]["repeat"] < $countLinks) {
+								$arrPostsLinks[$idChild]["repeat"]++;
+								$arrPostsLinks[$idParent]["ids"][] = $idChild;
+							}
+						}
+					} elseif ($numberElement < $countLinks) { //3 > 4 смешивание
+						$thisId = $arrPostsLinks[$idChild]["ids"][$numberElement];
+						if (in_array($thisId, $arrPostsLinks[$idParent]["ids"])) {
+						} else {
+							$arrPostsLinks[$idChild]["ids"][$numberElement] = $idParent;//заменил значение
+							$arrPostsLinks[$idParent]["ids"][$numberElement] = $thisId;//добавил значение
+							$arrPostsLinks[$idParent]["repeat"]++;
+							$numberElement++;
+						}
+					}
+				}
+			}
+			$i++;
+		}
+		return $arrPostsLinks;
+	} else {
+		return false;
 	}
-
-
-	$i++;
 }
 
-get_pr($arrPostsLinks);
+//get_vd($arrPosts);
+get_pr(perebor($arrPosts, 4));
