@@ -234,7 +234,7 @@ if (!function_exists('get_vd')) {
 		}
 	}
 }
-$countElements = 120;
+$countElements = 7;
 for ($i = 1; $i <= $countElements; $i++) {
 	$arrPosts[$i] = [];
 }
@@ -272,6 +272,13 @@ function perebor($arrPosts = false, $countLinks = 4) {
 			}
 			$i++;
 		}
+
+		foreach ($arrPosts as $idParent => $arrPost) {
+			$arrPostsLinks[$idParent] = $arrPostsLinks[$idParent]["ids"];
+			unset($arrPostsLinks[$idParent]["repeat"]);
+			unset($arrPostsLinks[$idParent]["ids"]);
+		}
+
 		return $arrPostsLinks;
 	} else {
 		return false;
