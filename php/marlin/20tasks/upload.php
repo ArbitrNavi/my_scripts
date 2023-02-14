@@ -22,7 +22,6 @@ function uploadImg($fileName, $tmp) {
 $arrListFiles = [];
 $countArrayFiles = count($_FILES['file']['name']);//3
 for ($i = 0; $i < $countArrayFiles; $i++) {
-	//	var_dump($_FILES['file']['name'][$i], $_FILES['file']['tmp_name'][$i]);
 	$fileName = $_FILES['file']['name'][$i];
 	$tmpName = $_FILES['file']['tmp_name'][$i];
 	$arrListFiles[] = [uploadImg($fileName, $tmpName), $fileName];
