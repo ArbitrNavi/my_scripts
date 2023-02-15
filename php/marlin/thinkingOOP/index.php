@@ -42,24 +42,9 @@ $statement = $pdo->prepare("SELECT * FROM posts"); //ЗАПРОС SELECT
 $statement->execute(); //ПОЛУЧИТЬ РЕЗУЛЬТАТ
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ В ПЕРЕМЕННУЮ USER
 
-echo "<pre>";
-var_dump($posts);
-echo "</pre>";
-
-$posts = [
-		[
-				"id"    => 1,
-				"title" => " Lorem ipsum dolor 1",
-		],
-		[
-				"id"    => 2,
-				"title" => " Lorem ipsum dolor 2",
-		],
-		[
-				"id"    => 3,
-				"title" => " Lorem ipsum dolor 3",
-		],
-]
+//echo "<pre>";
+//var_dump($posts);
+//echo "</pre>";
 ?>
 
 <div class="container mt-3">
