@@ -3,8 +3,7 @@ include "functions.php";
 include "database/QueryBuilder.php";
 include "database/Connection.php";
 
-$connection = new Connection();
-$pdo = $connection->make();
+$pdo = Connection::make();
 
 $db = new QueryBuilder($pdo);
 $posts = $db->getAllPosts();
