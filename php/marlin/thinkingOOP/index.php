@@ -1,7 +1,8 @@
 <?php
 include "functions.php";
 
-$posts = getAllPosts();
+$pdo = connectionBD();
+$posts = getAllPosts($pdo);
 //dd($posts);
 
 include "index.view.php";
