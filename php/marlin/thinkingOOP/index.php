@@ -31,60 +31,22 @@
 
 			<div class="panel-container show">
 				<div class="panel-content">
-					<h5 class="frame-heading">Список пользователей</h5>
+					<h5 class="frame-heading">Список постов</h5>
 					<a class="btn btn-success" href="create_user.php">Добавить</a>
 					<div class="frame-wrap mt-3">
 						<table class="table m-0">
 							<thead>
 							<tr>
 								<th>#</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Username</th>
+								<th>title</th>
 								<th>Actions</th>
 							</tr>
 							</thead>
 							<tbody>
 							<tr>
 								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
+								<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, iusto.</td>
 								<td>
-									<a href="show.php?id=" class="btn btn-info">Редактировать</a>
-									<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-									<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-								<td>
-									<a href="show.php?id=" class="btn btn-info">Редактировать</a>
-									<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-									<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-								<td>
-									<a href="show.php?id=" class="btn btn-info">Редактировать</a>
-									<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-									<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">4</th>
-								<td>Larry the Bird</td>
-								<td> Bird</td>
-								<td>@twitter</td>
-								<td>
-									<a href="show.php?id=" class="btn btn-info">Редактировать</a>
 									<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
 									<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
 								</td>
