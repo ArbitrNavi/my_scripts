@@ -234,7 +234,7 @@ if (!function_exists('get_vd')) {
 		}
 	}
 }
-$countElements = 7;
+$countElements = 10;
 for ($i = 1; $i <= $countElements; $i++) {
 	$arrPosts[$i] = [];
 }
