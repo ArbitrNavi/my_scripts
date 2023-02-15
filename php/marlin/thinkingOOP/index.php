@@ -28,6 +28,22 @@
 				</div>
 			</div>
 
+			<?php
+			$posts = [
+					[
+							"id"    => 1,
+							"title" => " Lorem ipsum dolor 1",
+					],
+					[
+							"id"    => 2,
+							"title" => " Lorem ipsum dolor 2",
+					],
+					[
+							"id"    => 3,
+							"title" => " Lorem ipsum dolor 3",
+					],
+			]
+			?>
 
 			<div class="panel-container show">
 				<div class="panel-content">
@@ -43,14 +59,18 @@
 							</tr>
 							</thead>
 							<tbody>
-							<tr>
-								<th scope="row">1</th>
-								<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, iusto.</td>
-								<td>
-									<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-									<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-								</td>
-							</tr>
+
+							<?php foreach ($posts as $index => $post) { ?>
+								<tr>
+									<th scope="row"><?php echo $post["id"]; ?></th>
+									<td><?php echo $post["title"]; ?></td>
+									<td>
+										<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
+										<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+									</td>
+								</tr>
+							<?php } ?>
+
 							</tbody>
 						</table>
 					</div>
