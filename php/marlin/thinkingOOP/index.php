@@ -1,6 +1,6 @@
 <?php
 include "functions.php";
 $db = include "database/start.php";
-$posts = $db->getAllPosts();
+$posts = $db->getAll("posts");
 include "index.view.php";
 ?>
