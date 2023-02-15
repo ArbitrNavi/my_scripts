@@ -1,8 +1,11 @@
 <?php
 include "functions.php";
 include "database/QueryBuilder.php";
+include "database/Connection.php";
 
-$pdo = connectionBD();
+$connection = new Connection();
+$pdo = $connection->make();
+
 $db = new QueryBuilder($pdo);
 $posts = $db->getAllPosts();
 
