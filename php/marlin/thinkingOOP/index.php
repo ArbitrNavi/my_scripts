@@ -34,6 +34,18 @@
 </header>
 
 <?php
+
+
+$pdo = new PDO("mysql:host=localhost;dbname=app3;", "root", "");
+
+$statement = $pdo->prepare("SELECT * FROM posts"); //ЗАПРОС SELECT
+$statement->execute(); //ПОЛУЧИТЬ РЕЗУЛЬТАТ
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ В ПЕРЕМЕННУЮ USER
+
+echo "<pre>";
+var_dump($posts);
+echo "</pre>";
+
 $posts = [
 		[
 				"id"    => 1,
