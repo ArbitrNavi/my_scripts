@@ -116,12 +116,19 @@ function getField($field, $is_parent_cat = false) {
 	return $result;
 }
 
+function getFieldCatOptions($field, $defaultPage = 'options') {
+	if (is_page() || is_front_page()) {
+		$field = (get_field($field, $defaultPage)) ?: [];
+	} else {
+		$field = (getField($field, true)) ?: (get_field($field, $defaultPage)) ?: [];
+	}
+	return $field;
+}
 
 function myRand($length = 10) {
 	$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 	$stringRand = substr(str_shuffle($permitted_chars), 0, $length);
 	return $stringRand;
-
 }
 
 function getPersonalizaciyaStyleBg($fieldCat = false, $fieldOptions = false, $dataDefault = false, $visibleFrontPage = true) {
@@ -149,15 +156,6 @@ function getPersonalizaciyaStyleBg($fieldCat = false, $fieldOptions = false, $da
 	return $bg_faces;
 }
 
-function getFieldCatOptions($field, $defaultPage = 'options') {
-	if (is_page() || is_front_page()) {
-		$field = (get_field($field, $defaultPage)) ?: [];
-	} else {
-		$field = (getField($field, true)) ?: (get_field($field, $defaultPage)) ?: [];
-	}
-
-	echo $field;
-}
 
 function UR_exists($url = false) {
 	if ($url) {
