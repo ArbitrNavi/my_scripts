@@ -30,6 +30,6 @@ class QueryBuilder
 		$statement->execute([
 			"id" => $id,
 		]); //ПОЛУЧИТЬ РЕЗУЛЬТАТ
-		return $statement->fetchAll(PDO::FETCH_ASSOC)[0];
+		return $statement->fetch(PDO::FETCH_ASSOC);
 	}
 }
