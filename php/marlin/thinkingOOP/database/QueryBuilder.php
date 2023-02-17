@@ -15,9 +15,9 @@ class QueryBuilder
 		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function create() {
-		$sql = "INSERT INTO posts (title) VALUES ('Любой текст из класса')";
-		$statement =  $this->pdo->query($sql);
+	public function create($table, $key, $value) {
+		$sql = "INSERT INTO {$table} ({$key}) VALUES ('{$value}')";
+		$statement = $this->pdo->query($sql);
 		dd($statement);
 	}
 }
