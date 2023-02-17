@@ -22,6 +22,5 @@ class QueryBuilder
 		$sql = "INSERT INTO {$table} ({$keys}) VALUES ({$tags})";
 		$statement = $this->pdo->prepare($sql);
 		$statement->execute($data);
-		dd($statement);
 	}
 }
