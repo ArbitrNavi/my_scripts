@@ -54,8 +54,8 @@
 							<th scope="row"><?php echo $post["id"]; ?></th>
 							<td><a href="show.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a></td>
 							<td>
-								<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-								<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+								<a href="edit.php?id=<?php echo $post["id"]; ?>" class="btn btn-warning">Изменить</a>
+								<a href="delete.php?id=<?php echo $post["id"]; ?>" class="btn btn-danger">Удалить</a>
 							</td>
 						</tr>
 					<?php } ?>

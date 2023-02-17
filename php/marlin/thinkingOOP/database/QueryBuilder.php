@@ -32,4 +32,22 @@ class QueryBuilder
 		]); //ПОЛУЧИТЬ РЕЗУЛЬТАТ
 		return $statement->fetch(PDO::FETCH_ASSOC);
 	}
+
+	public function update($table, $data, $id) {
+		$keys = array_keys($data);
+		$string = '';
+		foreach ($keys as $key) {
+			$string .= $key . '=:' . $key . ',';
+		}
+		$keys = rtrim($string, ",");
+		$data["id"] = $id;
+		var_dump($keys);
+		var_dump($data);
+//		$sql = "UPDATE {$table} SET title=:title WHERE id=:id";
+		$sql = "UPDATE {$table} SET {$keys} WHERE id=:id";
+		var_dump($sql);
+		$statement = $this->pdo->prepare($sql);
+		$statement->execute($data);
+//		return $statement;
+	}
 }
