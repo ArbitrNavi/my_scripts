@@ -41,13 +41,18 @@ class QueryBuilder
 		}
 		$keys = rtrim($string, ",");
 		$data["id"] = $id;
-		var_dump($keys);
-		var_dump($data);
-//		$sql = "UPDATE {$table} SET title=:title WHERE id=:id";
 		$sql = "UPDATE {$table} SET {$keys} WHERE id=:id";
-		var_dump($sql);
 		$statement = $this->pdo->prepare($sql);
 		$statement->execute($data);
-//		return $statement;
+		return $statement;
+	}
+
+	public function delete($table, $id) {
+		$sql = "DELETE FROM {$table} WHERE id=:id";
+		$statement = $this->pdo->prepare($sql);;
+		$statement->execute([
+			"id"=>$id
+		]);
+		return $statement;
 	}
 }

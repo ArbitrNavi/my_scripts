@@ -2,7 +2,6 @@
 include "functions.php";
 $db = include "database/start.php";
 $id = $_GET["id"];
-$post = $db->update("posts",$_POST, $id);
-
+$post = $db->delete("posts", $id);
 header("Location: index.php");
 ?>
