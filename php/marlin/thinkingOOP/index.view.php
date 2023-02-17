@@ -52,15 +52,13 @@
 					<?php foreach ($posts as $index => $post) { ?>
 						<tr>
 							<th scope="row"><?php echo $post["id"]; ?></th>
-							<td><?php echo $post["title"]; ?></td>
+							<td><a href="show.php?id=<?php echo $post["id"]; ?>"><?php echo $post["title"]; ?></a></td>
 							<td>
 								<a href="edit.php?id=" class="btn btn-warning">Изменить</a>
 								<a href="delete.php?id=" class="btn btn-danger">Удалить</a>
 							</td>
 						</tr>
 					<?php } ?>
-
-
 					</tbody>
 				</table>
 			</div>

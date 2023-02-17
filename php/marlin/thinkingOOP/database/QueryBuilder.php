@@ -23,4 +23,13 @@ class QueryBuilder
 		$statement = $this->pdo->prepare($sql);
 		$statement->execute($data);
 	}
+
+	public function getOne($table, $id) {
+		$sql = "SELECT * FROM {$table} WHERE id=:id";
+		$statement = $this->pdo->prepare($sql); //ЗАПРОС SELECT
+		$statement->execute([
+			"id" => $id,
+		]); //ПОЛУЧИТЬ РЕЗУЛЬТАТ
+		return $statement->fetchAll(PDO::FETCH_ASSOC)[0];
+	}
 }
