@@ -5,4 +5,5 @@ include "database/Connection.php";
 
 //dd($config);
 
-return new QueryBuilder(Connection::make($config["database"]));
+$result = new QueryBuilder(Connection::make($config["database"]));
+return $result;
