@@ -15,9 +15,13 @@ class QueryBuilder
 		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function create($table, $key, $value) {
-		$sql = "INSERT INTO {$table} ({$key}) VALUES ('{$value}')";
-		$statement = $this->pdo->query($sql);
+	public function create($table, $data) {
+		$keys = implode(",", array_keys($data));
+		$tags = ":" . implode(":,", array_keys($data));
+
+		$sql = "INSERT INTO {$table} ({$keys}) VALUES ({$tags})";
+		$statement = $this->pdo->prepare($sql);
+		$statement->execute($data);
 		dd($statement);
 	}
 }
