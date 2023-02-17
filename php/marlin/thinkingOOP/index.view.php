@@ -36,7 +36,7 @@
 <div class="container mt-3">
 	<div class="row">
 		<div class="col-12">
-			<a class="btn btn-success" href="#">Добавить</a>
+			<a class="btn btn-success" href="create.php">Добавить</a>
 			<div class="row">
 				<table class="table mt-3">
 					<thead>
