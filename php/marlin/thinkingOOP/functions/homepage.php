@@ -1,6 +1,5 @@
 <?php
-include_once "../functions.php";
-$db = include_once "../database/start.php";
+$db = include_once projectDir() . "/database/start.php";
 $posts = $db->getAll("posts");
-include "../index.view.php";
+include_once projectDir() . "/index.view.php";
 ?>

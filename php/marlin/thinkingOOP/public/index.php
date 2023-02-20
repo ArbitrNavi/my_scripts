@@ -1,5 +1,5 @@
 <?php
-include "../functions.php";
+include_once "../functions.php";
 $routes = [
 	"/home"   => "functions/homepage.php",
 	"/about"  => "functions/about.php",
@@ -10,10 +10,12 @@ $routes = [
 
 $route = $_SERVER["REQUEST_URI"];
 //dd($route);
+//dd(projectDir());
 
 if (array_key_exists($route, $routes)) {
-	include "../" . $routes[$route];
+	include_once "../" . $routes[$route];
 } else {
-	echo(404);
+//	include_once "../" . $routes["/home"];
+		echo("Вы ввели несуществующий адресс");
 }
 ?>

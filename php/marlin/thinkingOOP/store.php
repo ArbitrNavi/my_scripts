@@ -1,8 +1,8 @@
 <?php
 //var_dump($_POST);
 
-include ('functions.php');
-$db = include ('dataBase/start.php');
+include_once('functions.php');
+$db = include_once('dataBase/start.php');
 
 $db->create("posts",[
 	"title"=>$_POST["title"],

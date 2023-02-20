@@ -1,7 +1,8 @@
 <?php
-$config = include "../config.php";
-include "QueryBuilder.php";
-include "Connection.php";
+
+$config = include_once projectDir(). "/config.php";
+include_once projectDir() . "/database/QueryBuilder.php";
+include_once projectDir() . "/database/Connection.php";
 
 //dd($config);
 

@@ -1,6 +1,6 @@
 <?php
-include "functions.php";
-$db = include "database/start.php";
+include_once projectDir() . "/functions.php";
+$db = include_once projectDir() . "/database/start.php";
 $id = $_GET["id"];
 $post = $db->getOne("posts", $id);
 ?>
