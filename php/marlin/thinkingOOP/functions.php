@@ -5,3 +5,7 @@ function dd($var) {
 	echo "</pre>";
 	die();
 }
+
+function projectDir(){
+	return __DIR__;
+}
