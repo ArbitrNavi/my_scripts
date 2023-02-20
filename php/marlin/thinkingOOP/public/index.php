@@ -1,7 +1,7 @@
 <?php
 include "../functions.php";
 $routes = [
-	"/"       => "index.php",
+	"/home"   => "functions/homepage.php",
 	"/about"  => "functions/about.php",
 	"/edit"   => "edit.php",
 	"/create" => "create.php",
