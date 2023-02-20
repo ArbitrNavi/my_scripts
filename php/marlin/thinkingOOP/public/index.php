@@ -9,6 +9,7 @@ $routes = [
 ];
 
 $route = $_SERVER["REQUEST_URI"];
+//dd($route);
 
 if (array_key_exists($route, $routes)) {
 	include "../" . $routes[$route];
