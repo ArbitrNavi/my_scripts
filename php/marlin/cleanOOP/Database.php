@@ -8,7 +8,7 @@ class Database
 	private function __construct() {
 		try {
 			$this->pdo = new PDO('mysql:dbname=marlin_cleanoop;host=localhost', 'root', '');
-//			echo "ok";
+			// echo "ok";
 		} catch (PDOException $exception) {
 			die($exception->getMessage());
 		}
@@ -20,5 +20,12 @@ class Database
 		}
 
 		return self::$instance;
+	}
+
+	public function query($sql) {
+		$query = $this->pdo->prepare($sql);
+		$query->execute();
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
+		return $result;
 	}
 }

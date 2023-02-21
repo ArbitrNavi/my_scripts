@@ -2,4 +2,5 @@
 
 include_once "Database.php";
 
-Database::getInstance();
+$users = Database::getInstance()->query("SELECT * FROM users");
+var_dump($users);
