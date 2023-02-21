@@ -3,4 +3,6 @@
 include_once "Database.php";
 
 $users = Database::getInstance()->query("SELECT * FROM users");
-var_dump($users);
+foreach ($users as $user) {
+	echo $user["id"] . ". " . $user["username"] . "<br>";
+}
