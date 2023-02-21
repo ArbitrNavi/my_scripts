@@ -2,8 +2,8 @@
 
 class Database
 {
-	private static $instance = null;
-	private        $pdo;
+	private static $instance            = null;
+	private        $pdo, $query, $error = false, $count, $result;
 
 	private function __construct() {
 		try {
@@ -23,9 +23,26 @@ class Database
 	}
 
 	public function query($sql) {
-		$query = $this->pdo->prepare($sql);
-		$query->execute();
-		$result = $query->fetchAll(PDO::FETCH_ASSOC);
-		return $result;
+		$this->error = false;
+		$this->query = $this->pdo->prepare($sql);
+		if (!$this->query->execute()) {
+			$this->error = true;
+		} else {
+			$this->result = $this->query->fetchAll(PDO::FETCH_ASSOC);
+			$this->count = $this->query->rowCount();
+		}
+		return $this;
+	}
+
+	public function error() {
+		return $this->error;
+	}
+
+	public function count() {
+		return $this->count;
+	}
+
+	public function result() {
+		return $this->result;
 	}
 }
