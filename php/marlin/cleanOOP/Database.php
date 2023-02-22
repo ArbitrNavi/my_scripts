@@ -67,6 +67,35 @@ class Database
 		}
 	}
 
+	public function insert($table, $fields = []) {
+		$values = '';
+		foreach ($fields as $field) {
+			$values .= '?,';
+		}
+
+		$val = rtrim($values, ',');
+
+		$sql = "INSERT INTO {$table} (" . '`' . implode('`, `', array_keys($fields)) . '`' . ") VALUES ({$val})";
+
+		$this->query($sql, $fields);
+	}
+
+
+	public function update($table, $id, $fields = []) {
+		$set = '';
+		foreach ($fields as $key => $field) {
+			$set .= "{$key} = ?,";
+		}
+
+		$set = rtrim($set, ',');
+
+		$sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
+
+		if (!$this->query($sql, $fields)->error) {
+			return true;
+		}
+	}
+
 	public function error() {
 		return $this->error;
 	}

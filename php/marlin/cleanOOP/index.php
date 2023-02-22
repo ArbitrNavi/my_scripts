@@ -1,11 +1,18 @@
 <?php
 
 include_once "Database.php";
+//Database::getInstance()->insert('users', [
+//	'username' => 'Marlin',
+//	'password' => 'pass',
+//]);
+Database::getInstance()->update('users', 5, [
+	'username' => 'Marlin2',
+	'password' => 'pass2',
+]);
 
-$users = Database::getInstance()->get('users', ['username', '=', 'name1']);
+$users = Database::getInstance()->get('users', ['password', '=', '123']);
 //Database::getInstance()->delete('users', ['username', '=', 'name2']);
 
-//var_dump($users->error());
 
 if ($users->error()) {
 	echo "This Error";
@@ -14,3 +21,4 @@ if ($users->error()) {
 		echo $user["id"] . ". " . $user["username"] . "<br>";
 	}
 }
+
