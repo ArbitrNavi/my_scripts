@@ -2,7 +2,7 @@
 
 include_once "Database.php";
 
-$users = Database::getInstance()->query("SELECT * FROM users WHERE username IN (?,?)", ["name1" , "name2"]);
+$users = Database::getInstance()->get('users', ['username', '=', 'name2']);
 
 
 //var_dump($users->error());

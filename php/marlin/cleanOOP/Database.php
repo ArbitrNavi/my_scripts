@@ -33,13 +33,30 @@ class Database
 			}
 		}
 
-		if (!$this->query->execute())  {
+		if (!$this->query->execute()) {
 			$this->error = true;
 		} else {
 			$this->result = $this->query->fetchAll(PDO::FETCH_ASSOC);
 			$this->count = $this->query->rowCount();
 		}
 		return $this;
+	}
+
+	public function get($table, $where = []) {
+		if (count($where) === 3) {
+			$operators = ['=', '>', '<', '>=', '<='];
+
+			$field = $where[0];
+			$operator = $where[1];
+			$value = $where[2];
+
+			if (in_array($operator, $operators)) {
+				$sql = "SELECT * FROM {$table} WHERE {$field} {$operator} ?";
+				if (!$this->query($sql, [$value])->error()) {
+					return $this;
+				}
+			}
+		}
 	}
 
 	public function error() {
