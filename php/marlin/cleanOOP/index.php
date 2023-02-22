@@ -2,8 +2,8 @@
 
 include_once "Database.php";
 
-$users = Database::getInstance()->get('users', ['username', '=', 'name2']);
-
+$users = Database::getInstance()->get('users', ['username', '=', 'name1']);
+//Database::getInstance()->delete('users', ['username', '=', 'name2']);
 
 //var_dump($users->error());
 

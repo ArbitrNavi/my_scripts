@@ -42,7 +42,15 @@ class Database
 		return $this;
 	}
 
+	public function delete($table, $where = []) {
+		return $this->action('DELETE', $table, $where);
+	}
+
 	public function get($table, $where = []) {
+		return $this->action('SELECT *', $table, $where);
+	}
+
+	public function action($action, $table, $where = []) {
 		if (count($where) === 3) {
 			$operators = ['=', '>', '<', '>=', '<='];
 
@@ -51,7 +59,7 @@ class Database
 			$value = $where[2];
 
 			if (in_array($operator, $operators)) {
-				$sql = "SELECT * FROM {$table} WHERE {$field} {$operator} ?";
+				$sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
 				if (!$this->query($sql, [$value])->error()) {
 					return $this;
 				}
