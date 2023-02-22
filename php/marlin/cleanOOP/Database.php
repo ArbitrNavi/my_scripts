@@ -77,7 +77,11 @@ class Database
 
 		$sql = "INSERT INTO {$table} (" . '`' . implode('`, `', array_keys($fields)) . '`' . ") VALUES ({$val})";
 
-		$this->query($sql, $fields);
+		if (!$this->query($sql, $fields)) {
+			return true;
+		}
+
+		return false;
 	}
 
 
@@ -94,6 +98,8 @@ class Database
 		if (!$this->query($sql, $fields)->error) {
 			return true;
 		}
+
+		return false;
 	}
 
 	public function error() {
