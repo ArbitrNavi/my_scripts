@@ -102,6 +102,10 @@ class Database
 		return false;
 	}
 
+	public function first() {
+		return $this->result()[0];
+	}
+
 	public function error() {
 		return $this->error;
 	}
