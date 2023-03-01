@@ -75,12 +75,13 @@ if (Input::exists()) {
 
 		if ($validation->passed()) {
 
-
 			$user = new User();
 			$user->create([
 					'username' => Input::get('username'),
 					'password' => password_hash(Input::get('password'), PASSWORD_DEFAULT)
 			]);
+
+			Session::flash('success', 'user register done');
 			//			header('Location: test.php');
 		} else {
 			foreach ($validation->errors() as $error) {
@@ -91,11 +92,13 @@ if (Input::exists()) {
 
 }
 
+var_dump($_SESSION);
+
 ?>
 
 
 <form action="" method="post">
-	<?php echo Session::flash('success', 'register success'); ?>
+	<?php echo Session::flash('success'); ?>
 	<div class="field">
 		<label for="username">Username</label>
 		<input type="text" name="username" value="<?php echo Input::get('username'); ?>">
