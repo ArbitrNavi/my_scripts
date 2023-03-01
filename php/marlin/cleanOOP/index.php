@@ -73,7 +73,8 @@ if (Input::exists()) {
 		//	var_dump($validation->errors());
 
 		if ($validation->passed()) {
-			echo 'passed';
+			Session::flash('success', 'register seccess');
+			header('Location: test.php');
 		} else {
 			foreach ($validation->errors() as $error) {
 				echo $error . '<br>';
