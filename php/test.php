@@ -234,56 +234,49 @@ if (!function_exists('get_vd')) {
 		}
 	}
 }
-$countElements = 10;
-for ($i = 1; $i <= $countElements; $i++) {
-	$arrPosts[$i] = [];
+
+
+
+$linkJivo = '<script src="//code.jivo.ru/widget/Acvps8ENgs" async></script>';
+
+if (strpos($linkJivo, "jivo")) {
+	echo "Есть слово";
+} else {
+	echo "Нет слова";
 }
 
-function perebor($arrPosts = false, $countLinks = 4) {
-	if ($arrPosts) {
-		foreach ($arrPosts as $index => $item) {
-			$arrPostsLinks[$index] = ["ids" => [], "repeat" => 0,];
-		}
-
-		$i = 0;
-		foreach ($arrPosts as $idParent => $arrPost) {
-			$numberElement = 0;
-
-			foreach ($arrPosts as $idChild => $arrPost2) {
-				if (count($arrPostsLinks[$idParent]["ids"]) < $countLinks) {
-					if ($i <= $countLinks) {  // 3 < 4 начальный перебор
-						if ($idParent <> $idChild) {
-							if ($arrPostsLinks[$idChild]["repeat"] < $countLinks) {
-								$arrPostsLinks[$idChild]["repeat"]++;
-								$arrPostsLinks[$idParent]["ids"][] = $idChild;
-							}
-						}
-					} elseif ($numberElement < $countLinks) { //3 > 4 смешивание
-						$thisId = $arrPostsLinks[$idChild]["ids"][$numberElement];
-						if (in_array($thisId, $arrPostsLinks[$idParent]["ids"])) {
-						} else {
-							$arrPostsLinks[$idChild]["ids"][$numberElement] = $idParent;//заменил значение
-							$arrPostsLinks[$idParent]["ids"][$numberElement] = $thisId;//добавил значение
-							$arrPostsLinks[$idParent]["repeat"]++;
-							$numberElement++;
-						}
-					}
-				}
-			}
-			$i++;
-		}
-
-		foreach ($arrPosts as $idParent => $arrPost) {
-			$arrPostsLinks[$idParent] = $arrPostsLinks[$idParent]["ids"];
-			unset($arrPostsLinks[$idParent]["repeat"]);
-			unset($arrPostsLinks[$idParent]["ids"]);
-		}
-
-		return $arrPostsLinks;
-	} else {
-		return false;
+function UR_exists($url = false) {
+	if ($url) {
+		$headers = get_headers($url);
+		return stripos($headers[0], "200 OK") ? true : false;
 	}
+	return false;
 }
 
-//get_vd($arrPosts);
-get_pr(perebor($arrPosts, 4));
+var_dump(UR_exists(null));
+
+echo "<br>";
+
+echo __LINE__;
+
+$testArray = array(
+	"key1"  => "value1",
+	"key12" => "value2",
+);
+
+echo "<br>";
+
+//var_dump($testArray->key1);
+
+$startEnd = "<>";
+
+for ($i = 1; $i < 8; $i++) {
+	echo "<br>";
+	echo $i;
+
+	if ($i % 3 == 0){
+		echo $startEnd;
+	}
+
+}
+
