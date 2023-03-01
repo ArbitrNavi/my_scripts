@@ -79,7 +79,7 @@ if (Input::exists()) {
 			$user = new User();
 			$user->create([
 					'username' => Input::get('username'),
-					'password' => Input::get('password'),
+					'password' => password_hash(Input::get('password'), PASSWORD_DEFAULT)
 			]);
 			//			header('Location: test.php');
 		} else {
