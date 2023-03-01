@@ -73,8 +73,8 @@ if (Input::exists()) {
 		//	var_dump($validation->errors());
 
 		if ($validation->passed()) {
-			Session::flash('success', 'register seccess');
-			header('Location: test.php');
+
+//			header('Location: test.php');
 		} else {
 			foreach ($validation->errors() as $error) {
 				echo $error . '<br>';
@@ -88,6 +88,7 @@ if (Input::exists()) {
 
 
 <form action="" method="post">
+	<?php echo Session::flash('success', 'register success'); ?>
 	<div class="field">
 		<label for="username">Username</label>
 		<input type="text" name="username" value="<?php echo Input::get('username'); ?>">
