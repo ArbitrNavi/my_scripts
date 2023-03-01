@@ -7,6 +7,7 @@ include_once "Input.php";
 include_once "Token.php";
 include_once "Session.php";
 include_once "User.php";
+include_once "Redirect.php";
 
 //Database::getInstance()->insert('users', [
 //	'username' => 'Marlin',
@@ -49,7 +50,7 @@ $users = Database::getInstance()->get('users', ['username', '=', 'Marlin']);
 //		//		echo $user . "<br>";
 //	}
 //}
-
+Redirect::to(404);
 
 if (Input::exists()) {
 	if (Token::check(Input::get('token'))) {
@@ -70,6 +71,8 @@ if (Input::exists()) {
 						'matches'  => 'password'
 				],
 		]);
+
+
 
 		//	var_dump($validation->errors());
 

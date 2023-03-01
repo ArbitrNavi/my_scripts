@@ -279,4 +279,19 @@ for ($i = 1; $i < 8; $i++) {
 	}
 
 }
+?>
+<hr>
+<hr>
+<hr>
+
+<?php
+var_dump($_POST);
+
+
+?>
+
+<form action="" method="post">
+	<input type="text" name="name">
+	<button type="submit">Submit</button>
+</form>
 
