@@ -39,7 +39,7 @@
 	<div class="mobile-header__wrap">
 		<?php if (wp_get_attachment_image_url(get_field('mobile-header__logo', 'options'), 'full')) { ?>
 			<a href="<?php echo get_home_url(); ?>" class="mobile-header__logo">
-				<img src="<?php echo wp_get_attachment_image_url(get_field('mobile-header__logo', 'options'), 'full'); ?>" alt="Логотип" title="Логотип">
+				<img src="<?php echo wp_get_attachment_image_url(get_field('mobile-header__logo', 'options'), 'full'); ?>" alt="Логотип" title="Логотип" width="1" height="1">
 			</a>
 		<?php } ?>
 		<?php if (get_field('mobile-header__title', 'options')) { ?>
