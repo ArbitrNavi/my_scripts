@@ -27,6 +27,7 @@ if (Input::exists()) {
 	}
 }
 
+var_dump($_SESSION);
 
 ?>
 <form action="" method="post">
@@ -37,7 +38,7 @@ if (Input::exists()) {
 	</div>
 	<div class="field">
 		<label for="password">Password</label>
-		<input type="text" name="password">
+		<input type="text" name="password" value="qwer">
 	</div>
 	<input type="hidden1" name="token" value="<?php echo Token::generate() ?>">
 
