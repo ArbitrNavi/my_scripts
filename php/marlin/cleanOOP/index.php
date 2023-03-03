@@ -1,16 +1,15 @@
 <?php
 session_start();
 require_once "init.php";
-var_dump($_SESSION);
+//var_dump($_SESSION);
 //unset($_SESSION);
 $user = new User();
-echo $user->data()->email;
-$anotherUser = new User(14);
+$anotherUser = new User(13);
 
 if ($user->isLoggedIn()) {
-	// +
-} else{
-    // -
+	echo "Привет " . $user->data()->username;
+} else {
+	echo "Не авторизирован!";
 }
 
 ?>
