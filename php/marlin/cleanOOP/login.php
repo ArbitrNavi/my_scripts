@@ -16,15 +16,17 @@ if (Input::exists()) {
 		]);
 
 		if ($validation->passed()) {
-			echo "OK";
+			$user = new User();
+			$login = $user->login(Input::get('email'), Input::get('password'));
+
 		} else {
 			foreach ($validation->errors() as $error) {
 				echo $error . '<br>';
 			}
 		}
 	}
-
 }
+
 
 ?>
 <form action="" method="post">
