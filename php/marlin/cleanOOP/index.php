@@ -1,3 +1,4 @@
 <?php
 session_start();
-var_dump($_SESSION); ?>
+require_once "init.php";
+var_dump($_SESSION[Config::get('session.user_session')]); ?>

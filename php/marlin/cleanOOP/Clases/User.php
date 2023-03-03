@@ -18,7 +18,7 @@ class User
 			$user = $this->find($email);
 			if ($user) {
 				if (password_verify($password, $this->data["password"])) {
-					Session::put('user', $this->data()['id']);
+					Session::put(Config::get('session.user_session'), $this->data()['id']);
 					return true;
 				}
 			}
