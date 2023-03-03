@@ -1,6 +1,55 @@
 <?php
 session_start();
 require_once "init.php";
+
+if (Input::exists()) {
+	if (Token::check(Input::get('token'))) {
+		$validate = new Validate();
+		$validation = $validate->check($_POST, [
+				'username'       => [
+						'required' => true,
+						'min'      => 2,
+						'max'      => 15,
+						'unique'   => 'users'
+				],
+				'email'          => [
+						'required' => true,
+						'email'    => true,
+						'unique'   => 'users'
+				],
+				'password'       => [
+						'required' => true,
+						'min'      => 3,
+				],
+				'password_again' => [
+						'required' => true,
+						'matches'  => 'password'
+				],
+		]);
+
+
+		//	var_dump($validation->errors());
+
+		if ($validation->passed()) {
+
+			$user = new User();
+			$user->create([
+					'username' => Input::get('username'),
+					'email'    => Input::get('email'),
+					'password' => password_hash(Input::get('password'), PASSWORD_DEFAULT)
+			]);
+
+			Session::flash('success', 'user register done');
+			//			header('Location: test.php');
+		} else {
+			foreach ($validation->errors() as $error) {
+				echo $error . '<br>';
+			}
+		}
+	}
+
+}
+
 ?>
 
 
