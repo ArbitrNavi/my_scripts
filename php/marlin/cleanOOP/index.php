@@ -1,13 +1,7 @@
 <?php
 session_start();
-include_once "Config.php";
-include_once "Database.php";
-include_once "Validate.php";
-include_once "Input.php";
-include_once "Token.php";
-include_once "Session.php";
-include_once "User.php";
-include_once "Redirect.php";
+
+require_once "init.php";
 
 //Database::getInstance()->insert('users', [
 //	'username' => 'Marlin',
@@ -50,7 +44,7 @@ $users = Database::getInstance()->get('users', ['username', '=', 'Marlin']);
 //		//		echo $user . "<br>";
 //	}
 //}
-Redirect::to(404);
+//Redirect::to(404);
 
 if (Input::exists()) {
 	if (Token::check(Input::get('token'))) {
@@ -60,6 +54,11 @@ if (Input::exists()) {
 						'required' => true,
 						'min'      => 2,
 						'max'      => 15,
+						'unique'   => 'users'
+				],
+				'email'          => [
+						'required' => true,
+						'email'    => true,
 						'unique'   => 'users'
 				],
 				'password'       => [
@@ -73,7 +72,6 @@ if (Input::exists()) {
 		]);
 
 
-
 		//	var_dump($validation->errors());
 
 		if ($validation->passed()) {
@@ -81,6 +79,7 @@ if (Input::exists()) {
 			$user = new User();
 			$user->create([
 					'username' => Input::get('username'),
+					'email'    => Input::get('email'),
 					'password' => password_hash(Input::get('password'), PASSWORD_DEFAULT)
 			]);
 
@@ -105,6 +104,10 @@ if (Input::exists()) {
 	<div class="field">
 		<label for="username">Username</label>
 		<input type="text" name="username" value="<?php echo Input::get('username'); ?>">
+	</div>
+	<div class="field">
+		<label for="email">Email</label>
+		<input type="text" name="email" value="<?php echo Input::get('email'); ?>">
 	</div>
 	<div class="field">
 		<label for="password">Password</label>
