@@ -29,7 +29,7 @@ class User
 	}
 
 	public function login($email = null, $password = null, $remember = false) {
-		if (!$email && !$password && $this->exists()) {
+		if (!$email && !$password && Cookie::exists($this->cookieName)) {
 			Session::put($this->session_name, $this->data()->id);
 		} else {
 			$user = $this->find($email);
@@ -43,7 +43,7 @@ class User
 						$hashCheck = $this->db->get('user_sessions', ['user_id', '=', $this->data()->id]);
 
 						if (!$hashCheck->count()) {
-							$this->db->insert('user_session', [
+							$this->db->insert('user_sessions', [
 								'user_id' => $this->data()->id,
 								'hash'    => $hash
 							]);
