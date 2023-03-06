@@ -2,7 +2,7 @@
 
 class Cookie
 {
-	public static function exests($name) {
+	public static function exists($name) {
 		return (isset($_COOKIE[$name])) ? true : false;
 	}
 
@@ -15,7 +15,7 @@ class Cookie
 			return true;
 		}
 
-		false;
+		return false;
 	}
 
 	public static function delete($name) {
