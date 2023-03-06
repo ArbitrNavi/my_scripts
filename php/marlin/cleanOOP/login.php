@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "init.php";
 
 if (Input::exists()) {
@@ -27,7 +26,7 @@ if (Input::exists()) {
 	}
 }
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 
 ?>
 <form action="" method="post">

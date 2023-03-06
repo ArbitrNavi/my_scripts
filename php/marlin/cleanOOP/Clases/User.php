@@ -42,6 +42,7 @@ class User
 	}
 
 	public function find($value = null) {
+		var_dump($value);
 		if (is_numeric($value)) {
 			$this->data = $this->db->get('users', ['id', '=', $value])->first();
 		} else {
@@ -61,5 +62,9 @@ class User
 
 	public function isLoggedIn() {
 		return $this->isLoggedIn;
+	}
+
+	public function logout() {
+		return Session::delete($this->session_name);
 	}
 }
