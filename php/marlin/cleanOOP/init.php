@@ -24,8 +24,13 @@ $GLOBALS["config"] = [
 		]
 	],
 	'session' => [
-		'token_name' => 'token',
-		'user_session'=> 'user',
+		'token_name'   => 'token',
+		'user_session' => 'user',
+	],
+
+	'cookie' => [
+		'cookie_name'   => 'hash',
+		'cookie_expiry' => 604800,
 	]
 ];
 
@@ -37,7 +42,6 @@ $GLOBALS["config"] = [
 //	'username' => 'Marlin2',
 //	'password' => 'pass2',
 //]);
-
 
 
 $users = Database::getInstance()->get('users', ['username', '=', 'Marlin']);
