@@ -94,7 +94,14 @@ class User
 	}
 
 	public function hasPermission($key = null) {
-		$group = $this->db->get('groups', ['id', '=', $this->data()->group_id])->first();
-		var_dump($group);
+		$groupID = $this->data()->group_id;
+		$group = $this->db->get('groups', ['id', '=', $groupID]);
+
+//		var_dump($groupID);
+		if ($group->count()) {
+			$permissions = $group->first();
+			$thisPermissions =$permissions->permission;
+			var_dump($thisPermissions);
+		}
 	}
 }
