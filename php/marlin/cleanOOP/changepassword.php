@@ -1,6 +1,6 @@
 <?php
 require_once "init.php";
-//var_dump(isset($_SESSION['user']));
+
 $user = new User();
 $validate = new Validate();
 
@@ -17,15 +17,16 @@ $validate->check($_POST,
 				],
 		]
 );
-
 if (Input::exists()) {
 	if (Token::check(Input::get('token'))) {
 		if ($validate->passed()) {
 
-			if (password_verify(Input::get('current_password'), $user->data()->password)){
-				$user->update(['password'=>password_hash(Input::get('new_password'), PASSWORD_DEFAULT)]);
+			if (password_verify(Input::get('current_password'), $user->data()->password)) {
+				$user->update(['password' => password_hash(Input::get('new_password'), PASSWORD_DEFAULT)]);
 				Session::flash('success', 'Password has been updated.');
-			} else{
+				Redirect::to("index.php");
+//				exit();
+			} else {
 				echo "Invalid current password";
 			}
 
@@ -38,8 +39,9 @@ if (Input::exists()) {
 }
 
 
+//echo Session::flash('success');
 ?>
-<?php echo Session::flash('success'); ?>
+
 <form action="" method="post">
 	<div class="field">
 		<label for="current_password">Текущий парль</label>

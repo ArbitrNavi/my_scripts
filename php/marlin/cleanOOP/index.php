@@ -5,7 +5,6 @@ require_once "init.php";
 $user = new User();
 //$anotherUser = new User(13);
 
-echo "<br>";
 echo Session::flash('success');
 
 if ($user->isLoggedIn()) {
