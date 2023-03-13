@@ -12,8 +12,8 @@ if ($user->isLoggedIn()) {
 } else {
 	echo "Не авторизирован!";
 	echo '<a href="registration.php">Регистрация</a><br>';
-	echo '<a href="login.php">Войти
-</a>';
+	echo '<a href="login.php">Войти</a>';
+	echo '<a href="update.php">Обновить имя</a>';
 }
 ?>
 
