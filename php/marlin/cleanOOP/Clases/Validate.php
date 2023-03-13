@@ -11,7 +11,8 @@ class Validate
 	public function check($source, $items = []) {
 		foreach ($items as $item => $rules) {
 			foreach ($rules as $rule => $rule_value) {
-				$value = $source[$item];
+//				var_dump($_POST);
+				$value = $source[$item] ?? null;
 
 				if ($rule == 'required' && empty($value)) {
 					$this->addError("{$item} is required");
