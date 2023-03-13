@@ -13,6 +13,10 @@ if ($user->isLoggedIn()) {
 	echo '<p><a href="logout.php">Выйти</a></p>';
 	echo '<p><a href="update.php">Обновить имя</a></p>';
 	echo '<p><a href="changepassword.php">Изменить пароль</a></p>';
+	
+	if ($user->hasPermission('admin')) { 
+		echo "You are admin!";
+	}
 } else {
 	echo "Не авторизирован!";
 	echo '<a href="registration.php">Регистрация</a><br>';

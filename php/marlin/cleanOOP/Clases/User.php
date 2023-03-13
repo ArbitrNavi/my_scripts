@@ -92,4 +92,9 @@ class User
 		}
 		$this->db->update('users', $id, $fields);
 	}
+
+	public function hasPermission($key = null) {
+		$group = $this->db->get('groups', ['id', '=', $this->data()->group_id])->first();
+		var_dump($group);
+	}
 }
