@@ -6,11 +6,13 @@ $user = new User();
 //$anotherUser = new User(13);
 
 echo "<br>";
+echo Session::flash('success');
+
 if ($user->isLoggedIn()) {
 	echo "Привет " . $user->data()->username;
-	echo '<a href="logout.php">Выйти</a>';
-	echo '<br>';
-	echo '<a href="update.php">Обновить имя</a>';
+	echo '<p><a href="logout.php">Выйти</a></p>';
+	echo '<p><a href="update.php">Обновить имя</a></p>';
+	echo '<p><a href="changepassword.php">Изменить пароль</a></p>';
 } else {
 	echo "Не авторизирован!";
 	echo '<a href="registration.php">Регистрация</a><br>';
