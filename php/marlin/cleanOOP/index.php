@@ -4,8 +4,9 @@ require_once "init.php";
 //unset($_SESSION);
 $user = new User();
 //$anotherUser = new User(13);
-
+echo "<p>";
 echo Session::flash('success');
+echo "</p>";
 
 if ($user->isLoggedIn()) {
 	echo "Привет " . $user->data()->username;
