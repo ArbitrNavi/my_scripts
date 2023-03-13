@@ -97,11 +97,16 @@ class User
 		$groupID = $this->data()->group_id;
 		$group = $this->db->get('groups', ['id', '=', $groupID]);
 
-//		var_dump($groupID);
+		//		var_dump($groupID);
 		if ($group->count()) {
-			$permissions = $group->first();
-			$thisPermissions =$permissions->permission;
-			var_dump($thisPermissions);
+			$permissions = $group->first()->permission;
+			$permissions = json_decode($permissions, true);
+			var_dump($permissions );
+			if ($permissions[$key]) {
+				return true;
+			}
 		}
+
+		return false;
 	}
 }

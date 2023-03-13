@@ -14,8 +14,8 @@ if ($user->isLoggedIn()) {
 	echo '<p><a href="update.php">Обновить имя</a></p>';
 	echo '<p><a href="changepassword.php">Изменить пароль</a></p>';
 	
-	if ($user->hasPermission('admin')) { 
-		echo "You are admin!";
+	if ($user->hasPermission('moderator')) {
+		echo "You are moderator!";
 	}
 } else {
 	echo "Не авторизирован!";
