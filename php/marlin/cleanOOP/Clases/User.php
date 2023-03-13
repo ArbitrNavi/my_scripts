@@ -8,7 +8,6 @@ class User
 		$this->db = Database::getInstance();
 		$this->session_name = Config::get('session.user_session');
 		$this->cookieName = Config::get('cookie.cookie_name');
-
 		if (!$user) {
 			if (Session::exists($this->session_name)) {
 				$user = Session::get($this->session_name);
@@ -62,7 +61,7 @@ class User
 	}
 
 	public function find($value = null) {
-//		var_dump($value);
+		//		var_dump($value);
 		if (is_numeric($value)) {
 			$this->data = $this->db->get('users', ['id', '=', $value])->first();
 		} else {
@@ -87,5 +86,12 @@ class User
 	public function logout() {
 		Cookie::delete($this->cookieName);
 		return Session::delete($this->session_name);
+	}
+
+	public function update($fields = [], $id = null) {
+		if (!$id && $this->isLoggedIn()) {
+			$id = $this->data()->id;
+		}
+		$this->db->update('users', $id, $fields);
 	}
 }
