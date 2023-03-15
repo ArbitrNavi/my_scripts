@@ -7,14 +7,20 @@ use PDO;
 
 class QueryBuilder
 {
-	public function getAll() {
-		$queryFactory = new QueryFactory('mysql');
-		$select = $queryFactory->newSelect();
+	private $pdo;
+	private $queryFactory;
+
+	public function __construct() {
+		$this->pdo = new PDO("mysql:host=localhost;dbname=app3;", "root", "");
+		$this->queryFactory = new QueryFactory('mysql');
+	}
+
+	public function getAll($table) {
+		$select = $this->queryFactory->newSelect();
 		$select->cols(['*'])
-			->from('posts');
-		$pdo = new PDO("mysql:host=localhost;dbname=app3;", "root", "");
+			->from($table);
 		$sql = $select->getStatement();
-		$sth = $pdo->prepare($sql);
+		$sth = $this->pdo->prepare($sql);
 		$sth->execute($select->getBindValues());
 		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 		return $result;
