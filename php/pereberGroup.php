@@ -40,8 +40,8 @@ function pereborGroup($arrPosts = false, $countLinks = 4) {
 
 		foreach ($arrPosts as $idParent => $arrPost) {
 			$arrPostsLinks[$idParent] = $arrPostsLinks[$idParent]["ids"];
-			unset($arrPostsLinks[$idParent]["repeat"]);
-			unset($arrPostsLinks[$idParent]["ids"]);
+//			unset($arrPostsLinks[$idParent]["repeat"]);
+//			unset($arrPostsLinks[$idParent]["ids"]);
 		}
 
 		return $arrPostsLinks;
