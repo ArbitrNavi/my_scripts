@@ -11,9 +11,13 @@ echo "<pre>";
 var_dump($db->getAll('posts'));
 
 $data = [
-	"title"=>"Новый заголовок " . date('U')
+//	"id"    => 36,
+	"title" => "Новый заголовок update " . date('U')
 ];
-echo "<hr>";
-echo "<hr>";
 
-$db->insert($data, 'posts');
+$db->update($data, 36, 'posts');
+
+//$db->insert($data, 'posts');
+
+echo "<hr>";
+echo "<hr>";

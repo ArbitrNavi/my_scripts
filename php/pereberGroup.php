@@ -1,5 +1,5 @@
 <?php
-$countElements = 10;
+$countElements = 5;
 for ($i = 1; $i <= $countElements; $i++) {
 	$arrPosts[$i] = [];
 }
@@ -51,6 +51,6 @@ function pereborGroup($arrPosts = false, $countLinks = 4) {
 }
 
 echo "<pre>";
-print_r(pereborGroup($arrPosts, 5));
+print_r(pereborGroup($arrPosts, 4));
 //get_vd($arrPosts);
 //get_pr(perebor($arrPosts, 4));

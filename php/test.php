@@ -236,7 +236,6 @@ if (!function_exists('get_vd')) {
 }
 
 
-
 $linkJivo = '<script src="//code.jivo.ru/widget/Acvps8ENgs" async></script>';
 
 if (strpos($linkJivo, "jivo")) {
@@ -260,8 +259,8 @@ echo "<br>";
 echo __LINE__;
 
 $testArray = array(
-	"key1"  => "value1",
-	"key12" => "value2",
+		"key1"  => "value1",
+		"key12" => "value2",
 );
 
 echo "<br>";
@@ -274,7 +273,7 @@ for ($i = 1; $i < 8; $i++) {
 	echo "<br>";
 	echo $i;
 
-	if ($i % 3 == 0){
+	if ($i % 3 == 0) {
 		echo $startEnd;
 	}
 
@@ -287,11 +286,108 @@ for ($i = 1; $i < 8; $i++) {
 <?php
 var_dump($_POST);
 
-
+$text = "abcd";
+var_dump($text[1]);
 ?>
 
 <form action="" method="post">
 	<input type="text" name="name">
 	<button type="submit">Submit</button>
 </form>
+
+<?php
+function find_second_most_frequent($string) {
+	$char_count = array();
+
+	// создаем ассоциативный массив для хранения количества вхождений символов
+	for ($i = 0; $i < strlen($string); $i++) {
+		$char = $string[$i];
+		if (isset($char_count[$char])) {
+			$char_count[$char]++;
+		} else {
+			$char_count[$char] = 1;
+		}
+	}
+
+	// сортируем массив в обратном порядке по количеству вхождений
+	arsort($char_count);
+
+	// возвращаем второй по встречаемости символ
+	$keys = array_keys($char_count);
+	if (count($keys) > 1) {
+		return $keys[1];
+	}
+	return null;
+}
+
+var_dump(find_second_most_frequent("abccdccefffgihhhhhj"));
+
+
+function roman_to_arabic($roman_numeral) {
+	$roman_dict = array(
+			'I'  => 1,
+			'IV' => 4,
+			'V'  => 5,
+			'IX' => 9,
+			'X'  => 10,
+			'XL' => 40,
+			'L'  => 50,
+			'XC' => 90,
+			'C'  => 100,
+			'CD' => 400,
+			'D'  => 500,
+			'CM' => 900,
+			'M'  => 1000);
+	$result = 0;
+	$i = 0;
+	while ($i < mb_strlen($roman_numeral)) {
+		if (($i + 1 < mb_strlen($roman_numeral)) && (array_key_exists(mb_substr($roman_numeral, $i, 2), $roman_dict))) {
+			$result += $roman_dict[mb_substr($roman_numeral, $i, 2)];
+			$i += 2;
+		} else {
+			$result += $roman_dict[mb_substr($roman_numeral, $i, 1)];
+			$i += 1;
+		}
+	}
+	return $result;
+}
+
+print(roman_to_arabic('MMMCDXIX')); // Output: 1419
+
+
+
+function getUserCityByIP($ipAddress, $apiKey) {
+	$url = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address';
+	$data = array('ip' => $ipAddress);
+	$headers = array(
+			'Content-Type: application/json',
+			'Authorization: Token ' . $apiKey,
+	);
+	$options = array(
+			'http' => array(
+					'method' => 'POST',
+					'header' => implode("\r\n", $headers),
+					'content' => json_encode($data),
+					'ignore_errors' => true,
+			),
+			'ssl' => array(
+					'verify_peer' => false,
+					'verify_peer_name' => false,
+			),
+	);
+	$context = stream_context_create($options);
+	$response = file_get_contents($url, false, $context);
+	if ($response === false) {
+		return null;
+	} else {
+		$json = json_decode($response, true);
+		if (isset($json['location']['data']['city'])) {
+			return $json['location']['data']['city'];
+		} else {
+			return null;
+		}
+	}
+}
+
+?>
 
