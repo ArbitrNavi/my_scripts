@@ -10,3 +10,4 @@ $templates = new League\Plates\Engine('../app/views');
 
 // Render a template
 echo $templates->render('homepage', ['name'=>'Artur']);
+//echo $templates->render('about', ['name'=>'Artur']);
