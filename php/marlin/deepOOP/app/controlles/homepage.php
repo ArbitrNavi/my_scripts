@@ -15,8 +15,10 @@ $data = [
 	"title" => "Новый заголовок update " . date('U')
 ];
 
-$db->update($data, 36, 'posts');
+//$db->update($data, 36, 'posts');
 
+
+$db->delete(48, 'posts');
 //$db->insert($data, 'posts');
 
 echo "<hr>";

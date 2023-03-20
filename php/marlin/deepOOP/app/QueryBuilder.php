@@ -44,11 +44,18 @@ class QueryBuilder
 			->where('id = :id')
 			->bindValue('id', $id);
 
-//		var_dump($update->getStatement()); die();
-		// prepare the statement
 		$sth = $this->pdo->prepare($update->getStatement());
-		// execute with bound values
 		$sth->execute($update->getBindValues());
+	}
 
+	public function delete($id, $table) {
+		$delete = $this->queryFactory->newDelete();
+		$delete
+			->from($table)                   // FROM this table
+			->where('id = :id')
+			->bindValue('id', $id);
+
+		$sth = $this->pdo->prepare($delete->getStatement());
+		$sth->execute($delete->getBindValues());
 	}
 }
