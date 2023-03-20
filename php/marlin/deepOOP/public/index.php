@@ -1,17 +1,8 @@
 <?php
 require_once "../vendor/autoload.php";
-use App\QueryBuilder;
-$db = new QueryBuilder();
 
+if ($_SERVER['REQUEST_URI'] == '/php/marlin/deepOOP/public/home') {
+	require '../app/controlles/homepage.php';
+}
 
-$result = $db->getAll('posts');
-
-$data = [
-	"title"=>"Новый заголовок " . date('U')
-];
-echo "<hr>";
-echo "<hr>";
-
-$db->insert($data, 'posts');
-
-var_dump($result);
+exit();
