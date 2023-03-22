@@ -1,5 +1,7 @@
 <?php
-if( !session_id() ) {session_start();}
+if (!session_id()) {
+	session_start();
+}
 
 require_once "../vendor/autoload.php";
 
@@ -14,14 +16,16 @@ require_once "../vendor/autoload.php";
 //echo $templates->render('homepage', ['name'=>'Artur']);
 //echo $templates->render('about', ['name'=>'Artur']);
 
-d($_SERVER);
+//d($_SERVER);
+
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/users', 'get_all_users_handler');
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/users', ['App\controllers\HomeController', 'index']);
 	// {id} must be a number (\d+) //user/1
-	$r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/user/{id:\d+}', 'get_user_handler');
 	// The /{title} suffix is optional
-	$r->addRoute('GET', '/articles/{id:\d+}[/{title}]', 'get_article_handler');
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/articles/{id:\d+}[/{title}]', 'get_article_handler');
 });
+
 
 // Fetch method and URI from somewhere
 $httpMethod = $_SERVER['REQUEST_METHOD'];
@@ -48,6 +52,19 @@ switch ($routeInfo[0]) {
 	case FastRoute\Dispatcher::FOUND:
 		$handler = $routeInfo[1];
 		$vars = $routeInfo[2];
-		// ... call $handler with $vars
+		$vars[]="123ASDF";
+
+		//		d($handler[0]);
+
+		call_user_func([$handler[0], $handler[1]], $vars);
+
+//		$controller = new $handler[0];
+//		$controller->index();
 		break;
 }
+
+function get_all_users_handler() {
+	echo "Вы на странице пользователей";
+}
+
+function get_user_handler() {}
