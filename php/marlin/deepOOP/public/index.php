@@ -19,11 +19,8 @@ require_once "../vendor/autoload.php";
 //d($_SERVER);
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/users', ['App\controllers\HomeController', 'index']);
-	// {id} must be a number (\d+) //user/1
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/user/{id:\d+}', ['App\controllers\HomeController', 'index']);
-	// The /{title} suffix is optional
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/articles/{id:\d+}[/{title}]', ['App\controllers\HomeController', 'index']);
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/home', ['App\controllers\HomeController', 'index']);
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
 });
 
 
@@ -53,12 +50,9 @@ switch ($routeInfo[0]) {
 		$handler = $routeInfo[1];
 		$vars = $routeInfo[2];
 
-		//		d($handler[0]);
 
 		call_user_func([$handler[0], $handler[1]], $vars);
 
-//		$controller = new $handler[0];
-//		$controller->index();
 		break;
 }
 
