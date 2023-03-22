@@ -21,9 +21,9 @@ require_once "../vendor/autoload.php";
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
 	$r->addRoute('GET', '/php/marlin/deepOOP/public/users', ['App\controllers\HomeController', 'index']);
 	// {id} must be a number (\d+) //user/1
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/user/{id:\d+}', 'get_user_handler');
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/user/{id:\d+}', ['App\controllers\HomeController', 'index']);
 	// The /{title} suffix is optional
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/articles/{id:\d+}[/{title}]', 'get_article_handler');
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/articles/{id:\d+}[/{title}]', ['App\controllers\HomeController', 'index']);
 });
 
 
@@ -52,7 +52,6 @@ switch ($routeInfo[0]) {
 	case FastRoute\Dispatcher::FOUND:
 		$handler = $routeInfo[1];
 		$vars = $routeInfo[2];
-		$vars[]="123ASDF";
 
 		//		d($handler[0]);
 
