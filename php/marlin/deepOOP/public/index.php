@@ -27,12 +27,13 @@ $array = [
 	["marlin" => ["course" => "PHP"]]
 ];
 
-$result = Arr::pluck($array,'marlin.course');
+$result = Arr::pluck($array, 'marlin.course');
 var_dump($result);
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
 	$r->addRoute('GET', '/php/marlin/deepOOP/public/home', ['App\controllers\HomeController', 'index']);
 	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/amount/{amount:\d+}', ['App\controllers\HomeController', 'about']);
 });
 
 
@@ -62,8 +63,6 @@ switch ($routeInfo[0]) {
 		$vars = $routeInfo[2];
 		$controller = new $handler[0];
 
-		//		$db = new QueryBuilder();
-		//		d($db);
 		call_user_func([$controller, $handler[1]], $vars);
 
 
