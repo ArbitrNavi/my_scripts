@@ -55,10 +55,3 @@ switch ($routeInfo[0]) {
 
 		break;
 }
-
-
-function get_all_users_handler() {
-	echo "Вы на странице пользователей";
-}
-
-function get_user_handler() {}
