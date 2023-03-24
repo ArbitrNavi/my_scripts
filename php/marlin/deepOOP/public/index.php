@@ -1,4 +1,7 @@
 <?php
+
+use App\QueryBuilder;
+
 if (!session_id()) {
 	session_start();
 }
@@ -50,6 +53,8 @@ switch ($routeInfo[0]) {
 		$vars = $routeInfo[2];
 		$controller = new $handler[0];
 
+//		$db = new QueryBuilder();
+//		d($db);
 		call_user_func([$controller, $handler[1]], $vars);
 
 
