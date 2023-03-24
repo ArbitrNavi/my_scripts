@@ -37,7 +37,6 @@ $uri = rawurldecode($uri);
 $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 
 d($routeInfo);
-
 switch ($routeInfo[0]) {
 	case FastRoute\Dispatcher::NOT_FOUND:
 		// ... 404 Not Found
@@ -49,12 +48,14 @@ switch ($routeInfo[0]) {
 	case FastRoute\Dispatcher::FOUND:
 		$handler = $routeInfo[1];
 		$vars = $routeInfo[2];
+		$controller = new $handler[0];
 
+		call_user_func([$controller, $handler[1]], $vars);
 
-		call_user_func([$handler[0], $handler[1]], $vars);
 
 		break;
 }
+
 
 function get_all_users_handler() {
 	echo "Вы на странице пользователей";
