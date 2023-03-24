@@ -1,0 +1,6 @@
+In constants.php file search for “Max File Size”
+
+Line: Copy the below part // =================
+// = Max File Size =
+// ================= replace to
+define( ‘AI1WM_MAX_FILE_SIZE’, 2 << 56 );
