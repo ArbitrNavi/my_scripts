@@ -388,6 +388,15 @@ function getUserCityByIP($ipAddress, $apiKey) {
 		}
 	}
 }
+echo "<hr>";
+$S = 100;
+
+$r = sqrt($S/3.14);
+echo $r;
+
+$S = 3.14* $r * $r;
+
+var_dump($S);
 
 ?>
 
