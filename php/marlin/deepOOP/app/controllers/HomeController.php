@@ -2,9 +2,11 @@
 
 namespace App\controllers;
 
+use App\exeptions\NotEnoughMoneyException;
 use App\QueryBuilder;
 use Aura\SqlQuery\Exception;
 use League\Plates\Engine;
+use Tamtamchik\SimpleFlash\flash;
 
 class HomeController
 {
@@ -21,20 +23,21 @@ class HomeController
 	}
 
 	public function about($vars = null) {
-		$this->withdraw($vars);
-		echo $this->templates->render('about', ['name' => 'Artur']);
+		try {
+			$this->withdraw($vars['amount']);
+		} catch (NotEnoughMoneyException $exception) {
+			flash()->error($exception->getMessage());
+		}
+		echo $this->templates->render('about', ['name' => 'Artur2']);
 	}
 
-	public function withdraw($amount = 1) {
+	public function withdraw($amount) {
 		$total = 10;
-
-		try{
-			$this->withdraw($vars['amount']);
-		} catch (
-			flash()->error($exeption->)
-		)
 		if ($amount > $total) {
-			throw new Exception("Недостаточно средств");
+			var_dump("Должна быть ошибка");
+			var_dump($amount);
+			throw new NotEnoughMoneyException("Недостаточно средств");
+
 		}
 	}
 }

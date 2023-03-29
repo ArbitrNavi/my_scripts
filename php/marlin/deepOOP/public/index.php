@@ -1,6 +1,7 @@
 <?php
 
 use App\QueryBuilder;
+use App\exeptions;
 
 if (!session_id()) {
 	session_start();
@@ -28,12 +29,12 @@ $array = [
 ];
 
 $result = Arr::pluck($array, 'marlin.course');
-var_dump($result);
+//var_dump($result);
 
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
 	$r->addRoute('GET', '/php/marlin/deepOOP/public/home', ['App\controllers\HomeController', 'index']);
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/amount/{amount:\d+}', ['App\controllers\HomeController', 'about']);
+	//	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/about/{amount:\d+}', ['App\controllers\HomeController', 'about']);
 });
 
 
