@@ -20,14 +20,15 @@ class HomeController
 		$db = new QueryBuilder();
 		$posts = $db->getAll('posts');
 		echo $this->templates->render('homepage', ['postInView' => $posts]);
+	}
 
+	public function about($vars = null) {
 
-		echo "<hr>";
-
+		$db = new QueryBuilder();
 		$auth = new \Delight\Auth\Auth($db->pdo);
 
 		try {
-			$userId = $auth->register('testone@mail.ru', 'testone', 'testone', function ($selector, $token) {
+			$userId = $auth->register('test2@mail.ru', 'test2', 'test2', function ($selector, $token) {
 				echo 'Send ' . $selector . ' and ' . $token . ' to the user (e.g. via email)';
 				echo '  For emails, consider using the mail(...) function, Symfony Mailer, Swiftmailer, PHPMailer, etc.';
 				echo '  For SMS, consider using a third-party service and a compatible SDK';
@@ -48,10 +49,17 @@ class HomeController
 			die('Too many requests');
 		}
 
+		//		try {
+		//			$auth->admin()->deleteUserByUsername('test');
+		//		}
+		//		catch (\Delight\Auth\UnknownUsernameException $e) {
+		//			die('Unknown username');
+		//		}
+		//		catch (\Delight\Auth\AmbiguousUsernameException $e) {
+		//			die('Ambiguous username');
+		//		}
 
-	}
 
-	public function about($vars = null) {
 		try {
 			$this->withdraw($vars['amount']);
 		} catch (NotEnoughMoneyException $exception) {

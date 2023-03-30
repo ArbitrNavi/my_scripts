@@ -4,5 +4,6 @@
 				'type'  => 'this is category'
 		]) ?>
 
-<h1>About other page</h1>
-<p>Hello, <?= $this->e($name);?></p>
+<h1>About page</h1>
+
+<p>Hello, <b><?= $this->e($name);?></b></p>

@@ -34,7 +34,8 @@ $result = Arr::pluck($array, 'marlin.course');
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
 	$r->addRoute('GET', '/php/marlin/deepOOP/public/home', ['App\controllers\HomeController', 'index']);
 	//	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
-	$r->addRoute('GET', '/php/marlin/deepOOP/public/about/{amount:\d+}', ['App\controllers\HomeController', 'about']);
+//	$r->addRoute('GET', '/php/marlin/deepOOP/public/about/{amount:\d+}', ['App\controllers\HomeController', 'about']);
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
 });
 
 
