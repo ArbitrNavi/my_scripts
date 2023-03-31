@@ -26,6 +26,8 @@ class HomeController
 		$db = new QueryBuilder();
 		$posts = $db->getAll('posts');
 		echo $this->templates->render('homepage', ['postInView' => $posts]);
+
+		echo $this->auth->getUsername();
 	}
 
 	public function about($vars = null) {
