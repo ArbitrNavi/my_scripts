@@ -36,6 +36,8 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
 	//	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
 //	$r->addRoute('GET', '/php/marlin/deepOOP/public/about/{amount:\d+}', ['App\controllers\HomeController', 'about']);
 	$r->addRoute('GET', '/php/marlin/deepOOP/public/about', ['App\controllers\HomeController', 'about']);
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/verification', ['App\controllers\HomeController', 'email_verification']);
+	$r->addRoute('GET', '/php/marlin/deepOOP/public/login', ['App\controllers\HomeController', 'login']);
 });
 
 

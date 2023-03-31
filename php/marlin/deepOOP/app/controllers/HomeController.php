@@ -12,11 +12,14 @@ class HomeController
 {
 	private $templates;
 	private $auth;
+	private $userName;
 
 	public function __construct() {
 		$this->templates = new Engine('../app/views');
 		$db = new QueryBuilder();
 		$this->auth = new \Delight\Auth\Auth($db->pdo);
+
+		$this->userName = "test5";
 	}
 
 	public function index($vars = null) {
@@ -28,10 +31,10 @@ class HomeController
 	public function about($vars = null) {
 
 		$db = new QueryBuilder();
-
+		$userName = $this->userName;
 
 		try {
-			$userId = $this->auth->register('test4@mail.ru', 'test4', 'test4', function ($selector, $token) {
+			$userId = $this->auth->register($userName . '@mail.ru', $userName, $userName, function ($selector, $token) {
 				echo 'Send ' . $selector . ' and ' . $token . ' to the user (e.g. via email)';
 				echo '  For emails, consider using the mail(...) function, Symfony Mailer, Swiftmailer, PHPMailer, etc.';
 				echo '  For SMS, consider using a third-party service and a compatible SDK';
@@ -59,17 +62,20 @@ class HomeController
 		//		}
 
 
-//		try {
-//			$this->withdraw($vars['amount']);
-//		} catch (NotEnoughMoneyException $exception) {
-//			flash()->error($exception->getMessage());
-//		}
+		//		try {
+		//			$this->withdraw($vars['amount']);
+		//		} catch (NotEnoughMoneyException $exception) {
+		//			flash()->error($exception->getMessage());
+		//		}
 		echo $this->templates->render('about', ['name' => 'Artur2']);
 	}
 
 	public function email_verification() {
+
+		$selector = "sck7IKTuUew0rhk0";
+		$key = "OqcllCtMMBazxooK";
 		try {
-			$this->auth->confirmEmail($_GET['selector'], $_GET['token']);
+			$this->auth->confirmEmail($selector, $key);
 
 			echo 'Email address has been verified';
 		} catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
@@ -82,6 +88,24 @@ class HomeController
 			die('Too many requests');
 		}
 	}
+
+	public function login() {
+//		var_dump($this->userName);
+		try {
+			$this->auth->login($this->userName . '@mail.ru', $this->userName);
+
+			echo 'User is logged in';
+		} catch (\Delight\Auth\InvalidEmailException $e) {
+			die('Wrong email address');
+		} catch (\Delight\Auth\InvalidPasswordException $e) {
+			die('Wrong password');
+		} catch (\Delight\Auth\EmailNotVerifiedException $e) {
+			die('Email not verified');
+		} catch (\Delight\Auth\TooManyRequestsException $e) {
+			die('Too many requests');
+		}
+	}
+
 	//	public function withdraw($amount) {
 	//		$total = 10;
 	//		if ($amount > $total) {
