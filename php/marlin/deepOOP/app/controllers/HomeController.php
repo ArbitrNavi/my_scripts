@@ -11,9 +11,12 @@ use Tamtamchik\SimpleFlash\flash;
 class HomeController
 {
 	private $templates;
+	private $auth;
 
 	public function __construct() {
 		$this->templates = new Engine('../app/views');
+		$db = new QueryBuilder();
+		$this->auth = new \Delight\Auth\Auth($db->pdo);
 	}
 
 	public function index($vars = null) {
@@ -25,32 +28,28 @@ class HomeController
 	public function about($vars = null) {
 
 		$db = new QueryBuilder();
-		$auth = new \Delight\Auth\Auth($db->pdo);
+
 
 		try {
-			$userId = $auth->register('test2@mail.ru', 'test2', 'test2', function ($selector, $token) {
+			$userId = $this->auth->register('test4@mail.ru', 'test4', 'test4', function ($selector, $token) {
 				echo 'Send ' . $selector . ' and ' . $token . ' to the user (e.g. via email)';
 				echo '  For emails, consider using the mail(...) function, Symfony Mailer, Swiftmailer, PHPMailer, etc.';
 				echo '  For SMS, consider using a third-party service and a compatible SDK';
 			});
 
 			echo 'We have signed up a new user with the ID ' . $userId;
-		}
-		catch (\Delight\Auth\InvalidEmailException $e) {
+		} catch (\Delight\Auth\InvalidEmailException $e) {
 			die('Invalid email address');
-		}
-		catch (\Delight\Auth\InvalidPasswordException $e) {
+		} catch (\Delight\Auth\InvalidPasswordException $e) {
 			die('Invalid password');
-		}
-		catch (\Delight\Auth\UserAlreadyExistsException $e) {
+		} catch (\Delight\Auth\UserAlreadyExistsException $e) {
 			die('User already exists');
-		}
-		catch (\Delight\Auth\TooManyRequestsException $e) {
+		} catch (\Delight\Auth\TooManyRequestsException $e) {
 			die('Too many requests');
 		}
 
 		//		try {
-		//			$auth->admin()->deleteUserByUsername('test');
+		//			$this->auth->admin()->deleteUserByUsername('test');
 		//		}
 		//		catch (\Delight\Auth\UnknownUsernameException $e) {
 		//			die('Unknown username');
@@ -60,22 +59,37 @@ class HomeController
 		//		}
 
 
-		try {
-			$this->withdraw($vars['amount']);
-		} catch (NotEnoughMoneyException $exception) {
-			flash()->error($exception->getMessage());
-		}
+//		try {
+//			$this->withdraw($vars['amount']);
+//		} catch (NotEnoughMoneyException $exception) {
+//			flash()->error($exception->getMessage());
+//		}
 		echo $this->templates->render('about', ['name' => 'Artur2']);
 	}
 
-	public function withdraw($amount) {
-		$total = 10;
-		if ($amount > $total) {
-			var_dump("Должна быть ошибка");
-			var_dump($amount);
-			throw new NotEnoughMoneyException("Недостаточно средств");
+	public function email_verification() {
+		try {
+			$this->auth->confirmEmail($_GET['selector'], $_GET['token']);
 
+			echo 'Email address has been verified';
+		} catch (\Delight\Auth\InvalidSelectorTokenPairException $e) {
+			die('Invalid token');
+		} catch (\Delight\Auth\TokenExpiredException $e) {
+			die('Token expired');
+		} catch (\Delight\Auth\UserAlreadyExistsException $e) {
+			die('Email address already exists');
+		} catch (\Delight\Auth\TooManyRequestsException $e) {
+			die('Too many requests');
 		}
 	}
+	//	public function withdraw($amount) {
+	//		$total = 10;
+	//		if ($amount > $total) {
+	//			var_dump("Должна быть ошибка");
+	//			var_dump($amount);
+	//			throw new NotEnoughMoneyException("Недостаточно средств");
+	//
+	//		}
+	//	}
 }
 
