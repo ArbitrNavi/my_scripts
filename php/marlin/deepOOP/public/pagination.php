@@ -30,16 +30,18 @@ $totalItems = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 //-----------
 
+$countElements = 10;
+
 $select = $queryFactory->newSelect();
 $select->cols(['*'])
 	->from('posts')
-	->setPaging(3)
+	->setPaging($countElements)
 	->page($_GET['page'] ?? 1);
 $sth = $pdo->prepare($select->getStatement());
 $sth->execute($select->getBindValues());
 $items = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-$itemsPerPage = 3;
+$itemsPerPage = $countElements;
 $currentPage = $_GET['page'] ?? 1;
 $urlPattern = '?page=(:num)';
 
