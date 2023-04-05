@@ -21,6 +21,9 @@ class QueryBuilder
 			->from($table);
 		$sql = $select->getStatement();
 		$sth = $this->pdo->prepare($sql);
+//		$sql.=' LIMIT 10';
+//		return $sql;
+return $select->getBindValues();
 		$sth->execute($select->getBindValues());
 		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 		return $result;
